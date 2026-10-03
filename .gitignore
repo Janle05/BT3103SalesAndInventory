@@ -1,11 +1,7 @@
-<<<<<<< Updated upstream
-.vs/
-bin/
-obj/
-=======
 ﻿################################################################################
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
 
-/.vs
->>>>>>> Stashed changes
+.vs/
+bin/
+obj/
