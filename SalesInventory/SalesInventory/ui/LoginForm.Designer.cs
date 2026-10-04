@@ -51,8 +51,9 @@
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
             pictureBox1.Location = new Point(1, 0);
+            pictureBox1.Margin = new Padding(2);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(714, 1180);
+            pictureBox1.Size = new Size(500, 708);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
@@ -60,20 +61,21 @@
             // pictureBox2
             // 
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(601, 0);
+            pictureBox2.Location = new Point(421, 0);
+            pictureBox2.Margin = new Padding(2);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(1326, 977);
+            pictureBox2.Size = new Size(928, 586);
             pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox2.TabIndex = 1;
             pictureBox2.TabStop = false;
-            pictureBox2.Click += pictureBox2_Click;
             // 
             // pictureBox3
             // 
             pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
-            pictureBox3.Location = new Point(645, 398);
+            pictureBox3.Location = new Point(452, 239);
+            pictureBox3.Margin = new Padding(2);
             pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(1282, 782);
+            pictureBox3.Size = new Size(897, 469);
             pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox3.TabIndex = 2;
             pictureBox3.TabStop = false;
@@ -81,17 +83,20 @@
             // txtUsername
             // 
             txtUsername.Font = new Font("Times New Roman", 14F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtUsername.Location = new Point(230, 343);
+            txtUsername.Location = new Point(161, 206);
+            txtUsername.Margin = new Padding(2);
             txtUsername.Name = "txtUsername";
-            txtUsername.Size = new Size(398, 40);
+            txtUsername.Size = new Size(280, 29);
             txtUsername.TabIndex = 3;
             // 
             // txtPassword
             // 
             txtPassword.Font = new Font("Times New Roman", 14F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtPassword.Location = new Point(230, 471);
+            txtPassword.Location = new Point(161, 283);
+            txtPassword.Margin = new Padding(2);
             txtPassword.Name = "txtPassword";
-            txtPassword.Size = new Size(398, 40);
+            txtPassword.PasswordChar = '•';
+            txtPassword.Size = new Size(280, 29);
             txtPassword.TabIndex = 4;
             // 
             // label1
@@ -99,9 +104,10 @@
             label1.AutoSize = true;
             label1.Font = new Font("Times New Roman", 16F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.White;
-            label1.Location = new Point(268, 228);
+            label1.Location = new Point(188, 137);
+            label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
-            label1.Size = new Size(315, 36);
+            label1.Size = new Size(218, 25);
             label1.TabIndex = 5;
             label1.Text = "Login to your account";
             // 
@@ -115,11 +121,11 @@
             panel1.Controls.Add(txtPassword);
             panel1.Controls.Add(txtUsername);
             panel1.Controls.Add(pictureBox4);
-            panel1.Location = new Point(916, 131);
+            panel1.Location = new Point(641, 79);
+            panel1.Margin = new Padding(2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(841, 858);
+            panel1.Size = new Size(589, 515);
             panel1.TabIndex = 6;
-            panel1.Paint += panel1_Paint;
             // 
             // btnLogin
             // 
@@ -127,21 +133,24 @@
             btnLogin.FlatStyle = FlatStyle.Flat;
             btnLogin.Font = new Font("Times New Roman", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnLogin.ForeColor = Color.White;
-            btnLogin.Location = new Point(234, 593);
+            btnLogin.Location = new Point(164, 356);
+            btnLogin.Margin = new Padding(2);
             btnLogin.Name = "btnLogin";
-            btnLogin.Size = new Size(398, 75);
+            btnLogin.Size = new Size(279, 45);
             btnLogin.TabIndex = 9;
             btnLogin.Text = "LOGIN";
             btnLogin.UseVisualStyleBackColor = false;
+            btnLogin.Click += btnLogin_Click;
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Times New Roman", 14F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label2.ForeColor = Color.White;
-            label2.Location = new Point(230, 435);
+            label2.Location = new Point(161, 261);
+            label2.Margin = new Padding(2, 0, 2, 0);
             label2.Name = "label2";
-            label2.Size = new Size(121, 33);
+            label2.Size = new Size(84, 21);
             label2.TabIndex = 8;
             label2.Text = "Password";
             // 
@@ -150,32 +159,35 @@
             label3.AutoSize = true;
             label3.Font = new Font("Times New Roman", 14F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label3.ForeColor = Color.White;
-            label3.Location = new Point(230, 306);
+            label3.Location = new Point(161, 184);
+            label3.Margin = new Padding(2, 0, 2, 0);
             label3.Name = "label3";
-            label3.Size = new Size(124, 33);
+            label3.Size = new Size(84, 21);
             label3.TabIndex = 7;
             label3.Text = "Username";
             // 
             // pictureBox4
             // 
             pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
-            pictureBox4.Location = new Point(234, 14);
+            pictureBox4.Location = new Point(164, 8);
+            pictureBox4.Margin = new Padding(2);
             pictureBox4.Name = "pictureBox4";
-            pictureBox4.Size = new Size(364, 220);
+            pictureBox4.Size = new Size(255, 132);
             pictureBox4.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox4.TabIndex = 10;
             pictureBox4.TabStop = false;
             // 
             // LoginFrom
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.SteelBlue;
-            ClientSize = new Size(1918, 1094);
+            ClientSize = new Size(1343, 637);
             Controls.Add(panel1);
             Controls.Add(pictureBox1);
             Controls.Add(pictureBox3);
             Controls.Add(pictureBox2);
+            Margin = new Padding(2);
             Name = "LoginFrom";
             Text = "Login Form";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
