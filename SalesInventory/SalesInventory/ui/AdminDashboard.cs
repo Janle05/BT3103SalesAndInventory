@@ -15,14 +15,8 @@ namespace SalesInventory.ui
             InitializeComponent();
         }
 
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
+     
+     
+        
     }
 }
