@@ -54,11 +54,11 @@
             btnDelete = new Button();
             btnUpdate = new Button();
             btnAdd = new Button();
-            dataGridView1 = new DataGridView();
+            dgvCategories = new DataGridView();
             label10 = new Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvCategories).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -91,6 +91,7 @@
             btnLogout.TabIndex = 21;
             btnLogout.Text = "Logout";
             btnLogout.UseVisualStyleBackColor = true;
+            btnLogout.Click += btnLogout_Click;
             // 
             // btnTransactions
             // 
@@ -175,6 +176,7 @@
             btnCategories.TabIndex = 14;
             btnCategories.Text = "Categories";
             btnCategories.UseVisualStyleBackColor = true;
+            btnCategories.Click += btnCategories_Click;
             // 
             // btnSuppliers
             // 
@@ -199,6 +201,7 @@
             btnDashBoard.TabIndex = 12;
             btnDashBoard.Text = "Dashboard";
             btnDashBoard.UseVisualStyleBackColor = true;
+            btnDashBoard.Click += btnDashBoard_Click;
             // 
             // pictureBox4
             // 
@@ -241,6 +244,7 @@
             btnSearch.TabIndex = 5;
             btnSearch.Text = "Search";
             btnSearch.UseVisualStyleBackColor = false;
+            btnSearch.Click += btnSearch_Click;
             // 
             // txtCategory
             // 
@@ -313,6 +317,7 @@
             btnClear.TabIndex = 35;
             btnClear.Text = "CLEAR";
             btnClear.UseVisualStyleBackColor = false;
+            btnClear.Click += btnClear_Click;
             // 
             // btnDelete
             // 
@@ -326,6 +331,7 @@
             btnDelete.TabIndex = 34;
             btnDelete.Text = "DELETE";
             btnDelete.UseVisualStyleBackColor = false;
+            btnDelete.Click += btnDelete_Click;
             // 
             // btnUpdate
             // 
@@ -339,6 +345,7 @@
             btnUpdate.TabIndex = 33;
             btnUpdate.Text = "UPDATE";
             btnUpdate.UseVisualStyleBackColor = false;
+            btnUpdate.Click += btnUpdate_Click;
             // 
             // btnAdd
             // 
@@ -352,15 +359,17 @@
             btnAdd.TabIndex = 32;
             btnAdd.Text = "ADD";
             btnAdd.UseVisualStyleBackColor = false;
+            btnAdd.Click += btnAdd_Click;
             // 
-            // dataGridView1
+            // dgvCategories
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(593, 518);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 62;
-            dataGridView1.Size = new Size(1260, 363);
-            dataGridView1.TabIndex = 36;
+            dgvCategories.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvCategories.Location = new Point(593, 518);
+            dgvCategories.Name = "dgvCategories";
+            dgvCategories.RowHeadersWidth = 62;
+            dgvCategories.Size = new Size(1260, 363);
+            dgvCategories.TabIndex = 36;
+            dgvCategories.CellContentClick += dataGridView1_CellContentClick;
             // 
             // label10
             // 
@@ -379,7 +388,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LightBlue;
             ClientSize = new Size(1918, 1094);
-            Controls.Add(dataGridView1);
+            Controls.Add(dgvCategories);
             Controls.Add(btnClear);
             Controls.Add(btnDelete);
             Controls.Add(btnUpdate);
@@ -399,7 +408,7 @@
             Text = "AdminCategoryForm";
             panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvCategories).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -431,7 +440,7 @@
         private Button btnDelete;
         private Button btnUpdate;
         private Button btnAdd;
-        private DataGridView dataGridView1;
+        private DataGridView dgvCategories;
         private Label label10;
     }
 }
