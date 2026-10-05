@@ -35,7 +35,7 @@ namespace SalesInventory.ui
             this.Load += AdminSupplierForm_Load;
         }
 
-        private void AdminSupplierForm_Load(object sender, EventArgs e)
+        private void AdminSupplierForm_Load(object? sender, EventArgs e)
         {
             LoadSuppliers();
             ClearFields();
@@ -82,7 +82,7 @@ namespace SalesInventory.ui
             };
         }
 
-        private void btnAdd_Click(object sender, EventArgs e)
+        private void btnAdd_Click(object? sender, EventArgs e)
         {
             try
             {
@@ -112,7 +112,7 @@ namespace SalesInventory.ui
             }
         }
 
-        private void btnUpdate_Click(object sender, EventArgs e)
+        private void btnUpdate_Click(object? sender, EventArgs e)
         {
             if (selectedSupplierID == 0)
             {
@@ -145,7 +145,7 @@ namespace SalesInventory.ui
             }
         }
 
-        private void btnDelete_Click(object sender, EventArgs e)
+        private void btnDelete_Click(object? sender, EventArgs e)
         {
             if (selectedSupplierID == 0)
             {
@@ -187,7 +187,7 @@ namespace SalesInventory.ui
             }
         }
 
-        private void btnSearch_Click(object sender, EventArgs e)
+        private void btnSearch_Click(object? sender, EventArgs e)
         {
             try
             {
@@ -208,7 +208,7 @@ namespace SalesInventory.ui
             }
         }
 
-        private void btnClear_Click(object sender, EventArgs e)
+        private void btnClear_Click(object? sender, EventArgs e)
         {
             ClearFields();
             LoadSuppliers();
@@ -231,7 +231,7 @@ namespace SalesInventory.ui
         }
 
         private void dataGridView1_CellClick(
-            object sender,
+            object? sender,
             DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0)
@@ -274,6 +274,11 @@ namespace SalesInventory.ui
         }
 
         private void AdminSupplierForm_Load_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void AdminSupplierForm_Load_2(object sender, EventArgs e)
         {
 
         }
