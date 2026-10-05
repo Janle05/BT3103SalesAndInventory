@@ -1,13 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
-
-namespace SalesInventory.ui
+﻿namespace SalesInventory.ui
 {
     public partial class AdminDashboard : Form
     {
@@ -56,6 +47,12 @@ namespace SalesInventory.ui
             {
                 Application.Exit();
             }
+        }
+
+        private void btnCategories_Click(object sender, EventArgs e)
+        {
+            AdminCategoryForm categoryForm = new AdminCategoryForm();
+            categoryForm.Show();
         }
     }
 }
