@@ -164,6 +164,7 @@
             btnProducts.TabIndex = 15;
             btnProducts.Text = "Products";
             btnProducts.UseVisualStyleBackColor = true;
+            btnProducts.Click += btnProducts_Click;
             // 
             // btnCategories
             // 
@@ -189,6 +190,7 @@
             btnSuppliers.TabIndex = 13;
             btnSuppliers.Text = "Suppliers";
             btnSuppliers.UseVisualStyleBackColor = true;
+            btnSuppliers.Click += btnSuppliers_Click;
             // 
             // btnDashBoard
             // 

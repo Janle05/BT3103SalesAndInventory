@@ -291,11 +291,11 @@ namespace SalesInventory.ui
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
-           DialogResult result = MessageBox.Show(
-                "Are you sure you want to logout?\nYou will be returned to the login screen.",
-                "Confirm Logout",
-                MessageBoxButtons.YesNo,
-                MessageBoxIcon.Question);
+            DialogResult result = MessageBox.Show(
+                 "Are you sure you want to logout?\nYou will be returned to the login screen.",
+                 "Confirm Logout",
+                 MessageBoxButtons.YesNo,
+                 MessageBoxIcon.Question);
 
             if (result != DialogResult.Yes)
             {
@@ -313,6 +313,22 @@ namespace SalesInventory.ui
             {
                 new LoginFrom().Show();
             }
+
+            this.Close();
+        }
+
+        private void btnSuppliers_Click(object sender, EventArgs e)
+        {
+            AdminSupplierForm supplierForm = new AdminSupplierForm();
+            supplierForm.Show();
+
+            this.Close();
+        }
+
+        private void btnProducts_Click(object sender, EventArgs e)
+        {
+            AdminProductMaintenanceForm productForm = new AdminProductMaintenanceForm();
+            productForm.Show();
 
             this.Close();
         }

@@ -54,5 +54,20 @@
             AdminCategoryForm categoryForm = new AdminCategoryForm();
             categoryForm.Show();
         }
+
+        private void btnSuppliers_Click(object sender, EventArgs e)
+        {
+            AdminSupplierForm Supplier = new AdminSupplierForm();
+            Supplier.Show();
+
+            this.Close();
+
+        }
+
+        private void btnProducts_Click(object sender, EventArgs e)
+        {
+            AdminProductMaintenanceForm productForm = new AdminProductMaintenanceForm();
+            productForm.Show();
+        }
     }
 }
