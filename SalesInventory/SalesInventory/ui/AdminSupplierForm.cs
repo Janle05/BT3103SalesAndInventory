@@ -19,5 +19,10 @@ namespace SalesInventory.ui
         {
 
         }
+
+        private void btnSuppliers_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
