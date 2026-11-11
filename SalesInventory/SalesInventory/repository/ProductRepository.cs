@@ -28,6 +28,7 @@ namespace SalesInventory.Repository
                         CategoryID,
                         SupplierID,
                         UnitPrice,
+                        StockQuantity,
                         InitialStock,
                         ReorderLevel,
                         Status
@@ -38,41 +39,22 @@ namespace SalesInventory.Repository
                         @CategoryID,
                         @SupplierID,
                         @UnitPrice,
+                        @StockQuantity,
                         @InitialStock,
                         @ReorderLevel,
                         @Status
                     )";
 
-                using (SqlCommand cmd =
-                    new SqlCommand(query, con))
+                using (SqlCommand cmd = new SqlCommand(query, con))
                 {
-                    cmd.Parameters.AddWithValue(
-                        "@ProductName",
-                        product.ProductName);
-
-                    cmd.Parameters.AddWithValue(
-                        "@CategoryID",
-                        product.CategoryID);
-
-                    cmd.Parameters.AddWithValue(
-                        "@SupplierID",
-                        product.SupplierID);
-
-                    cmd.Parameters.AddWithValue(
-                        "@UnitPrice",
-                        product.UnitPrice);
-
-                    cmd.Parameters.AddWithValue(
-                        "@InitialStock",
-                        product.InitialStock);
-
-                    cmd.Parameters.AddWithValue(
-                        "@ReorderLevel",
-                        product.ReorderLevel);
-
-                    cmd.Parameters.AddWithValue(
-                        "@Status",
-                        product.Status);
+                    cmd.Parameters.AddWithValue("@ProductName", product.ProductName);
+                    cmd.Parameters.AddWithValue("@CategoryID", product.CategoryID);
+                    cmd.Parameters.AddWithValue("@SupplierID", product.SupplierID);
+                    cmd.Parameters.AddWithValue("@UnitPrice", product.UnitPrice);
+                    cmd.Parameters.AddWithValue("@StockQuantity", product.StockQuantity);
+                    cmd.Parameters.AddWithValue("@InitialStock", product.InitialStock);
+                    cmd.Parameters.AddWithValue("@ReorderLevel", product.ReorderLevel);
+                    cmd.Parameters.AddWithValue("@Status", product.Status);
 
                     con.Open();
                     cmd.ExecuteNonQuery();
@@ -94,54 +76,32 @@ namespace SalesInventory.Repository
                         CategoryID,
                         SupplierID,
                         UnitPrice,
+                        StockQuantity,
                         InitialStock,
                         ReorderLevel,
                         Status
                     FROM Products
                     ORDER BY ProductID";
 
-                using (SqlCommand cmd =
-                    new SqlCommand(query, con))
+                using (SqlCommand cmd = new SqlCommand(query, con))
                 {
                     con.Open();
 
-                    using (SqlDataReader reader =
-                        cmd.ExecuteReader())
+                    using (SqlDataReader reader = cmd.ExecuteReader())
                     {
                         while (reader.Read())
                         {
                             list.Add(new Product
                             {
-                                ProductID =
-                                    Convert.ToInt32(
-                                        reader["ProductID"]),
-
-                                ProductName =
-                                    reader["ProductName"]?.ToString() ?? "",
-
-                                CategoryID =
-                                    Convert.ToInt32(
-                                        reader["CategoryID"]),
-
-                                SupplierID =
-                                    Convert.ToInt32(
-                                        reader["SupplierID"]),
-
-                                UnitPrice =
-                                    Convert.ToDecimal(
-                                        reader["UnitPrice"]),
-
-                                InitialStock =
-                                    Convert.ToInt32(
-                                        reader["InitialStock"]),
-
-                                ReorderLevel =
-                                    Convert.ToInt32(
-                                        reader["ReorderLevel"]),
-
-                                Status =
-                                    reader["Status"]?.ToString()
-                                    ?? "Active"
+                                ProductID = Convert.ToInt32(reader["ProductID"]),
+                                ProductName = reader["ProductName"]?.ToString() ?? "",
+                                CategoryID = Convert.ToInt32(reader["CategoryID"]),
+                                SupplierID = Convert.ToInt32(reader["SupplierID"]),
+                                UnitPrice = Convert.ToDecimal(reader["UnitPrice"]),
+                                StockQuantity = Convert.ToInt32(reader["StockQuantity"]),
+                                InitialStock = Convert.ToInt32(reader["InitialStock"]),
+                                ReorderLevel = Convert.ToInt32(reader["ReorderLevel"]),
+                                Status = reader["Status"]?.ToString() ?? "Active"
                             });
                         }
                     }
@@ -163,45 +123,23 @@ namespace SalesInventory.Repository
                         CategoryID = @CategoryID,
                         SupplierID = @SupplierID,
                         UnitPrice = @UnitPrice,
+                        StockQuantity = @StockQuantity,
                         InitialStock = @InitialStock,
                         ReorderLevel = @ReorderLevel,
                         Status = @Status
                     WHERE ProductID = @ProductID";
 
-                using (SqlCommand cmd =
-                    new SqlCommand(query, con))
+                using (SqlCommand cmd = new SqlCommand(query, con))
                 {
-                    cmd.Parameters.AddWithValue(
-                        "@ProductID",
-                        product.ProductID);
-
-                    cmd.Parameters.AddWithValue(
-                        "@ProductName",
-                        product.ProductName);
-
-                    cmd.Parameters.AddWithValue(
-                        "@CategoryID",
-                        product.CategoryID);
-
-                    cmd.Parameters.AddWithValue(
-                        "@SupplierID",
-                        product.SupplierID);
-
-                    cmd.Parameters.AddWithValue(
-                        "@UnitPrice",
-                        product.UnitPrice);
-
-                    cmd.Parameters.AddWithValue(
-                        "@InitialStock",
-                        product.InitialStock);
-
-                    cmd.Parameters.AddWithValue(
-                        "@ReorderLevel",
-                        product.ReorderLevel);
-
-                    cmd.Parameters.AddWithValue(
-                        "@Status",
-                        product.Status);
+                    cmd.Parameters.AddWithValue("@ProductID", product.ProductID);
+                    cmd.Parameters.AddWithValue("@ProductName", product.ProductName);
+                    cmd.Parameters.AddWithValue("@CategoryID", product.CategoryID);
+                    cmd.Parameters.AddWithValue("@SupplierID", product.SupplierID);
+                    cmd.Parameters.AddWithValue("@UnitPrice", product.UnitPrice);
+                    cmd.Parameters.AddWithValue("@StockQuantity", product.StockQuantity);
+                    cmd.Parameters.AddWithValue("@InitialStock", product.InitialStock);
+                    cmd.Parameters.AddWithValue("@ReorderLevel", product.ReorderLevel);
+                    cmd.Parameters.AddWithValue("@Status", product.Status);
 
                     con.Open();
                     cmd.ExecuteNonQuery();
@@ -219,12 +157,9 @@ namespace SalesInventory.Repository
                     SET Status = 'Inactive'
                     WHERE ProductID = @ProductID";
 
-                using (SqlCommand cmd =
-                    new SqlCommand(query, con))
+                using (SqlCommand cmd = new SqlCommand(query, con))
                 {
-                    cmd.Parameters.AddWithValue(
-                        "@ProductID",
-                        productID);
+                    cmd.Parameters.AddWithValue("@ProductID", productID);
 
                     con.Open();
                     cmd.ExecuteNonQuery();
@@ -246,6 +181,7 @@ namespace SalesInventory.Repository
                         CategoryID,
                         SupplierID,
                         UnitPrice,
+                        StockQuantity,
                         InitialStock,
                         ReorderLevel,
                         Status
@@ -253,52 +189,27 @@ namespace SalesInventory.Repository
                     WHERE ProductName LIKE @Keyword
                     ORDER BY ProductID";
 
-                using (SqlCommand cmd =
-                    new SqlCommand(query, con))
+                using (SqlCommand cmd = new SqlCommand(query, con))
                 {
-                    cmd.Parameters.AddWithValue(
-                        "@Keyword",
-                        "%" + keyword + "%");
+                    cmd.Parameters.AddWithValue("@Keyword", "%" + keyword + "%");
 
                     con.Open();
 
-                    using (SqlDataReader reader =
-                        cmd.ExecuteReader())
+                    using (SqlDataReader reader = cmd.ExecuteReader())
                     {
                         while (reader.Read())
                         {
                             list.Add(new Product
                             {
-                                ProductID =
-                                    Convert.ToInt32(
-                                        reader["ProductID"]),
-
-                                ProductName =
-                                    reader["ProductName"]?.ToString() ?? "",
-
-                                CategoryID =
-                                    Convert.ToInt32(
-                                        reader["CategoryID"]),
-
-                                SupplierID =
-                                    Convert.ToInt32(
-                                        reader["SupplierID"]),
-
-                                UnitPrice =
-                                    Convert.ToDecimal(
-                                        reader["UnitPrice"]),
-
-                                InitialStock =
-                                    Convert.ToInt32(
-                                        reader["InitialStock"]),
-
-                                ReorderLevel =
-                                    Convert.ToInt32(
-                                        reader["ReorderLevel"]),
-
-                                Status =
-                                    reader["Status"]?.ToString()
-                                    ?? "Active"
+                                ProductID = Convert.ToInt32(reader["ProductID"]),
+                                ProductName = reader["ProductName"]?.ToString() ?? "",
+                                CategoryID = Convert.ToInt32(reader["CategoryID"]),
+                                SupplierID = Convert.ToInt32(reader["SupplierID"]),
+                                UnitPrice = Convert.ToDecimal(reader["UnitPrice"]),
+                                StockQuantity = Convert.ToInt32(reader["StockQuantity"]),
+                                InitialStock = Convert.ToInt32(reader["InitialStock"]),
+                                ReorderLevel = Convert.ToInt32(reader["ReorderLevel"]),
+                                Status = reader["Status"]?.ToString() ?? "Active"
                             });
                         }
                     }

@@ -36,7 +36,8 @@
                 new LoginFrom().Show();
             }
 
-            this.Close();
+            this.Hide();
+           
         }
 
         protected override void OnFormClosed(FormClosedEventArgs e)
@@ -60,14 +61,17 @@
             AdminSupplierForm Supplier = new AdminSupplierForm();
             Supplier.Show();
 
-            this.Close();
-
+            this.Hide();
+            
         }
 
         private void btnProducts_Click(object sender, EventArgs e)
         {
             AdminProductMaintenanceForm productForm = new AdminProductMaintenanceForm();
             productForm.Show();
+
+            this.Hide();
+           
         }
     }
 }

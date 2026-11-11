@@ -315,6 +315,7 @@ namespace SalesInventory.ui
             }
 
             this.Close();
+            this.Hide();
         }
 
         private void btnSuppliers_Click(object sender, EventArgs e)
@@ -323,6 +324,8 @@ namespace SalesInventory.ui
             supplierForm.Show();
 
             this.Close();
+            this.Hide();
+
         }
 
         private void btnProducts_Click(object sender, EventArgs e)
@@ -331,6 +334,7 @@ namespace SalesInventory.ui
             productForm.Show();
 
             this.Close();
+            this.Hide();
         }
     }
 }

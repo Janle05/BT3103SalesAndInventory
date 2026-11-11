@@ -423,6 +423,8 @@
             Controls.Add(flowLayoutPanel5);
             Controls.Add(pictureBox1);
             Controls.Add(label3);
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "AdminDashboard";
             Text = "AdminDashboard";
             panel1.ResumeLayout(false);
