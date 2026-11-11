@@ -1,4 +1,8 @@
-﻿namespace SalesInventory.businesslogic
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace SalesInventory.businesslogic
 {
     public class Category
     {

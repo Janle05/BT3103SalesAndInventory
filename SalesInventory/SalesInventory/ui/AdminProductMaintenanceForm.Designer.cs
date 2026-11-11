@@ -60,7 +60,7 @@
             numericUpDown2 = new NumericUpDown();
             numericUpDown3 = new NumericUpDown();
             textBox2 = new TextBox();
-            dgvProducts = new DataGridView();
+            dataGridView1 = new DataGridView();
             btnAdd = new Button();
             btnUpdate = new Button();
             btnDelete = new Button();
@@ -71,7 +71,7 @@
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown3).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dgvProducts).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -104,7 +104,6 @@
             btnLogout.TabIndex = 21;
             btnLogout.Text = "Logout";
             btnLogout.UseVisualStyleBackColor = true;
-            btnLogout.Click += btnLogout_Click;
             // 
             // btnTransactions
             // 
@@ -177,7 +176,6 @@
             btnProducts.TabIndex = 15;
             btnProducts.Text = "Products";
             btnProducts.UseVisualStyleBackColor = true;
-            btnProducts.Click += btnProducts_Click;
             // 
             // btnCategories
             // 
@@ -190,7 +188,6 @@
             btnCategories.TabIndex = 14;
             btnCategories.Text = "Categories";
             btnCategories.UseVisualStyleBackColor = true;
-            btnCategories.Click += btnCategories_Click;
             // 
             // btnSuppliers
             // 
@@ -203,7 +200,6 @@
             btnSuppliers.TabIndex = 13;
             btnSuppliers.Text = "Suppliers";
             btnSuppliers.UseVisualStyleBackColor = true;
-            btnSuppliers.Click += btnSuppliers_Click;
             // 
             // btnDashboard
             // 
@@ -216,7 +212,6 @@
             btnDashboard.TabIndex = 12;
             btnDashboard.Text = "Dashboard";
             btnDashboard.UseVisualStyleBackColor = true;
-            btnDashboard.Click += btnDashboard_Click;
             // 
             // pictureBox4
             // 
@@ -258,7 +253,6 @@
             button11.TabIndex = 4;
             button11.Text = "SEARCH";
             button11.UseVisualStyleBackColor = false;
-            button11.Click += button11_Click;
             // 
             // label2
             // 
@@ -407,16 +401,14 @@
             textBox2.Size = new Size(300, 31);
             textBox2.TabIndex = 20;
             // 
-            // dgvProducts
+            // dataGridView1
             // 
-            dgvProducts.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvProducts.Location = new Point(568, 665);
-            dgvProducts.Name = "dgvProducts";
-            dgvProducts.RowHeadersWidth = 62;
-            dgvProducts.Size = new Size(1260, 363);
-            dgvProducts.TabIndex = 21;
-            dgvProducts.CellClick += dgvProducts_CellClick;
-            dgvProducts.CellContentClick += dataGridView1_CellContentClick;
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(568, 665);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowHeadersWidth = 62;
+            dataGridView1.Size = new Size(1260, 363);
+            dataGridView1.TabIndex = 21;
             // 
             // btnAdd
             // 
@@ -429,7 +421,6 @@
             btnAdd.TabIndex = 22;
             btnAdd.Text = "ADD";
             btnAdd.UseVisualStyleBackColor = false;
-            btnAdd.Click += btnAdd_Click;
             // 
             // btnUpdate
             // 
@@ -442,7 +433,6 @@
             btnUpdate.TabIndex = 23;
             btnUpdate.Text = "UPDATE";
             btnUpdate.UseVisualStyleBackColor = false;
-            btnUpdate.Click += btnUpdate_Click;
             // 
             // btnDelete
             // 
@@ -455,7 +445,6 @@
             btnDelete.TabIndex = 24;
             btnDelete.Text = "DELETE";
             btnDelete.UseVisualStyleBackColor = false;
-            btnDelete.Click += btnDelete_Click;
             // 
             // btnClear
             // 
@@ -468,7 +457,6 @@
             btnClear.TabIndex = 25;
             btnClear.Text = "CLEAR";
             btnClear.UseVisualStyleBackColor = false;
-            btnClear.Click += btnClear_Click;
             // 
             // label10
             // 
@@ -491,7 +479,7 @@
             Controls.Add(btnDelete);
             Controls.Add(btnUpdate);
             Controls.Add(btnAdd);
-            Controls.Add(dgvProducts);
+            Controls.Add(dataGridView1);
             Controls.Add(textBox2);
             Controls.Add(numericUpDown3);
             Controls.Add(numericUpDown2);
@@ -515,13 +503,12 @@
             ForeColor = Color.White;
             Name = "AdminProductMaintenanceForm";
             Text = "AdminProductMaintenanceForm";
-            Load += AdminProductMaintenanceForm_Load;
             panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown2).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown3).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dgvProducts).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -559,7 +546,7 @@
         private NumericUpDown numericUpDown2;
         private NumericUpDown numericUpDown3;
         private TextBox textBox2;
-        private DataGridView dgvProducts;
+        private DataGridView dataGridView1;
         private Button btnAdd;
         private Button btnUpdate;
         private Button btnDelete;

@@ -59,8 +59,6 @@
   </ItemGroup>
   <ItemGroup>
     <Build Include="Users.sql" />
-    <Build Include="Products.sql" />
-    <Build Include="Suppliers.sql" />
     <Build Include="Categories.sql" />
   </ItemGroup>
   <ItemGroup>
