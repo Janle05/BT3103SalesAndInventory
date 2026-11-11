@@ -13,9 +13,7 @@ namespace SalesInventory.businesslogic
             repository = new SupplierRepository();
         }
 
-        // =========================================================
-        // CREATE
-        // =========================================================
+      
 
         public void AddSupplier(Supplier supplier)
         {
@@ -30,18 +28,12 @@ namespace SalesInventory.businesslogic
             repository.AddSupplier(supplier);
         }
 
-        // =========================================================
-        // READ
-        // =========================================================
-
         public List<Supplier> GetAllSuppliers()
         {
             return repository.GetAllSuppliers();
         }
 
-        // =========================================================
-        // UPDATE
-        // =========================================================
+       
 
         public void UpdateSupplier(Supplier supplier)
         {
@@ -58,9 +50,7 @@ namespace SalesInventory.businesslogic
             repository.UpdateSupplier(supplier);
         }
 
-        // =========================================================
-        // DEACTIVATE
-        // =========================================================
+       
 
         public void DeactivateSupplier(int supplierID)
         {
@@ -72,9 +62,6 @@ namespace SalesInventory.businesslogic
             repository.DeactivateSupplier(supplierID);
         }
 
-        // =========================================================
-        // SEARCH
-        // =========================================================
 
         public List<Supplier> SearchSuppliers(string keyword)
         {
@@ -85,10 +72,6 @@ namespace SalesInventory.businesslogic
 
             return repository.SearchSuppliers(keyword.Trim());
         }
-
-        // =========================================================
-        // VALIDATION
-        // =========================================================
 
         private void ValidateSupplier(Supplier supplier)
         {
@@ -112,7 +95,6 @@ namespace SalesInventory.businesslogic
                 throw new Exception("Phone number is required.");
             }
 
-            // Numeric-only phone number
             foreach (char c in supplier.PhoneNumber)
             {
                 if (!char.IsDigit(c))
