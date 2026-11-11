@@ -43,9 +43,9 @@
             pictureBox4 = new PictureBox();
             label1 = new Label();
             txtSearchProduct = new MaskedTextBox();
-            button11 = new Button();
+            btnSearch = new Button();
             dgvProducts = new DataGridView();
-            LBAllCategory = new ListBox();
+            Category = new ListBox();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvProducts).BeginInit();
@@ -233,18 +233,18 @@
             txtSearchProduct.Size = new Size(484, 38);
             txtSearchProduct.TabIndex = 4;
             // 
-            // button11
+            // btnSearch
             // 
-            button11.BackColor = Color.DodgerBlue;
-            button11.FlatStyle = FlatStyle.Flat;
-            button11.Font = new Font("Times New Roman", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button11.Location = new Point(1022, 99);
-            button11.Margin = new Padding(2);
-            button11.Name = "button11";
-            button11.Size = new Size(103, 32);
-            button11.TabIndex = 5;
-            button11.Text = "SEARCH";
-            button11.UseVisualStyleBackColor = false;
+            btnSearch.BackColor = Color.DodgerBlue;
+            btnSearch.FlatStyle = FlatStyle.Flat;
+            btnSearch.Font = new Font("Times New Roman", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnSearch.Location = new Point(1022, 99);
+            btnSearch.Margin = new Padding(2);
+            btnSearch.Name = "btnSearch";
+            btnSearch.Size = new Size(103, 32);
+            btnSearch.TabIndex = 5;
+            btnSearch.Text = "SEARCH";
+            btnSearch.UseVisualStyleBackColor = false;
             // 
             // dgvProducts
             // 
@@ -257,13 +257,13 @@
             dgvProducts.Size = new Size(882, 218);
             dgvProducts.TabIndex = 22;
             // 
-            // LBAllCategory
+            // Category
             // 
-            LBAllCategory.FormattingEnabled = true;
-            LBAllCategory.Location = new Point(875, 93);
-            LBAllCategory.Name = "LBAllCategory";
-            LBAllCategory.Size = new Size(129, 34);
-            LBAllCategory.TabIndex = 23;
+            Category.FormattingEnabled = true;
+            Category.Location = new Point(875, 93);
+            Category.Name = "Category";
+            Category.Size = new Size(129, 34);
+            Category.TabIndex = 23;
             // 
             // AdminProductSearch
             // 
@@ -271,9 +271,9 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LightBlue;
             ClientSize = new Size(1222, 651);
-            Controls.Add(LBAllCategory);
+            Controls.Add(Category);
             Controls.Add(dgvProducts);
-            Controls.Add(button11);
+            Controls.Add(btnSearch);
             Controls.Add(txtSearchProduct);
             Controls.Add(label1);
             Controls.Add(panel1);
@@ -302,8 +302,8 @@
         private PictureBox pictureBox4;
         private Label label1;
         private MaskedTextBox txtSearchProduct;
-        private Button button11;
+        private Button btnSearch;
         private DataGridView dgvProducts;
-        private ListBox LBAllCategory;
+        private ListBox Category;
     }
 }
