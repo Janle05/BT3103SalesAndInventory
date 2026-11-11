@@ -49,6 +49,9 @@
             btnAdjust2 = new Button();
             btnAdjust3 = new Button();
             btnAdjust4 = new Button();
+            btnAdd = new Button();
+            btnUpdate = new Button();
+            btnDelete = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvProducts).BeginInit();
@@ -312,12 +315,57 @@
             btnAdjust4.Text = "ADJUST";
             btnAdjust4.UseVisualStyleBackColor = false;
             // 
+            // btnAdd
+            // 
+            btnAdd.BackColor = Color.Blue;
+            btnAdd.FlatStyle = FlatStyle.Flat;
+            btnAdd.Font = new Font("Times New Roman", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnAdd.ForeColor = Color.White;
+            btnAdd.Location = new Point(379, 394);
+            btnAdd.Margin = new Padding(2);
+            btnAdd.Name = "btnAdd";
+            btnAdd.Size = new Size(189, 54);
+            btnAdd.TabIndex = 33;
+            btnAdd.Text = "ADD";
+            btnAdd.UseVisualStyleBackColor = false;
+            // 
+            // btnUpdate
+            // 
+            btnUpdate.BackColor = Color.Orange;
+            btnUpdate.FlatStyle = FlatStyle.Flat;
+            btnUpdate.Font = new Font("Times New Roman", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnUpdate.ForeColor = Color.White;
+            btnUpdate.Location = new Point(643, 394);
+            btnUpdate.Margin = new Padding(2);
+            btnUpdate.Name = "btnUpdate";
+            btnUpdate.Size = new Size(189, 54);
+            btnUpdate.TabIndex = 34;
+            btnUpdate.Text = "UPDATE";
+            btnUpdate.UseVisualStyleBackColor = false;
+            // 
+            // btnDelete
+            // 
+            btnDelete.BackColor = Color.Red;
+            btnDelete.FlatStyle = FlatStyle.Flat;
+            btnDelete.Font = new Font("Times New Roman", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnDelete.ForeColor = Color.White;
+            btnDelete.Location = new Point(905, 394);
+            btnDelete.Margin = new Padding(2);
+            btnDelete.Name = "btnDelete";
+            btnDelete.Size = new Size(189, 54);
+            btnDelete.TabIndex = 35;
+            btnDelete.Text = "DELETE";
+            btnDelete.UseVisualStyleBackColor = false;
+            // 
             // InventoryManagement
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LightBlue;
             ClientSize = new Size(1192, 725);
+            Controls.Add(btnDelete);
+            Controls.Add(btnUpdate);
+            Controls.Add(btnAdd);
             Controls.Add(btnAdjust4);
             Controls.Add(btnAdjust3);
             Controls.Add(btnAdjust2);
@@ -358,5 +406,8 @@
         private Button btnAdjust2;
         private Button btnAdjust3;
         private Button btnAdjust4;
+        private Button btnAdd;
+        private Button btnUpdate;
+        private Button btnDelete;
     }
 }
