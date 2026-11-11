@@ -55,7 +55,7 @@
             txtAddress = new TextBox();
             txtEmail = new TextBox();
             txtPhone = new TextBox();
-            dataGridView1 = new DataGridView();
+            dgvSuppliers = new DataGridView();
             btnClear = new Button();
             btnDelete = new Button();
             btnUpdate = new Button();
@@ -64,7 +64,7 @@
             txtSearch = new TextBox();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvSuppliers).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -99,6 +99,7 @@
             btnLogout.TabIndex = 21;
             btnLogout.Text = "Logout";
             btnLogout.UseVisualStyleBackColor = true;
+            btnLogout.Click += btnLogout_Click;
             // 
             // btnTransactions
             // 
@@ -178,6 +179,7 @@
             button4.TabIndex = 15;
             button4.Text = "Products";
             button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click;
             // 
             // btnCategories
             // 
@@ -191,6 +193,7 @@
             btnCategories.TabIndex = 14;
             btnCategories.Text = "Categories";
             btnCategories.UseVisualStyleBackColor = true;
+            btnCategories.Click += btnCategories_Click;
             // 
             // btnSuppliers
             // 
@@ -243,6 +246,7 @@
             btnSearch.TabIndex = 30;
             btnSearch.Text = "Search";
             btnSearch.UseVisualStyleBackColor = false;
+            btnSearch.Click += btnSearch_Click;
             // 
             // label1
             // 
@@ -383,15 +387,16 @@
             txtPhone.Size = new Size(211, 21);
             txtPhone.TabIndex = 44;
             // 
-            // dataGridView1
+            // dgvSuppliers
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(417, 374);
-            dataGridView1.Margin = new Padding(2, 2, 2, 2);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 62;
-            dataGridView1.Size = new Size(882, 218);
-            dataGridView1.TabIndex = 49;
+            dgvSuppliers.ColumnHeadersHeight = 34;
+            dgvSuppliers.Location = new Point(596, 623);
+            dgvSuppliers.Name = "dgvSuppliers";
+            dgvSuppliers.RowHeadersWidth = 62;
+            dgvSuppliers.Size = new Size(1260, 363);
+            dgvSuppliers.TabIndex = 49;
+            dgvSuppliers.CellClick += dgvSuppliers_CellClick;
+            dgvSuppliers.CellContentClick += dgvSuppliers_CellContentClick;
             // 
             // btnClear
             // 
@@ -406,6 +411,7 @@
             btnClear.TabIndex = 48;
             btnClear.Text = "CLEAR";
             btnClear.UseVisualStyleBackColor = false;
+            btnClear.Click += btnClear_Click;
             // 
             // btnDelete
             // 
@@ -420,6 +426,7 @@
             btnDelete.TabIndex = 47;
             btnDelete.Text = "DELETE";
             btnDelete.UseVisualStyleBackColor = false;
+            btnDelete.Click += btnDelete_Click;
             // 
             // btnUpdate
             // 
@@ -434,6 +441,7 @@
             btnUpdate.TabIndex = 46;
             btnUpdate.Text = "UPDATE";
             btnUpdate.UseVisualStyleBackColor = false;
+            btnUpdate.Click += btnUpdate_Click;
             // 
             // btnAdd
             // 
@@ -448,6 +456,7 @@
             btnAdd.TabIndex = 45;
             btnAdd.Text = "ADD";
             btnAdd.UseVisualStyleBackColor = false;
+            btnAdd.Click += btnAdd_Click;
             // 
             // label10
             // 
@@ -474,8 +483,8 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LightBlue;
-            ClientSize = new Size(1343, 637);
-            Controls.Add(dataGridView1);
+            ClientSize = new Size(1918, 1094);
+            Controls.Add(dgvSuppliers);
             Controls.Add(btnClear);
             Controls.Add(btnDelete);
             Controls.Add(btnUpdate);
@@ -500,9 +509,10 @@
             Margin = new Padding(2, 2, 2, 2);
             Name = "AdminSupplierForm";
             Text = "AdminSupplierForm";
+            Load += AdminSupplierForm_Load;
             panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvSuppliers).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -535,7 +545,7 @@
         private TextBox txtAddress;
         private TextBox txtEmail;
         private TextBox txtPhone;
-        private DataGridView dataGridView1;
+        private DataGridView dgvSuppliers;
         private Button btnClear;
         private Button btnDelete;
         private Button btnUpdate;

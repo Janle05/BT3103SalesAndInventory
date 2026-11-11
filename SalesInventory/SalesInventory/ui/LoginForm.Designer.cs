@@ -68,15 +68,13 @@
             pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox2.TabIndex = 1;
             pictureBox2.TabStop = false;
-            pictureBox2.Click += pictureBox2_Click;
             // 
             // pictureBox3
             // 
             pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
-            pictureBox3.Location = new Point(452, 239);
-            pictureBox3.Margin = new Padding(2);
+            pictureBox3.Location = new Point(646, 398);
             pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(897, 469);
+            pictureBox3.Size = new Size(1281, 782);
             pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox3.TabIndex = 2;
             pictureBox3.TabStop = false;
@@ -93,10 +91,10 @@
             // txtPassword
             // 
             txtPassword.Font = new Font("Times New Roman", 14F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtPassword.Location = new Point(161, 283);
-            txtPassword.Margin = new Padding(2);
+            txtPassword.Location = new Point(230, 472);
             txtPassword.Name = "txtPassword";
-            txtPassword.Size = new Size(280, 29);
+            txtPassword.PasswordChar = '•';
+            txtPassword.Size = new Size(398, 40);
             txtPassword.TabIndex = 4;
             // 
             // label1
@@ -104,8 +102,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("Times New Roman", 16F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.White;
-            label1.Location = new Point(188, 137);
-            label1.Margin = new Padding(2, 0, 2, 0);
+            label1.Location = new Point(269, 228);
             label1.Name = "label1";
             label1.Size = new Size(218, 25);
             label1.TabIndex = 5;
@@ -121,12 +118,10 @@
             panel1.Controls.Add(txtPassword);
             panel1.Controls.Add(txtUsername);
             panel1.Controls.Add(pictureBox4);
-            panel1.Location = new Point(641, 79);
-            panel1.Margin = new Padding(2);
+            panel1.Location = new Point(916, 132);
             panel1.Name = "panel1";
             panel1.Size = new Size(589, 515);
             panel1.TabIndex = 6;
-            panel1.Paint += panel1_Paint;
             // 
             // btnLogin
             // 
@@ -137,10 +132,11 @@
             btnLogin.Location = new Point(164, 356);
             btnLogin.Margin = new Padding(2);
             btnLogin.Name = "btnLogin";
-            btnLogin.Size = new Size(279, 45);
+            btnLogin.Size = new Size(399, 75);
             btnLogin.TabIndex = 9;
             btnLogin.Text = "LOGIN";
             btnLogin.UseVisualStyleBackColor = false;
+            btnLogin.Click += btnLogin_Click;
             // 
             // label2
             // 
@@ -159,8 +155,7 @@
             label3.AutoSize = true;
             label3.Font = new Font("Times New Roman", 14F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label3.ForeColor = Color.White;
-            label3.Location = new Point(161, 184);
-            label3.Margin = new Padding(2, 0, 2, 0);
+            label3.Location = new Point(230, 307);
             label3.Name = "label3";
             label3.Size = new Size(84, 21);
             label3.TabIndex = 7;
@@ -169,8 +164,7 @@
             // pictureBox4
             // 
             pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
-            pictureBox4.Location = new Point(164, 8);
-            pictureBox4.Margin = new Padding(2);
+            pictureBox4.Location = new Point(234, 13);
             pictureBox4.Name = "pictureBox4";
             pictureBox4.Size = new Size(255, 132);
             pictureBox4.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -182,12 +176,13 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.SteelBlue;
-            ClientSize = new Size(1343, 637);
+            ClientSize = new Size(1919, 1062);
             Controls.Add(panel1);
             Controls.Add(pictureBox1);
             Controls.Add(pictureBox3);
             Controls.Add(pictureBox2);
-            Margin = new Padding(2);
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "LoginFrom";
             Text = "Login Form";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();

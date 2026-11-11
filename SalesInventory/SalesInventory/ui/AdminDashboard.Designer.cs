@@ -82,7 +82,7 @@
             panel1.Location = new Point(0, 1);
             panel1.Margin = new Padding(2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(505, 1100);
+            panel1.Size = new Size(506, 1100);
             panel1.TabIndex = 0;
             // 
             // btnLogout
@@ -94,10 +94,11 @@
             btnLogout.Location = new Point(0, 613);
             btnLogout.Margin = new Padding(2);
             btnLogout.Name = "btnLogout";
-            btnLogout.Size = new Size(505, 71);
+            btnLogout.Size = new Size(506, 72);
             btnLogout.TabIndex = 21;
             btnLogout.Text = "Logout";
             btnLogout.UseVisualStyleBackColor = true;
+            btnLogout.Click += btnLogout_Click;
             // 
             // btnTransactions
             // 
@@ -108,7 +109,7 @@
             btnTransactions.Location = new Point(0, 412);
             btnTransactions.Margin = new Padding(2);
             btnTransactions.Name = "btnTransactions";
-            btnTransactions.Size = new Size(505, 71);
+            btnTransactions.Size = new Size(506, 72);
             btnTransactions.TabIndex = 20;
             btnTransactions.Text = "Transactions";
             btnTransactions.UseVisualStyleBackColor = true;
@@ -122,7 +123,7 @@
             btnReports.Location = new Point(0, 370);
             btnReports.Margin = new Padding(2);
             btnReports.Name = "btnReports";
-            btnReports.Size = new Size(505, 71);
+            btnReports.Size = new Size(506, 72);
             btnReports.TabIndex = 19;
             btnReports.Text = "Reports";
             btnReports.UseVisualStyleBackColor = true;
@@ -136,7 +137,7 @@
             btnPayments.Location = new Point(0, 327);
             btnPayments.Margin = new Padding(2);
             btnPayments.Name = "btnPayments";
-            btnPayments.Size = new Size(505, 71);
+            btnPayments.Size = new Size(506, 72);
             btnPayments.TabIndex = 18;
             btnPayments.Text = "Payments";
             btnPayments.UseVisualStyleBackColor = true;
@@ -150,7 +151,7 @@
             btnSales.Location = new Point(0, 284);
             btnSales.Margin = new Padding(2);
             btnSales.Name = "btnSales";
-            btnSales.Size = new Size(505, 71);
+            btnSales.Size = new Size(506, 72);
             btnSales.TabIndex = 17;
             btnSales.Text = "Sales";
             btnSales.UseVisualStyleBackColor = true;
@@ -164,7 +165,7 @@
             btnInventory.Location = new Point(0, 242);
             btnInventory.Margin = new Padding(2);
             btnInventory.Name = "btnInventory";
-            btnInventory.Size = new Size(505, 71);
+            btnInventory.Size = new Size(506, 72);
             btnInventory.TabIndex = 16;
             btnInventory.Text = "Inventory";
             btnInventory.UseVisualStyleBackColor = true;
@@ -178,10 +179,11 @@
             btnProducts.Location = new Point(0, 199);
             btnProducts.Margin = new Padding(2);
             btnProducts.Name = "btnProducts";
-            btnProducts.Size = new Size(505, 71);
+            btnProducts.Size = new Size(506, 72);
             btnProducts.TabIndex = 15;
             btnProducts.Text = "Products";
             btnProducts.UseVisualStyleBackColor = true;
+            btnProducts.Click += btnProducts_Click;
             // 
             // btnCategories
             // 
@@ -192,10 +194,11 @@
             btnCategories.Location = new Point(0, 157);
             btnCategories.Margin = new Padding(2);
             btnCategories.Name = "btnCategories";
-            btnCategories.Size = new Size(505, 71);
+            btnCategories.Size = new Size(506, 72);
             btnCategories.TabIndex = 14;
             btnCategories.Text = "Categories";
             btnCategories.UseVisualStyleBackColor = true;
+            btnCategories.Click += btnCategories_Click;
             // 
             // btnSuppliers
             // 
@@ -206,10 +209,11 @@
             btnSuppliers.Location = new Point(0, 114);
             btnSuppliers.Margin = new Padding(2);
             btnSuppliers.Name = "btnSuppliers";
-            btnSuppliers.Size = new Size(505, 71);
+            btnSuppliers.Size = new Size(506, 72);
             btnSuppliers.TabIndex = 13;
             btnSuppliers.Text = "Suppliers";
             btnSuppliers.UseVisualStyleBackColor = true;
+            btnSuppliers.Click += btnSuppliers_Click;
             // 
             // btnDashboard
             // 
@@ -220,7 +224,7 @@
             btnDashboard.Location = new Point(0, 71);
             btnDashboard.Margin = new Padding(2);
             btnDashboard.Name = "btnDashboard";
-            btnDashboard.Size = new Size(505, 71);
+            btnDashboard.Size = new Size(506, 72);
             btnDashboard.TabIndex = 12;
             btnDashboard.Text = "Dashboard";
             btnDashboard.UseVisualStyleBackColor = true;
@@ -232,7 +236,7 @@
             pictureBox4.Location = new Point(92, 0);
             pictureBox4.Margin = new Padding(2);
             pictureBox4.Name = "pictureBox4";
-            pictureBox4.Size = new Size(218, 123);
+            pictureBox4.Size = new Size(219, 123);
             pictureBox4.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox4.TabIndex = 11;
             pictureBox4.TabStop = false;
@@ -265,7 +269,7 @@
             pictureBox1.Location = new Point(1184, -5);
             pictureBox1.Margin = new Padding(2);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(135, 134);
+            pictureBox1.Size = new Size(134, 133);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 3;
             pictureBox1.TabStop = false;
@@ -273,7 +277,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(582, 112);
+            label3.Location = new Point(581, 112);
             label3.Name = "label3";
             label3.Size = new Size(1265, 25);
             label3.TabIndex = 4;
@@ -284,7 +288,7 @@
             label4.AutoSize = true;
             label4.Font = new Font("Monotype Corsiva", 15F, FontStyle.Bold | FontStyle.Italic);
             label4.ForeColor = Color.MidnightBlue;
-            label4.Location = new Point(582, 57);
+            label4.Location = new Point(581, 57);
             label4.Name = "label4";
             label4.Size = new Size(204, 37);
             label4.TabIndex = 5;
@@ -297,7 +301,7 @@
             flowLayoutPanel1.Location = new Point(407, 133);
             flowLayoutPanel1.Margin = new Padding(2);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(288, 210);
+            flowLayoutPanel1.Size = new Size(289, 210);
             flowLayoutPanel1.TabIndex = 6;
             // 
             // label5
@@ -305,7 +309,7 @@
             label5.AutoSize = true;
             label5.BackColor = Color.DodgerBlue;
             label5.Font = new Font("Times New Roman", 20F);
-            label5.Location = new Point(602, 227);
+            label5.Location = new Point(601, 227);
             label5.Name = "label5";
             label5.Size = new Size(247, 46);
             label5.TabIndex = 0;
@@ -316,7 +320,7 @@
             label6.AutoSize = true;
             label6.BackColor = Color.Green;
             label6.Font = new Font("Times New Roman", 20F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label6.Location = new Point(952, 227);
+            label6.Location = new Point(951, 227);
             label6.Name = "label6";
             label6.Size = new Size(214, 46);
             label6.TabIndex = 10;
@@ -327,7 +331,7 @@
             label7.AutoSize = true;
             label7.BackColor = Color.Orange;
             label7.Font = new Font("Times New Roman", 20F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label7.Location = new Point(1272, 227);
+            label7.Location = new Point(1271, 227);
             label7.Name = "label7";
             label7.Size = new Size(206, 46);
             label7.TabIndex = 11;
@@ -360,7 +364,7 @@
             lblTotalStocks.AutoSize = true;
             lblTotalStocks.BackColor = Color.Green;
             lblTotalStocks.Font = new Font("Times New Roman", 40F);
-            lblTotalStocks.Location = new Point(1015, 305);
+            lblTotalStocks.Location = new Point(1014, 305);
             lblTotalStocks.Name = "lblTotalStocks";
             lblTotalStocks.Size = new Size(78, 90);
             lblTotalStocks.TabIndex = 14;
@@ -371,7 +375,7 @@
             lblLowStocks.AutoSize = true;
             lblLowStocks.BackColor = Color.Orange;
             lblLowStocks.Font = new Font("Times New Roman", 40F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblLowStocks.Location = new Point(1338, 305);
+            lblLowStocks.Location = new Point(1339, 305);
             lblLowStocks.Name = "lblLowStocks";
             lblLowStocks.Size = new Size(78, 90);
             lblLowStocks.TabIndex = 15;
@@ -382,7 +386,7 @@
             lblOutOfStocks.AutoSize = true;
             lblOutOfStocks.BackColor = Color.Red;
             lblOutOfStocks.Font = new Font("Times New Roman", 40F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblOutOfStocks.Location = new Point(1662, 305);
+            lblOutOfStocks.Location = new Point(1661, 305);
             lblOutOfStocks.Name = "lblOutOfStocks";
             lblOutOfStocks.Size = new Size(78, 90);
             lblOutOfStocks.TabIndex = 16;
@@ -395,7 +399,7 @@
             flowLayoutPanel4.Location = new Point(637, 133);
             flowLayoutPanel4.Margin = new Padding(2);
             flowLayoutPanel4.Name = "flowLayoutPanel4";
-            flowLayoutPanel4.Size = new Size(288, 210);
+            flowLayoutPanel4.Size = new Size(289, 210);
             flowLayoutPanel4.TabIndex = 7;
             // 
             // flowLayoutPanel5
@@ -405,7 +409,7 @@
             flowLayoutPanel5.Location = new Point(861, 133);
             flowLayoutPanel5.Margin = new Padding(2);
             flowLayoutPanel5.Name = "flowLayoutPanel5";
-            flowLayoutPanel5.Size = new Size(288, 210);
+            flowLayoutPanel5.Size = new Size(289, 210);
             flowLayoutPanel5.TabIndex = 8;
             // 
             // flowLayoutPanel6
@@ -415,7 +419,7 @@
             flowLayoutPanel6.Location = new Point(1088, 133);
             flowLayoutPanel6.Margin = new Padding(2);
             flowLayoutPanel6.Name = "flowLayoutPanel6";
-            flowLayoutPanel6.Size = new Size(288, 210);
+            flowLayoutPanel6.Size = new Size(289, 210);
             flowLayoutPanel6.TabIndex = 8;
             // 
             // dataGridView1
