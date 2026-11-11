@@ -56,6 +56,7 @@ namespace SalesInventory.ui
             }
 
             this.Close();
+            this.Hide();
         }
 
         protected override void OnFormClosed(FormClosedEventArgs e)

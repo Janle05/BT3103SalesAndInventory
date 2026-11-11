@@ -362,7 +362,7 @@
             // 
             // dgvSuppliers
             // 
-            dgvSuppliers.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvSuppliers.ColumnHeadersHeight = 34;
             dgvSuppliers.Location = new Point(596, 623);
             dgvSuppliers.Name = "dgvSuppliers";
             dgvSuppliers.RowHeadersWidth = 62;

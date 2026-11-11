@@ -49,35 +49,28 @@ namespace SalesInventory.ui
         {
             try
             {
-                dgvProducts.DataSource = null;
+                dgvProducts.Columns.Clear();
+                dgvProducts.AutoGenerateColumns = false;
+
+                // Tiyakin na ang Name at DataPropertyName ay magkatugma (hal. Name = "ProductID")
+                dgvProducts.Columns.Add(new DataGridViewTextBoxColumn { Name = "ProductID", HeaderText = "Product ID", DataPropertyName = "ProductID", Width = 80 });
+                dgvProducts.Columns.Add(new DataGridViewTextBoxColumn { Name = "ProductName", HeaderText = "Product Name", DataPropertyName = "ProductName", Width = 150 });
+                dgvProducts.Columns.Add(new DataGridViewTextBoxColumn { Name = "CategoryID", HeaderText = "Category ID", DataPropertyName = "CategoryID", Width = 90 });
+                dgvProducts.Columns.Add(new DataGridViewTextBoxColumn { Name = "SupplierID", HeaderText = "Supplier ID", DataPropertyName = "SupplierID", Width = 90 });
+                dgvProducts.Columns.Add(new DataGridViewTextBoxColumn { Name = "UnitPrice", HeaderText = "Unit Price", DataPropertyName = "UnitPrice", Width = 90 });
+                dgvProducts.Columns.Add(new DataGridViewTextBoxColumn { Name = "StockQuantity", HeaderText = "Stock Quantity", DataPropertyName = "StockQuantity", Width = 100 });
+                dgvProducts.Columns.Add(new DataGridViewTextBoxColumn { Name = "ReorderLevel", HeaderText = "Reorder Level", DataPropertyName = "ReorderLevel", Width = 90 });
+                dgvProducts.Columns.Add(new DataGridViewTextBoxColumn { Name = "Status", HeaderText = "Status", DataPropertyName = "Status", Width = 80 });
+
+                // Kulay ng text para siguradong litaw
+                dgvProducts.ForeColor = Color.Black;
+                dgvProducts.DefaultCellStyle.ForeColor = Color.Black;
+                dgvProducts.DefaultCellStyle.BackColor = Color.White;
+                dgvProducts.DefaultCellStyle.SelectionForeColor = Color.White;
+                dgvProducts.DefaultCellStyle.SelectionBackColor = Color.Navy;
+
                 dgvProducts.DataSource = productService.GetAllProducts();
-
                 dgvProducts.ClearSelection();
-
-                // Optional display settings
-                if (dgvProducts.Columns["ProductID"] != null)
-                    dgvProducts.Columns["ProductID"].HeaderText = "Product ID";
-
-                if (dgvProducts.Columns["ProductName"] != null)
-                    dgvProducts.Columns["ProductName"].HeaderText = "Product Name";
-
-                if (dgvProducts.Columns["CategoryID"] != null)
-                    dgvProducts.Columns["CategoryID"].HeaderText = "Category ID";
-
-                if (dgvProducts.Columns["SupplierID"] != null)
-                    dgvProducts.Columns["SupplierID"].HeaderText = "Supplier ID";
-
-                if (dgvProducts.Columns["UnitPrice"] != null)
-                    dgvProducts.Columns["UnitPrice"].HeaderText = "Unit Price";
-
-                if (dgvProducts.Columns["InitialStock"] != null)
-                    dgvProducts.Columns["InitialStock"].HeaderText = "Initial Stock";
-
-                if (dgvProducts.Columns["ReorderLevel"] != null)
-                    dgvProducts.Columns["ReorderLevel"].HeaderText = "Reorder Level";
-
-                if (dgvProducts.Columns["Status"] != null)
-                    dgvProducts.Columns["Status"].HeaderText = "Status";
             }
             catch (Exception ex)
             {
@@ -500,6 +493,7 @@ namespace SalesInventory.ui
             dashboard.Show();
 
             this.Close();
+            this.Hide();
         }
 
         private void btnCategories_Click(object sender, EventArgs e)
@@ -510,6 +504,7 @@ namespace SalesInventory.ui
             categoryForm.Show();
 
             this.Close();
+            this.Hide();
         }
 
         private void btnSuppliers_Click(object sender, EventArgs e)
@@ -520,6 +515,7 @@ namespace SalesInventory.ui
             supplierForm.Show();
 
             this.Close();
+            this.Hide();
         }
 
         private void btnLogout_Click(object sender, EventArgs e)
@@ -549,6 +545,7 @@ namespace SalesInventory.ui
             }
 
             this.Close();
+            this.Hide();
         }
 
         private void dgvProducts_CellClick(object sender, DataGridViewCellEventArgs e)
