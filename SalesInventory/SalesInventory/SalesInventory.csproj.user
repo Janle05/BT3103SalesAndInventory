@@ -7,16 +7,40 @@
     <Compile Update="ui\AdminDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="ui\AdminPayment.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="ui\AdminProductMaintenanceForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="ui\AdminProductSearch.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="ui\AdminReports.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="ui\AdminSales.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="ui\AdminSupplierForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="ui\CashierDashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="ui\AdminInventory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="ui\CashierPayment#12.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="ui\CashierPayment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="ui\CashierProductSearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="ui\CashierSales.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="ui\LoginForm.cs">
