@@ -1,12 +1,4 @@
 ﻿using SalesInventory.businesslogic;
-using SalesInventory.BusinessLogic;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Windows.Forms;
 using SalesInventory.Repository;
 
 namespace SalesInventory.ui
