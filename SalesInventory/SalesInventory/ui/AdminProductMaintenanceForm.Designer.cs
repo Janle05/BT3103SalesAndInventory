@@ -379,6 +379,7 @@
             numericUpDown1.Name = "numericUpDown1";
             numericUpDown1.Size = new Size(300, 31);
             numericUpDown1.TabIndex = 17;
+            numericUpDown1.ValueChanged += numericUpDown1_ValueChanged;
             // 
             // numericUpDown2
             // 
