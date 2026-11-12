@@ -207,7 +207,6 @@
             btnSuppliers.TabIndex = 13;
             btnSuppliers.Text = "Suppliers";
             btnSuppliers.UseVisualStyleBackColor = true;
-            btnSuppliers.Click += btnSuppliers_Click;
             // 
             // btnDashboard
             // 
