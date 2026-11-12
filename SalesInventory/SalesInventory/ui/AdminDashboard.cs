@@ -37,7 +37,7 @@
             }
 
             this.Hide();
-           
+
         }
 
         protected override void OnFormClosed(FormClosedEventArgs e)
@@ -62,7 +62,7 @@
             Supplier.Show();
 
             this.Hide();
-            
+
         }
 
         private void btnProducts_Click(object sender, EventArgs e)
@@ -71,7 +71,12 @@
             productForm.Show();
 
             this.Hide();
-           
+
+        }
+
+        private void AdminDashboard_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
