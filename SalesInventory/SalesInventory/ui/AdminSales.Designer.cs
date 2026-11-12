@@ -72,6 +72,7 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(354, 659);
             panel1.TabIndex = 3;
+            panel1.Paint += panel1_Paint;
             // 
             // btnLogout
             // 
@@ -298,6 +299,7 @@
             Controls.Add(panel1);
             Name = "AdminSales";
             Text = "AdminSales";
+            Load += AdminSales_Load;
             panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ((System.ComponentModel.ISupportInitialize)dgvProducts).EndInit();
