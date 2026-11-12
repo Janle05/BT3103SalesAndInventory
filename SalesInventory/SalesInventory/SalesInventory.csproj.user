@@ -25,6 +25,9 @@
     <Compile Update="ui\AdminSupplierForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="ui\AdminTransactionHistory.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="ui\CashierDashboard.cs">
       <SubType>Form</SubType>
     </Compile>

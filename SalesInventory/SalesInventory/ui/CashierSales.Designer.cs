@@ -43,9 +43,13 @@
             dgvProducts = new DataGridView();
             btnClearCart = new Button();
             btnProceedToCheckout = new Button();
+            pictureBox1 = new PictureBox();
+            label3 = new Label();
+            label2 = new Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvProducts).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -226,12 +230,48 @@
             btnProceedToCheckout.Text = "Proceed to Checkout";
             btnProceedToCheckout.UseVisualStyleBackColor = false;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(1097, 2);
+            pictureBox1.Margin = new Padding(2);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(94, 80);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 40;
+            pictureBox1.TabStop = false;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(371, 76);
+            label3.Margin = new Padding(2, 0, 2, 0);
+            label3.Name = "label3";
+            label3.Size = new Size(912, 15);
+            label3.TabIndex = 39;
+            label3.Text = "_____________________________________________________________________________________________________________________________________________________________________________________";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Times New Roman", 15F);
+            label2.ForeColor = Color.MidnightBlue;
+            label2.Location = new Point(976, 48);
+            label2.Margin = new Padding(2, 0, 2, 0);
+            label2.Name = "label2";
+            label2.Size = new Size(71, 22);
+            label2.TabIndex = 38;
+            label2.Text = "Cashier";
+            // 
             // CashierSales
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
-            ClientSize = new Size(1200, 714);
+            ClientSize = new Size(1256, 712);
+            Controls.Add(pictureBox1);
+            Controls.Add(label3);
+            Controls.Add(label2);
             Controls.Add(btnProceedToCheckout);
             Controls.Add(btnClearCart);
             Controls.Add(dgvProducts);
@@ -244,6 +284,7 @@
             panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ((System.ComponentModel.ISupportInitialize)dgvProducts).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -264,5 +305,8 @@
         private DataGridView dgvProducts;
         private Button btnClearCart;
         private Button btnProceedToCheckout;
+        private PictureBox pictureBox1;
+        private Label label3;
+        private Label label2;
     }
 }

@@ -82,7 +82,7 @@
             panel1.Controls.Add(btnDashboard);
             panel1.Controls.Add(pictureBox4);
             panel1.Location = new Point(1, 1);
-            panel1.Margin = new Padding(2, 2, 2, 2);
+            panel1.Margin = new Padding(2);
             panel1.Name = "panel1";
             panel1.Size = new Size(354, 659);
             panel1.TabIndex = 3;
@@ -93,7 +93,7 @@
             btnLogout.Font = new Font("Times New Roman", 15F, FontStyle.Bold);
             btnLogout.ForeColor = Color.White;
             btnLogout.Location = new Point(0, 613);
-            btnLogout.Margin = new Padding(2, 2, 2, 2);
+            btnLogout.Margin = new Padding(2);
             btnLogout.Name = "btnLogout";
             btnLogout.Size = new Size(354, 43);
             btnLogout.TabIndex = 21;
@@ -107,7 +107,7 @@
             btnTransactions.Font = new Font("Times New Roman", 15F, FontStyle.Bold);
             btnTransactions.ForeColor = Color.White;
             btnTransactions.Location = new Point(0, 416);
-            btnTransactions.Margin = new Padding(2, 2, 2, 2);
+            btnTransactions.Margin = new Padding(2);
             btnTransactions.Name = "btnTransactions";
             btnTransactions.Size = new Size(354, 43);
             btnTransactions.TabIndex = 20;
@@ -121,7 +121,7 @@
             btnReports.Font = new Font("Times New Roman", 15F, FontStyle.Bold);
             btnReports.ForeColor = Color.White;
             btnReports.Location = new Point(0, 373);
-            btnReports.Margin = new Padding(2, 2, 2, 2);
+            btnReports.Margin = new Padding(2);
             btnReports.Name = "btnReports";
             btnReports.Size = new Size(354, 43);
             btnReports.TabIndex = 19;
@@ -134,7 +134,7 @@
             btnPaymenst.Font = new Font("Times New Roman", 15F, FontStyle.Bold);
             btnPaymenst.ForeColor = Color.White;
             btnPaymenst.Location = new Point(0, 331);
-            btnPaymenst.Margin = new Padding(2, 2, 2, 2);
+            btnPaymenst.Margin = new Padding(2);
             btnPaymenst.Name = "btnPaymenst";
             btnPaymenst.Size = new Size(354, 43);
             btnPaymenst.TabIndex = 18;
@@ -147,7 +147,7 @@
             btnSales.Font = new Font("Times New Roman", 15F, FontStyle.Bold);
             btnSales.ForeColor = Color.White;
             btnSales.Location = new Point(0, 288);
-            btnSales.Margin = new Padding(2, 2, 2, 2);
+            btnSales.Margin = new Padding(2);
             btnSales.Name = "btnSales";
             btnSales.Size = new Size(354, 43);
             btnSales.TabIndex = 17;
@@ -160,7 +160,7 @@
             btnInventory.Font = new Font("Times New Roman", 15F, FontStyle.Bold);
             btnInventory.ForeColor = Color.White;
             btnInventory.Location = new Point(0, 245);
-            btnInventory.Margin = new Padding(2, 2, 2, 2);
+            btnInventory.Margin = new Padding(2);
             btnInventory.Name = "btnInventory";
             btnInventory.Size = new Size(354, 43);
             btnInventory.TabIndex = 16;
@@ -173,7 +173,7 @@
             button4.Font = new Font("Times New Roman", 15F, FontStyle.Bold);
             button4.ForeColor = Color.White;
             button4.Location = new Point(0, 203);
-            button4.Margin = new Padding(2, 2, 2, 2);
+            button4.Margin = new Padding(2);
             button4.Name = "button4";
             button4.Size = new Size(354, 43);
             button4.TabIndex = 15;
@@ -187,7 +187,7 @@
             btnCategories.Font = new Font("Times New Roman", 15F, FontStyle.Bold);
             btnCategories.ForeColor = Color.White;
             btnCategories.Location = new Point(0, 160);
-            btnCategories.Margin = new Padding(2, 2, 2, 2);
+            btnCategories.Margin = new Padding(2);
             btnCategories.Name = "btnCategories";
             btnCategories.Size = new Size(354, 43);
             btnCategories.TabIndex = 14;
@@ -201,7 +201,7 @@
             btnSuppliers.Font = new Font("Times New Roman", 15F, FontStyle.Bold);
             btnSuppliers.ForeColor = Color.White;
             btnSuppliers.Location = new Point(0, 118);
-            btnSuppliers.Margin = new Padding(2, 2, 2, 2);
+            btnSuppliers.Margin = new Padding(2);
             btnSuppliers.Name = "btnSuppliers";
             btnSuppliers.Size = new Size(354, 43);
             btnSuppliers.TabIndex = 13;
@@ -214,7 +214,7 @@
             btnDashboard.Font = new Font("Times New Roman", 15F, FontStyle.Bold);
             btnDashboard.ForeColor = Color.White;
             btnDashboard.Location = new Point(0, 75);
-            btnDashboard.Margin = new Padding(2, 2, 2, 2);
+            btnDashboard.Margin = new Padding(2);
             btnDashboard.Name = "btnDashboard";
             btnDashboard.Size = new Size(354, 43);
             btnDashboard.TabIndex = 12;
@@ -225,7 +225,7 @@
             // 
             pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
             pictureBox4.Location = new Point(92, 0);
-            pictureBox4.Margin = new Padding(2, 2, 2, 2);
+            pictureBox4.Margin = new Padding(2);
             pictureBox4.Name = "pictureBox4";
             pictureBox4.Size = new Size(174, 77);
             pictureBox4.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -239,7 +239,7 @@
             btnSearch.Font = new Font("Times New Roman", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnSearch.ForeColor = Color.White;
             btnSearch.Location = new Point(895, 72);
-            btnSearch.Margin = new Padding(2, 2, 2, 2);
+            btnSearch.Margin = new Padding(2);
             btnSearch.Name = "btnSearch";
             btnSearch.Size = new Size(103, 32);
             btnSearch.TabIndex = 30;
@@ -299,7 +299,7 @@
             // 
             txtContactPerson.Font = new Font("Times New Roman", 10F);
             txtContactPerson.Location = new Point(757, 150);
-            txtContactPerson.Margin = new Padding(2, 2, 2, 2);
+            txtContactPerson.Margin = new Padding(2);
             txtContactPerson.Name = "txtContactPerson";
             txtContactPerson.Size = new Size(211, 23);
             txtContactPerson.TabIndex = 33;
@@ -308,7 +308,7 @@
             // 
             txtSupplierName.Font = new Font("Times New Roman", 10F);
             txtSupplierName.Location = new Point(408, 155);
-            txtSupplierName.Margin = new Padding(2, 2, 2, 2);
+            txtSupplierName.Margin = new Padding(2);
             txtSupplierName.Name = "txtSupplierName";
             txtSupplierName.Size = new Size(211, 23);
             txtSupplierName.TabIndex = 32;
@@ -330,7 +330,7 @@
             cmbStatus.Font = new Font("Times New Roman", 9F);
             cmbStatus.FormattingEnabled = true;
             cmbStatus.Location = new Point(1084, 216);
-            cmbStatus.Margin = new Padding(2, 2, 2, 2);
+            cmbStatus.Margin = new Padding(2);
             cmbStatus.Name = "cmbStatus";
             cmbStatus.Size = new Size(211, 23);
             cmbStatus.TabIndex = 42;
@@ -363,7 +363,7 @@
             // 
             txtAddress.Font = new Font("Times New Roman", 10F);
             txtAddress.Location = new Point(757, 217);
-            txtAddress.Margin = new Padding(2, 2, 2, 2);
+            txtAddress.Margin = new Padding(2);
             txtAddress.Name = "txtAddress";
             txtAddress.Size = new Size(211, 23);
             txtAddress.TabIndex = 39;
@@ -372,7 +372,7 @@
             // 
             txtEmail.Font = new Font("Times New Roman", 10F);
             txtEmail.Location = new Point(408, 217);
-            txtEmail.Margin = new Padding(2, 2, 2, 2);
+            txtEmail.Margin = new Padding(2);
             txtEmail.Name = "txtEmail";
             txtEmail.Size = new Size(211, 23);
             txtEmail.TabIndex = 38;
@@ -381,7 +381,7 @@
             // 
             txtPhone.Font = new Font("Times New Roman", 9F);
             txtPhone.Location = new Point(1084, 155);
-            txtPhone.Margin = new Padding(2, 2, 2, 2);
+            txtPhone.Margin = new Padding(2);
             txtPhone.Name = "txtPhone";
             txtPhone.Size = new Size(211, 21);
             txtPhone.TabIndex = 44;
@@ -389,7 +389,7 @@
             // dgvSuppliers
             // 
             dgvSuppliers.ColumnHeadersHeight = 34;
-            dgvSuppliers.Location = new Point(596, 623);
+            dgvSuppliers.Location = new Point(417, 353);
             dgvSuppliers.Name = "dgvSuppliers";
             dgvSuppliers.RowHeadersWidth = 62;
             dgvSuppliers.Size = new Size(1260, 363);
@@ -404,7 +404,7 @@
             btnClear.Font = new Font("Times New Roman", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnClear.ForeColor = Color.White;
             btnClear.Location = new Point(1110, 271);
-            btnClear.Margin = new Padding(2, 2, 2, 2);
+            btnClear.Margin = new Padding(2);
             btnClear.Name = "btnClear";
             btnClear.Size = new Size(189, 54);
             btnClear.TabIndex = 48;
@@ -419,7 +419,7 @@
             btnDelete.Font = new Font("Times New Roman", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnDelete.ForeColor = Color.White;
             btnDelete.Location = new Point(877, 271);
-            btnDelete.Margin = new Padding(2, 2, 2, 2);
+            btnDelete.Margin = new Padding(2);
             btnDelete.Name = "btnDelete";
             btnDelete.Size = new Size(189, 54);
             btnDelete.TabIndex = 47;
@@ -434,7 +434,7 @@
             btnUpdate.Font = new Font("Times New Roman", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnUpdate.ForeColor = Color.White;
             btnUpdate.Location = new Point(648, 271);
-            btnUpdate.Margin = new Padding(2, 2, 2, 2);
+            btnUpdate.Margin = new Padding(2);
             btnUpdate.Name = "btnUpdate";
             btnUpdate.Size = new Size(189, 54);
             btnUpdate.TabIndex = 46;
@@ -449,7 +449,7 @@
             btnAdd.Font = new Font("Times New Roman", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnAdd.ForeColor = Color.White;
             btnAdd.Location = new Point(417, 271);
-            btnAdd.Margin = new Padding(2, 2, 2, 2);
+            btnAdd.Margin = new Padding(2);
             btnAdd.Name = "btnAdd";
             btnAdd.Size = new Size(189, 54);
             btnAdd.TabIndex = 45;
@@ -472,7 +472,7 @@
             // 
             txtSearch.Font = new Font("Tempus Sans ITC", 15F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtSearch.Location = new Point(408, 76);
-            txtSearch.Margin = new Padding(2, 2, 2, 2);
+            txtSearch.Margin = new Padding(2);
             txtSearch.Name = "txtSearch";
             txtSearch.Size = new Size(484, 34);
             txtSearch.TabIndex = 29;
@@ -482,7 +482,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LightBlue;
-            ClientSize = new Size(1918, 1094);
+            ClientSize = new Size(1918, 1061);
             Controls.Add(dgvSuppliers);
             Controls.Add(btnClear);
             Controls.Add(btnDelete);
@@ -505,7 +505,7 @@
             Controls.Add(label1);
             Controls.Add(panel1);
             Controls.Add(label10);
-            Margin = new Padding(2, 2, 2, 2);
+            Margin = new Padding(2);
             Name = "AdminSupplierForm";
             Text = "AdminSupplierForm";
             Load += AdminSupplierForm_Load;

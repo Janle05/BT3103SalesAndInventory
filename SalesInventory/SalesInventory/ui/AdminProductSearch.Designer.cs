@@ -46,6 +46,7 @@
             btnSearch = new Button();
             dgvProducts = new DataGridView();
             Category = new ListBox();
+            label10 = new Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvProducts).BeginInit();
@@ -265,12 +266,23 @@
             Category.Size = new Size(129, 34);
             Category.TabIndex = 23;
             // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.ForeColor = Color.Black;
+            label10.Location = new Point(373, 71);
+            label10.Name = "label10";
+            label10.Size = new Size(902, 15);
+            label10.TabIndex = 52;
+            label10.Text = "___________________________________________________________________________________________________________________________________________________________________________________";
+            // 
             // AdminProductSearch
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LightBlue;
             ClientSize = new Size(1222, 651);
+            Controls.Add(label10);
             Controls.Add(Category);
             Controls.Add(dgvProducts);
             Controls.Add(btnSearch);
@@ -305,5 +317,6 @@
         private Button btnSearch;
         private DataGridView dgvProducts;
         private ListBox Category;
+        private Label label10;
     }
 }

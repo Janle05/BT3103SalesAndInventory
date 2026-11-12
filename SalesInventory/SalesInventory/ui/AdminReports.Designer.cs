@@ -54,6 +54,7 @@
             label6 = new Label();
             label5 = new Label();
             label4 = new Label();
+            label10 = new Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvProducts).BeginInit();
@@ -358,12 +359,23 @@
             label4.TabIndex = 28;
             label4.Text = "Summary";
             // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.ForeColor = Color.Black;
+            label10.Location = new Point(399, 74);
+            label10.Name = "label10";
+            label10.Size = new Size(902, 15);
+            label10.TabIndex = 52;
+            label10.Text = "___________________________________________________________________________________________________________________________________________________________________________________";
+            // 
             // AdminReports
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LightBlue;
             ClientSize = new Size(1173, 666);
+            Controls.Add(label10);
             Controls.Add(panel2);
             Controls.Add(dgvProducts);
             Controls.Add(btnGenerate);
@@ -411,5 +423,6 @@
         private Label label7;
         private Label label6;
         private Label label5;
+        private Label label10;
     }
 }

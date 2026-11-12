@@ -48,6 +48,7 @@
             dateTimePicker2 = new DateTimePicker();
             btnSearch = new Button();
             dgvProducts = new DataGridView();
+            label10 = new Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvProducts).BeginInit();
@@ -283,12 +284,23 @@
             dgvProducts.Size = new Size(715, 218);
             dgvProducts.TabIndex = 25;
             // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.ForeColor = Color.Black;
+            label10.Location = new Point(414, 70);
+            label10.Name = "label10";
+            label10.Size = new Size(902, 15);
+            label10.TabIndex = 52;
+            label10.Text = "___________________________________________________________________________________________________________________________________________________________________________________";
+            // 
             // AdminSales
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LightBlue;
             ClientSize = new Size(1198, 716);
+            Controls.Add(label10);
             Controls.Add(dgvProducts);
             Controls.Add(btnSearch);
             Controls.Add(dateTimePicker2);
@@ -328,5 +340,6 @@
         private DateTimePicker dateTimePicker2;
         private Button btnSearch;
         private DataGridView dgvProducts;
+        private Label label10;
     }
 }

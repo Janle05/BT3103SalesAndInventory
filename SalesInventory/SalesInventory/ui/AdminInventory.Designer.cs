@@ -52,6 +52,7 @@
             btnAdd = new Button();
             btnUpdate = new Button();
             btnDelete = new Button();
+            label10 = new Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvProducts).BeginInit();
@@ -357,12 +358,23 @@
             btnDelete.Text = "DELETE";
             btnDelete.UseVisualStyleBackColor = false;
             // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.ForeColor = Color.Black;
+            label10.Location = new Point(379, 73);
+            label10.Name = "label10";
+            label10.Size = new Size(902, 15);
+            label10.TabIndex = 52;
+            label10.Text = "___________________________________________________________________________________________________________________________________________________________________________________";
+            // 
             // InventoryManagement
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LightBlue;
             ClientSize = new Size(1192, 725);
+            Controls.Add(label10);
             Controls.Add(btnDelete);
             Controls.Add(btnUpdate);
             Controls.Add(btnAdd);
@@ -409,5 +421,6 @@
         private Button btnAdd;
         private Button btnUpdate;
         private Button btnDelete;
+        private Label label10;
     }
 }
