@@ -66,6 +66,7 @@
             btnDelete = new Button();
             btnClear = new Button();
             label10 = new Label();
+            label11 = new Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
@@ -97,7 +98,7 @@
             // btnLogout
             // 
             btnLogout.FlatStyle = FlatStyle.Flat;
-            btnLogout.Font = new Font("Times New Roman", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnLogout.Font = new Font("Times New Roman", 15F, FontStyle.Bold);
             btnLogout.ForeColor = Color.White;
             btnLogout.Location = new Point(0, 613);
             btnLogout.Margin = new Padding(2, 2, 2, 2);
@@ -111,7 +112,7 @@
             // btnTransactions
             // 
             btnTransactions.FlatStyle = FlatStyle.Flat;
-            btnTransactions.Font = new Font("Times New Roman", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnTransactions.Font = new Font("Times New Roman", 15F, FontStyle.Bold);
             btnTransactions.ForeColor = Color.White;
             btnTransactions.Location = new Point(0, 436);
             btnTransactions.Margin = new Padding(2, 2, 2, 2);
@@ -124,7 +125,7 @@
             // btnReports
             // 
             btnReports.FlatStyle = FlatStyle.Flat;
-            btnReports.Font = new Font("Times New Roman", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnReports.Font = new Font("Times New Roman", 15F, FontStyle.Bold);
             btnReports.ForeColor = Color.White;
             btnReports.Location = new Point(0, 393);
             btnReports.Margin = new Padding(2, 2, 2, 2);
@@ -137,7 +138,7 @@
             // btnPayments
             // 
             btnPayments.FlatStyle = FlatStyle.Flat;
-            btnPayments.Font = new Font("Times New Roman", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnPayments.Font = new Font("Times New Roman", 15F, FontStyle.Bold);
             btnPayments.ForeColor = Color.White;
             btnPayments.Location = new Point(0, 350);
             btnPayments.Margin = new Padding(2, 2, 2, 2);
@@ -150,7 +151,7 @@
             // btnSales
             // 
             btnSales.FlatStyle = FlatStyle.Flat;
-            btnSales.Font = new Font("Times New Roman", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnSales.Font = new Font("Times New Roman", 15F, FontStyle.Bold);
             btnSales.ForeColor = Color.White;
             btnSales.Location = new Point(0, 308);
             btnSales.Margin = new Padding(2, 2, 2, 2);
@@ -159,11 +160,12 @@
             btnSales.TabIndex = 17;
             btnSales.Text = "Sales";
             btnSales.UseVisualStyleBackColor = true;
+            btnSales.Click += btnSales_Click;
             // 
             // btnInventory
             // 
             btnInventory.FlatStyle = FlatStyle.Flat;
-            btnInventory.Font = new Font("Times New Roman", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnInventory.Font = new Font("Times New Roman", 15F, FontStyle.Bold);
             btnInventory.ForeColor = Color.White;
             btnInventory.Location = new Point(0, 265);
             btnInventory.Margin = new Padding(2, 2, 2, 2);
@@ -172,11 +174,12 @@
             btnInventory.TabIndex = 16;
             btnInventory.Text = "Inventory";
             btnInventory.UseVisualStyleBackColor = true;
+            btnInventory.Click += btnInventory_Click;
             // 
             // btnProducts
             // 
             btnProducts.FlatStyle = FlatStyle.Flat;
-            btnProducts.Font = new Font("Times New Roman", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnProducts.Font = new Font("Times New Roman", 15F, FontStyle.Bold);
             btnProducts.ForeColor = Color.White;
             btnProducts.Location = new Point(0, 223);
             btnProducts.Margin = new Padding(2, 2, 2, 2);
@@ -190,7 +193,7 @@
             // btnCategories
             // 
             btnCategories.FlatStyle = FlatStyle.Flat;
-            btnCategories.Font = new Font("Times New Roman", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnCategories.Font = new Font("Times New Roman", 15F, FontStyle.Bold);
             btnCategories.ForeColor = Color.White;
             btnCategories.Location = new Point(0, 180);
             btnCategories.Margin = new Padding(2, 2, 2, 2);
@@ -204,7 +207,7 @@
             // btnSuppliers
             // 
             btnSuppliers.FlatStyle = FlatStyle.Flat;
-            btnSuppliers.Font = new Font("Times New Roman", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnSuppliers.Font = new Font("Times New Roman", 15F, FontStyle.Bold);
             btnSuppliers.ForeColor = Color.White;
             btnSuppliers.Location = new Point(0, 137);
             btnSuppliers.Margin = new Padding(2, 2, 2, 2);
@@ -218,7 +221,7 @@
             // btnDashboard
             // 
             btnDashboard.FlatStyle = FlatStyle.Flat;
-            btnDashboard.Font = new Font("Times New Roman", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnDashboard.Font = new Font("Times New Roman", 15F, FontStyle.Bold);
             btnDashboard.ForeColor = Color.White;
             btnDashboard.Location = new Point(0, 95);
             btnDashboard.Margin = new Padding(2, 2, 2, 2);
@@ -390,9 +393,9 @@
             label8.Location = new Point(846, 214);
             label8.Margin = new Padding(2, 0, 2, 0);
             label8.Name = "label8";
-            label8.Size = new Size(134, 22);
+            label8.Size = new Size(184, 34);
             label8.TabIndex = 15;
-            label8.Text = "Recorder Level";
+            label8.Text = "Reorder Level";
             // 
             // label9
             // 
@@ -519,13 +522,23 @@
             label10.TabIndex = 26;
             label10.Text = "___________________________________________________________________________________________________________________________________________________________________________________";
             // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.ForeColor = Color.Black;
+            label11.Location = new Point(560, 469);
+            label11.Name = "label11";
+            label11.Size = new Size(1265, 25);
+            label11.TabIndex = 27;
+            label11.Text = "___________________________________________________________________________________________________________________________________________________________________________________";
+            // 
             // AdminProductMaintenanceForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LightBlue;
-            ClientSize = new Size(1343, 637);
-            ClientSize = new Size(1343, 664);
+            ClientSize = new Size(1918, 1094);
+            Controls.Add(label11);
             Controls.Add(label10);
             Controls.Add(btnClear);
             Controls.Add(btnDelete);
@@ -553,7 +566,8 @@
             Controls.Add(label1);
             Controls.Add(panel1);
             ForeColor = Color.White;
-            Margin = new Padding(2, 2, 2, 2);
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "AdminProductMaintenanceForm";
             Text = "AdminProductMaintenanceForm";
             Load += AdminProductMaintenanceForm_Load;
@@ -606,5 +620,6 @@
         private Button btnDelete;
         private Button btnClear;
         private Label label10;
+        private Label label11;
     }
 }

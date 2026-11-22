@@ -42,16 +42,17 @@
             btnDashboard = new Button();
             pictureBox4 = new PictureBox();
             label1 = new Label();
-            dateTimePicker1 = new DateTimePicker();
-            dateTimePicker2 = new DateTimePicker();
+            dtpStart = new DateTimePicker();
+            dtpEnd = new DateTimePicker();
             label2 = new Label();
             label3 = new Label();
             btnSearch = new Button();
-            dgvProducts = new DataGridView();
-            label10 = new Label();
+            dgvPayments = new DataGridView();
+            label4 = new Label();
+            label5 = new Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dgvProducts).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvPayments).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -68,21 +69,19 @@
             panel1.Controls.Add(btnSuppliers);
             panel1.Controls.Add(btnDashboard);
             panel1.Controls.Add(pictureBox4);
-            panel1.Location = new Point(0, 5);
-            panel1.Margin = new Padding(2);
+            panel1.Location = new Point(0, 8);
             panel1.Name = "panel1";
-            panel1.Size = new Size(357, 657);
+            panel1.Size = new Size(506, 1095);
             panel1.TabIndex = 4;
             // 
             // btnLogout
             // 
             btnLogout.FlatStyle = FlatStyle.Flat;
-            btnLogout.Font = new Font("Times New Roman", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnLogout.Font = new Font("Times New Roman", 15F, FontStyle.Bold);
             btnLogout.ForeColor = Color.White;
-            btnLogout.Location = new Point(0, 613);
-            btnLogout.Margin = new Padding(2);
+            btnLogout.Location = new Point(0, 1012);
             btnLogout.Name = "btnLogout";
-            btnLogout.Size = new Size(354, 43);
+            btnLogout.Size = new Size(506, 72);
             btnLogout.TabIndex = 21;
             btnLogout.Text = "Logout";
             btnLogout.UseVisualStyleBackColor = true;
@@ -90,12 +89,11 @@
             // btnTransactions
             // 
             btnTransactions.FlatStyle = FlatStyle.Flat;
-            btnTransactions.Font = new Font("Times New Roman", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnTransactions.Font = new Font("Times New Roman", 15F, FontStyle.Bold);
             btnTransactions.ForeColor = Color.White;
-            btnTransactions.Location = new Point(0, 436);
-            btnTransactions.Margin = new Padding(2);
+            btnTransactions.Location = new Point(0, 727);
             btnTransactions.Name = "btnTransactions";
-            btnTransactions.Size = new Size(354, 43);
+            btnTransactions.Size = new Size(506, 72);
             btnTransactions.TabIndex = 20;
             btnTransactions.Text = "Transactions";
             btnTransactions.UseVisualStyleBackColor = true;
@@ -103,12 +101,11 @@
             // btnReports
             // 
             btnReports.FlatStyle = FlatStyle.Flat;
-            btnReports.Font = new Font("Times New Roman", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnReports.Font = new Font("Times New Roman", 15F, FontStyle.Bold);
             btnReports.ForeColor = Color.White;
-            btnReports.Location = new Point(0, 393);
-            btnReports.Margin = new Padding(2);
+            btnReports.Location = new Point(0, 655);
             btnReports.Name = "btnReports";
-            btnReports.Size = new Size(354, 43);
+            btnReports.Size = new Size(506, 72);
             btnReports.TabIndex = 19;
             btnReports.Text = "Reports";
             btnReports.UseVisualStyleBackColor = true;
@@ -116,12 +113,11 @@
             // btnPayments
             // 
             btnPayments.FlatStyle = FlatStyle.Flat;
-            btnPayments.Font = new Font("Times New Roman", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnPayments.Font = new Font("Times New Roman", 15F, FontStyle.Bold);
             btnPayments.ForeColor = Color.White;
-            btnPayments.Location = new Point(0, 350);
-            btnPayments.Margin = new Padding(2);
+            btnPayments.Location = new Point(0, 583);
             btnPayments.Name = "btnPayments";
-            btnPayments.Size = new Size(354, 43);
+            btnPayments.Size = new Size(506, 72);
             btnPayments.TabIndex = 18;
             btnPayments.Text = "Payments";
             btnPayments.UseVisualStyleBackColor = true;
@@ -129,12 +125,11 @@
             // btnSales
             // 
             btnSales.FlatStyle = FlatStyle.Flat;
-            btnSales.Font = new Font("Times New Roman", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnSales.Font = new Font("Times New Roman", 15F, FontStyle.Bold);
             btnSales.ForeColor = Color.White;
-            btnSales.Location = new Point(0, 308);
-            btnSales.Margin = new Padding(2);
+            btnSales.Location = new Point(0, 513);
             btnSales.Name = "btnSales";
-            btnSales.Size = new Size(354, 43);
+            btnSales.Size = new Size(506, 72);
             btnSales.TabIndex = 17;
             btnSales.Text = "Sales";
             btnSales.UseVisualStyleBackColor = true;
@@ -142,12 +137,11 @@
             // btnInventory
             // 
             btnInventory.FlatStyle = FlatStyle.Flat;
-            btnInventory.Font = new Font("Times New Roman", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnInventory.Font = new Font("Times New Roman", 15F, FontStyle.Bold);
             btnInventory.ForeColor = Color.White;
-            btnInventory.Location = new Point(0, 265);
-            btnInventory.Margin = new Padding(2);
+            btnInventory.Location = new Point(0, 442);
             btnInventory.Name = "btnInventory";
-            btnInventory.Size = new Size(354, 43);
+            btnInventory.Size = new Size(506, 72);
             btnInventory.TabIndex = 16;
             btnInventory.Text = "Inventory";
             btnInventory.UseVisualStyleBackColor = true;
@@ -155,12 +149,11 @@
             // btnProducts
             // 
             btnProducts.FlatStyle = FlatStyle.Flat;
-            btnProducts.Font = new Font("Times New Roman", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnProducts.Font = new Font("Times New Roman", 15F, FontStyle.Bold);
             btnProducts.ForeColor = Color.White;
-            btnProducts.Location = new Point(0, 223);
-            btnProducts.Margin = new Padding(2);
+            btnProducts.Location = new Point(0, 372);
             btnProducts.Name = "btnProducts";
-            btnProducts.Size = new Size(354, 43);
+            btnProducts.Size = new Size(506, 72);
             btnProducts.TabIndex = 15;
             btnProducts.Text = "Products";
             btnProducts.UseVisualStyleBackColor = true;
@@ -168,12 +161,11 @@
             // btnCategories
             // 
             btnCategories.FlatStyle = FlatStyle.Flat;
-            btnCategories.Font = new Font("Times New Roman", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnCategories.Font = new Font("Times New Roman", 15F, FontStyle.Bold);
             btnCategories.ForeColor = Color.White;
-            btnCategories.Location = new Point(0, 180);
-            btnCategories.Margin = new Padding(2);
+            btnCategories.Location = new Point(0, 300);
             btnCategories.Name = "btnCategories";
-            btnCategories.Size = new Size(354, 43);
+            btnCategories.Size = new Size(506, 72);
             btnCategories.TabIndex = 14;
             btnCategories.Text = "Categories";
             btnCategories.UseVisualStyleBackColor = true;
@@ -181,12 +173,11 @@
             // btnSuppliers
             // 
             btnSuppliers.FlatStyle = FlatStyle.Flat;
-            btnSuppliers.Font = new Font("Times New Roman", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnSuppliers.Font = new Font("Times New Roman", 15F, FontStyle.Bold);
             btnSuppliers.ForeColor = Color.White;
-            btnSuppliers.Location = new Point(0, 137);
-            btnSuppliers.Margin = new Padding(2);
+            btnSuppliers.Location = new Point(0, 228);
             btnSuppliers.Name = "btnSuppliers";
-            btnSuppliers.Size = new Size(354, 43);
+            btnSuppliers.Size = new Size(506, 72);
             btnSuppliers.TabIndex = 13;
             btnSuppliers.Text = "Suppliers";
             btnSuppliers.UseVisualStyleBackColor = true;
@@ -194,23 +185,22 @@
             // btnDashboard
             // 
             btnDashboard.FlatStyle = FlatStyle.Flat;
-            btnDashboard.Font = new Font("Times New Roman", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnDashboard.Font = new Font("Times New Roman", 15F, FontStyle.Bold);
             btnDashboard.ForeColor = Color.White;
-            btnDashboard.Location = new Point(0, 95);
-            btnDashboard.Margin = new Padding(2);
+            btnDashboard.Location = new Point(0, 158);
             btnDashboard.Name = "btnDashboard";
-            btnDashboard.Size = new Size(354, 43);
+            btnDashboard.Size = new Size(506, 72);
             btnDashboard.TabIndex = 12;
             btnDashboard.Text = "Dashboard";
             btnDashboard.UseVisualStyleBackColor = true;
+            btnDashboard.Click += btnDashboard_Click;
             // 
             // pictureBox4
             // 
             pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
-            pictureBox4.Location = new Point(88, 2);
-            pictureBox4.Margin = new Padding(2);
+            pictureBox4.Location = new Point(126, 3);
             pictureBox4.Name = "pictureBox4";
-            pictureBox4.Size = new Size(175, 85);
+            pictureBox4.Size = new Size(250, 142);
             pictureBox4.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox4.TabIndex = 11;
             pictureBox4.TabStop = false;
@@ -220,42 +210,47 @@
             label1.AutoSize = true;
             label1.Font = new Font("Times New Roman", 20F, FontStyle.Bold);
             label1.ForeColor = Color.Black;
-            label1.Location = new Point(422, 34);
-            label1.Margin = new Padding(2, 0, 2, 0);
+            label1.Location = new Point(576, 76);
             label1.Name = "label1";
-            label1.Size = new Size(219, 31);
+            label1.Size = new Size(320, 45);
             label1.TabIndex = 9;
             label1.Text = "Payment Records";
             // 
-            // dateTimePicker1
+            // dtpStart
             // 
-            dateTimePicker1.Location = new Point(422, 120);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(200, 23);
-            dateTimePicker1.TabIndex = 10;
+            dtpStart.Location = new Point(583, 277);
+            dtpStart.Margin = new Padding(4, 5, 4, 5);
+            dtpStart.Name = "dtpStart";
+            dtpStart.Size = new Size(376, 31);
+            dtpStart.TabIndex = 10;
             // 
-            // dateTimePicker2
+            // dtpEnd
             // 
-            dateTimePicker2.Location = new Point(732, 120);
-            dateTimePicker2.Name = "dateTimePicker2";
-            dateTimePicker2.Size = new Size(200, 23);
-            dateTimePicker2.TabIndex = 11;
+            dtpEnd.Location = new Point(1060, 275);
+            dtpEnd.Margin = new Padding(4, 5, 4, 5);
+            dtpEnd.Name = "dtpEnd";
+            dtpEnd.Size = new Size(416, 31);
+            dtpEnd.TabIndex = 11;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(422, 100);
+            label2.Font = new Font("Times New Roman", 12F, FontStyle.Bold);
+            label2.Location = new Point(583, 244);
+            label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
-            label2.Size = new Size(58, 15);
+            label2.Size = new Size(118, 26);
             label2.TabIndex = 12;
             label2.Text = "Start Date";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(732, 100);
+            label3.Font = new Font("Times New Roman", 12F, FontStyle.Bold);
+            label3.Location = new Point(1060, 244);
+            label3.Margin = new Padding(4, 0, 4, 0);
             label3.Name = "label3";
-            label3.Size = new Size(54, 15);
+            label3.Size = new Size(108, 26);
             label3.TabIndex = 13;
             label3.Text = "End Date";
             // 
@@ -264,24 +259,40 @@
             btnSearch.BackColor = Color.DodgerBlue;
             btnSearch.FlatStyle = FlatStyle.Flat;
             btnSearch.Font = new Font("Times New Roman", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnSearch.Location = new Point(1006, 111);
-            btnSearch.Margin = new Padding(2);
+            btnSearch.Location = new Point(1599, 244);
             btnSearch.Name = "btnSearch";
-            btnSearch.Size = new Size(103, 32);
+            btnSearch.Size = new Size(237, 64);
             btnSearch.TabIndex = 14;
             btnSearch.Text = "SEARCH";
             btnSearch.UseVisualStyleBackColor = false;
             // 
-            // dgvProducts
+            // dgvPayments
             // 
-            dgvProducts.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvProducts.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvProducts.Location = new Point(422, 170);
-            dgvProducts.Margin = new Padding(2);
-            dgvProducts.Name = "dgvProducts";
-            dgvProducts.RowHeadersWidth = 62;
-            dgvProducts.Size = new Size(882, 218);
-            dgvProducts.TabIndex = 24;
+            dgvPayments.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvPayments.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvPayments.Location = new Point(576, 444);
+            dgvPayments.Name = "dgvPayments";
+            dgvPayments.RowHeadersWidth = 62;
+            dgvPayments.Size = new Size(1260, 363);
+            dgvPayments.TabIndex = 24;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(571, 178);
+            label4.Name = "label4";
+            label4.Size = new Size(1265, 25);
+            label4.TabIndex = 25;
+            label4.Text = "___________________________________________________________________________________________________________________________________________________________________________________";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(576, 335);
+            label5.Name = "label5";
+            label5.Size = new Size(1265, 25);
+            label5.TabIndex = 26;
+            label5.Text = "___________________________________________________________________________________________________________________________________________________________________________________";
             // 
             // label10
             // 
@@ -295,25 +306,29 @@
             // 
             // AdminPayment
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LightBlue;
-            ClientSize = new Size(1199, 722);
-            Controls.Add(label10);
-            Controls.Add(dgvProducts);
+            ClientSize = new Size(1918, 1094);
+            Controls.Add(label5);
+            Controls.Add(label4);
+            Controls.Add(dgvPayments);
             Controls.Add(btnSearch);
             Controls.Add(label3);
             Controls.Add(label2);
-            Controls.Add(dateTimePicker2);
-            Controls.Add(dateTimePicker1);
+            Controls.Add(dtpEnd);
+            Controls.Add(dtpStart);
             Controls.Add(label1);
             Controls.Add(panel1);
+            Margin = new Padding(4, 5, 4, 5);
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "AdminPayment";
             Text = "AdminPayment";
             Load += AdminPayment_Load;
             panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dgvProducts).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvPayments).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -333,12 +348,13 @@
         private Button btnDashboard;
         private PictureBox pictureBox4;
         private Label label1;
-        private DateTimePicker dateTimePicker1;
-        private DateTimePicker dateTimePicker2;
+        private DateTimePicker dtpStart;
+        private DateTimePicker dtpEnd;
         private Label label2;
         private Label label3;
         private Button btnSearch;
-        private DataGridView dgvProducts;
-        private Label label10;
+        private DataGridView dgvPayments;
+        private Label label4;
+        private Label label5;
     }
 }

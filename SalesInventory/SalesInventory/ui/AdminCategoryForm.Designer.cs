@@ -122,7 +122,7 @@
             btnPaymensts.FlatStyle = FlatStyle.Flat;
             btnPaymensts.Font = new Font("Times New Roman", 15F, FontStyle.Bold);
             btnPaymensts.ForeColor = Color.White;
-            btnPaymensts.Location = new Point(0, 604);
+            btnPaymensts.Location = new Point(0, 533);
             btnPaymensts.Name = "btnPaymensts";
             btnPaymensts.Size = new Size(505, 71);
             btnPaymensts.TabIndex = 18;
@@ -134,7 +134,7 @@
             btnSales.FlatStyle = FlatStyle.Flat;
             btnSales.Font = new Font("Times New Roman", 15F, FontStyle.Bold);
             btnSales.ForeColor = Color.White;
-            btnSales.Location = new Point(0, 533);
+            btnSales.Location = new Point(0, 604);
             btnSales.Name = "btnSales";
             btnSales.Size = new Size(505, 71);
             btnSales.TabIndex = 17;
@@ -146,7 +146,7 @@
             btnInventory.FlatStyle = FlatStyle.Flat;
             btnInventory.Font = new Font("Times New Roman", 15F, FontStyle.Bold);
             btnInventory.ForeColor = Color.White;
-            btnInventory.Location = new Point(0, 391);
+            btnInventory.Location = new Point(0, 462);
             btnInventory.Name = "btnInventory";
             btnInventory.Size = new Size(505, 71);
             btnInventory.TabIndex = 16;
@@ -158,7 +158,7 @@
             btnProducts.FlatStyle = FlatStyle.Flat;
             btnProducts.Font = new Font("Times New Roman", 15F, FontStyle.Bold);
             btnProducts.ForeColor = Color.White;
-            btnProducts.Location = new Point(0, 462);
+            btnProducts.Location = new Point(0, 391);
             btnProducts.Name = "btnProducts";
             btnProducts.Size = new Size(505, 71);
             btnProducts.TabIndex = 15;
@@ -365,6 +365,7 @@
             // 
             // dgvCategories
             // 
+            dgvCategories.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvCategories.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvCategories.Location = new Point(593, 518);
             dgvCategories.Name = "dgvCategories";
