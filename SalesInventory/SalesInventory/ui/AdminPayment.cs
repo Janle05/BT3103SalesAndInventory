@@ -15,7 +15,6 @@ namespace SalesInventory.ui
             NavHelper.Wire(this, "Payments");
             GridHelper.Apply(dgvPayments);
 
-            // Default: huling 30 araw hanggang ngayon
             dtpStart.Value = DateTime.Today.AddDays(-30);
             dtpEnd.Value = DateTime.Today;
 

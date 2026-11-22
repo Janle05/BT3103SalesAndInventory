@@ -47,6 +47,9 @@ namespace SalesInventory.ui
             cmbStatus.Items.Add("Active");
             cmbStatus.Items.Add("Inactive");
             cmbStatus.SelectedIndex = 0;
+
+            FormHelper.ShowStatus(this, cmbStatus, false);
+
         }
 
         private void LoadSuppliers()
@@ -81,6 +84,12 @@ namespace SalesInventory.ui
                 cmbStatus.SelectedIndex = 0;
 
             dgvSuppliers.ClearSelection();
+
+
+            FormHelper.ShowStatus(this, cmbStatus, false);   // BAGO
+
+            dgvSuppliers.ClearSelection();
+
         }
 
         private Supplier ReadForm()
@@ -93,7 +102,7 @@ namespace SalesInventory.ui
                 PhoneNumber = txtPhone.Text.Trim(),
                 EmailAddress = txtEmail.Text.Trim(),
                 PhysicalAddress = txtAddress.Text.Trim(),
-                Status = cmbStatus.Text
+                Status = selectedSupplierID == 0 ? "Active" : cmbStatus.Text
             };
         }
 
@@ -117,6 +126,8 @@ namespace SalesInventory.ui
 
                 if (cmbStatus.Items.Contains(status))
                     cmbStatus.SelectedItem = status;
+
+                FormHelper.ShowStatus(this, cmbStatus, true);
             }
             catch (Exception ex)
             {

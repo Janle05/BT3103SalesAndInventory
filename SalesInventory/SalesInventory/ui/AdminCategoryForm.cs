@@ -21,7 +21,7 @@ namespace SalesInventory.ui
             ConfigureControls();
             LoadCategories();
 
-            // "-=" muna bago "+=" para hindi tumakbo ng dalawang beses
+
             btnAdd.Click -= btnAdd_Click;
             btnAdd.Click += btnAdd_Click;
 
@@ -41,7 +41,7 @@ namespace SalesInventory.ui
             dgvCategories.CellClick += dgvCategories_CellClick;
         }
 
-        // Dati ay walang laman ang Status dropdown, kaya inayos ito dito
+
         private void ConfigureControls()
         {
             cmbStatus.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -49,6 +49,8 @@ namespace SalesInventory.ui
             cmbStatus.Items.Add("Active");
             cmbStatus.Items.Add("Inactive");
             cmbStatus.SelectedIndex = 0;
+
+            FormHelper.ShowStatus(this, cmbStatus, false);
         }
 
         private void LoadCategories()
@@ -80,6 +82,8 @@ namespace SalesInventory.ui
                 cmbStatus.SelectedIndex = 0;
 
             dgvCategories.ClearSelection();
+
+            FormHelper.ShowStatus(this, cmbStatus, false);
         }
 
         private void SelectCategoryRow(int rowIndex)
@@ -97,6 +101,8 @@ namespace SalesInventory.ui
 
             if (cmbStatus.Items.Contains(status))
                 cmbStatus.SelectedItem = status;
+
+            FormHelper.ShowStatus(this, cmbStatus, true);
         }
 
         private void dgvCategories_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -123,7 +129,7 @@ namespace SalesInventory.ui
                 {
                     CategoryName = txtCategory.Text.Trim(),
                     Description = txtDescription.Text.Trim(),
-                    Status = string.IsNullOrWhiteSpace(cmbStatus.Text) ? "Active" : cmbStatus.Text
+                    Status = "Active"
                 };
 
                 categoryService.AddCategory(category);
@@ -218,8 +224,7 @@ namespace SalesInventory.ui
             }
         }
 
-        // DELETE = i-deactivate lang (hindi binubura) para hindi mag-error
-        // kapag may Products na gumagamit ng category.
+
         private void btnDelete_Click(object sender, EventArgs e)
         {
             try
@@ -307,7 +312,7 @@ namespace SalesInventory.ui
             }
         }
 
-        
+
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e) { }
         private void btnCategories_Click(object sender, EventArgs e) { }
         private void btnDashBoard_Click(object sender, EventArgs e) { }
@@ -319,5 +324,7 @@ namespace SalesInventory.ui
         {
             SelectCategoryRow(e.RowIndex);
         }
+
+       
     }
 }

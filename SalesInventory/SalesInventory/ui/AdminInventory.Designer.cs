@@ -31,7 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InventoryManagement));
             panel1 = new Panel();
             btnLogout = new Button();
-            btnTransactions = new Button();
             btnReports = new Button();
             btnPayments = new Button();
             btnSales = new Button();
@@ -58,7 +57,6 @@
             // 
             panel1.BackColor = Color.MidnightBlue;
             panel1.Controls.Add(btnLogout);
-            panel1.Controls.Add(btnTransactions);
             panel1.Controls.Add(btnReports);
             panel1.Controls.Add(btnPayments);
             panel1.Controls.Add(btnSales);
@@ -84,18 +82,6 @@
             btnLogout.TabIndex = 21;
             btnLogout.Text = "Logout";
             btnLogout.UseVisualStyleBackColor = true;
-            // 
-            // btnTransactions
-            // 
-            btnTransactions.FlatStyle = FlatStyle.Flat;
-            btnTransactions.Font = new Font("Times New Roman", 15F, FontStyle.Bold);
-            btnTransactions.ForeColor = Color.White;
-            btnTransactions.Location = new Point(0, 727);
-            btnTransactions.Name = "btnTransactions";
-            btnTransactions.Size = new Size(506, 72);
-            btnTransactions.TabIndex = 20;
-            btnTransactions.Text = "Transactions";
-            btnTransactions.UseVisualStyleBackColor = true;
             // 
             // btnReports
             // 
@@ -324,7 +310,6 @@
 
         private Panel panel1;
         private Button btnLogout;
-        private Button btnTransactions;
         private Button btnReports;
         private Button btnPayments;
         private Button btnSales;

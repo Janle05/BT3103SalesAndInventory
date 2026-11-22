@@ -28,30 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
-            textBox1 = new TextBox();
+            txtReceipt = new TextBox();
             btnPrint = new Button();
             btnClose = new Button();
             SuspendLayout();
             // 
-            // textBox1
+            // txtReceipt
             // 
-            textBox1.Font = new Font("Consolas", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox1.Location = new Point(12, 12);
-            textBox1.Multiline = true;
-            textBox1.Name = "textBox1";
-            textBox1.ReadOnly = true;
-            textBox1.ScrollBars = ScrollBars.Vertical;
-            textBox1.Size = new Size(396, 452);
-            textBox1.TabIndex = 0;
+            txtReceipt.Font = new Font("Consolas", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtReceipt.Location = new Point(17, 20);
+            txtReceipt.Margin = new Padding(4, 5, 4, 5);
+            txtReceipt.Multiline = true;
+            txtReceipt.Name = "txtReceipt";
+            txtReceipt.ReadOnly = true;
+            txtReceipt.ScrollBars = ScrollBars.Vertical;
+            txtReceipt.Size = new Size(564, 751);
+            txtReceipt.TabIndex = 0;
             // 
             // btnPrint
             // 
             btnPrint.BackColor = Color.Blue;
             btnPrint.FlatStyle = FlatStyle.Flat;
+            btnPrint.Font = new Font("Times New Roman", 10F);
             btnPrint.ForeColor = Color.White;
-            btnPrint.Location = new Point(12, 484);
+            btnPrint.Location = new Point(17, 807);
+            btnPrint.Margin = new Padding(4, 5, 4, 5);
             btnPrint.Name = "btnPrint";
-            btnPrint.Size = new Size(157, 55);
+            btnPrint.Size = new Size(224, 77);
             btnPrint.TabIndex = 1;
             btnPrint.Text = "PRINT";
             btnPrint.UseVisualStyleBackColor = false;
@@ -60,24 +63,27 @@
             // 
             btnClose.BackColor = Color.Gray;
             btnClose.FlatStyle = FlatStyle.Flat;
+            btnClose.Font = new Font("Times New Roman", 10F);
             btnClose.ForeColor = Color.White;
-            btnClose.Location = new Point(251, 484);
+            btnClose.Location = new Point(359, 807);
+            btnClose.Margin = new Padding(4, 5, 4, 5);
             btnClose.Name = "btnClose";
-            btnClose.Size = new Size(157, 55);
+            btnClose.Size = new Size(224, 77);
             btnClose.TabIndex = 2;
             btnClose.Text = "CLOSE";
             btnClose.UseVisualStyleBackColor = false;
             // 
             // ReceiptForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LightBlue;
-            ClientSize = new Size(420, 600);
+            ClientSize = new Size(600, 1000);
             Controls.Add(btnClose);
             Controls.Add(btnPrint);
-            Controls.Add(textBox1);
+            Controls.Add(txtReceipt);
             FormBorderStyle = FormBorderStyle.FixedDialog;
+            Margin = new Padding(4, 5, 4, 5);
             Name = "ReceiptForm";
             StartPosition = FormStartPosition.CenterParent;
             Text = "ReceiptForm";
@@ -87,7 +93,7 @@
 
         #endregion
 
-        private TextBox textBox1;
+        private TextBox txtReceipt;
         private Button btnPrint;
         private Button btnClose;
     }

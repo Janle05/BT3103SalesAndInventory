@@ -19,10 +19,7 @@ namespace SalesInventory.ui
             NavHelper.Wire(this, "Inventory");
             GridHelper.Apply(dgvInventory);
 
-            // Ang tatlong button sa baba ay may bago nang gamit:
-            //   ADD    -> STOCK IN   (dagdag stock)
-            //   UPDATE -> SET COUNT  (itakda ang eksaktong bilang)
-            //   DELETE -> STOCK OUT  (bawas stock)
+            
             btnAdd.Text = "STOCK IN";
             btnUpdate.Text = "SET COUNT";
             btnDelete.Text = "STOCK OUT";
@@ -59,7 +56,6 @@ namespace SalesInventory.ui
             }
         }
 
-        // Kulayan ang row: pula = Out of Stock, dilaw = Low Stock
         private void dgvInventory_DataBindingComplete(object? sender, DataGridViewBindingCompleteEventArgs e)
         {
             foreach (DataGridViewRow row in dgvInventory.Rows)
@@ -110,7 +106,7 @@ namespace SalesInventory.ui
             return true;
         }
 
-        // STOCK IN
+        
         private void btnStockIn_Click(object? sender, EventArgs e)
         {
             if (!HasSelection())
@@ -146,7 +142,7 @@ namespace SalesInventory.ui
             }
         }
 
-        // STOCK OUT
+       
         private void btnStockOut_Click(object? sender, EventArgs e)
         {
             if (!HasSelection())
@@ -193,7 +189,7 @@ namespace SalesInventory.ui
             }
         }
 
-        // SET COUNT (physical count)
+      
         private void btnSetCount_Click(object? sender, EventArgs e)
         {
             if (!HasSelection())

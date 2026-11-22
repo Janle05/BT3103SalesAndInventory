@@ -34,18 +34,6 @@
     <Compile Update="ui\AdminInventory.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="ui\CashierPayment#12.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="ui\CashierPayment.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="ui\CashierProductSearch.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="ui\CashierSales.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Update="ui\CashierSalesForm.cs">
       <SubType>Form</SubType>
     </Compile>

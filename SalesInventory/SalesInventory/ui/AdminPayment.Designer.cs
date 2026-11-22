@@ -31,7 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminPayment));
             panel1 = new Panel();
             btnLogout = new Button();
-            btnTransactions = new Button();
             btnReports = new Button();
             btnPayments = new Button();
             btnSales = new Button();
@@ -59,7 +58,6 @@
             // 
             panel1.BackColor = Color.MidnightBlue;
             panel1.Controls.Add(btnLogout);
-            panel1.Controls.Add(btnTransactions);
             panel1.Controls.Add(btnReports);
             panel1.Controls.Add(btnPayments);
             panel1.Controls.Add(btnSales);
@@ -85,18 +83,6 @@
             btnLogout.TabIndex = 21;
             btnLogout.Text = "Logout";
             btnLogout.UseVisualStyleBackColor = true;
-            // 
-            // btnTransactions
-            // 
-            btnTransactions.FlatStyle = FlatStyle.Flat;
-            btnTransactions.Font = new Font("Times New Roman", 15F, FontStyle.Bold);
-            btnTransactions.ForeColor = Color.White;
-            btnTransactions.Location = new Point(0, 727);
-            btnTransactions.Name = "btnTransactions";
-            btnTransactions.Size = new Size(506, 72);
-            btnTransactions.TabIndex = 20;
-            btnTransactions.Text = "Transactions";
-            btnTransactions.UseVisualStyleBackColor = true;
             // 
             // btnReports
             // 
@@ -294,16 +280,6 @@
             label5.TabIndex = 26;
             label5.Text = "___________________________________________________________________________________________________________________________________________________________________________________";
             // 
-            // label10
-            // 
-            label10.AutoSize = true;
-            label10.ForeColor = Color.Black;
-            label10.Location = new Point(422, 77);
-            label10.Name = "label10";
-            label10.Size = new Size(902, 15);
-            label10.TabIndex = 52;
-            label10.Text = "___________________________________________________________________________________________________________________________________________________________________________________";
-            // 
             // AdminPayment
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
@@ -337,7 +313,6 @@
 
         private Panel panel1;
         private Button btnLogout;
-        private Button btnTransactions;
         private Button btnReports;
         private Button btnPayments;
         private Button btnSales;

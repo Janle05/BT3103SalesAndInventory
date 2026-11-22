@@ -8,7 +8,7 @@
         private static readonly string[] Pages =
         {
             "Dashboard", "Suppliers", "Categories", "Products", "Inventory",
-            "Payments", "Sales", "Reports", "Transactions", "Logout"
+            "Payments", "Sales", "Reports", "Logout"
         };
 
        
@@ -32,16 +32,14 @@
                     continue;
                 }
 
-                // Ang "Transactions" ay bubukas sa Sales Transactions form.
-                string target = text.Equals("Transactions", StringComparison.OrdinalIgnoreCase)
-                    ? "Sales"
-                    : text;
+                
+                string target = text;
 
                 btn.Click += (s, e) =>
                 {
                     if (target.Equals(currentPage, StringComparison.OrdinalIgnoreCase))
                     {
-                        return; // nandito ka na sa page na yan
+                        return;
                     }
 
                     Go(form, target);

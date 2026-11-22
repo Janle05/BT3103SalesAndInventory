@@ -15,7 +15,7 @@ namespace SalesInventory.ui
             NavHelper.Wire(this, "Dashboard");
             GridHelper.Apply(dgvLowStock);
 
-          
+
             this.Load -= AdminDashboard_Load;
             this.Load += AdminDashboard_Load;
         }
@@ -23,7 +23,6 @@ namespace SalesInventory.ui
         private void AdminDashboard_Load(object sender, EventArgs e)
         {
             LoadWelcome();
-            LoadStats();
             LoadLowStock();
         }
 
@@ -36,26 +35,7 @@ namespace SalesInventory.ui
             lblRole.Text = role;
         }
 
-        private void LoadStats()
-        {
-            try
-            {
-                DashboardStats stats = productService.GetDashboardStats();
-
-                lblTotalProducts.Text = stats.TotalProducts.ToString("N0");
-                lblTotalStocks.Text = stats.TotalStocks.ToString("N0");
-                lblLowStocks.Text = stats.LowStocks.ToString("N0");
-                lblOutOfStocks.Text = stats.OutOfStocks.ToString("N0");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(
-                    "Error loading dashboard:\n" + ex.Message,
-                    "Error",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
-            }
-        }
+        
 
         private void LoadLowStock()
         {
@@ -82,12 +62,9 @@ namespace SalesInventory.ui
         private void btnPayments_Click(object sender, EventArgs e) { }
         private void btnReports_Click(object sender, EventArgs e) { }
 
-        private void lblTotalStocks_Click(object sender, EventArgs e)
-        {
+        
 
-        }
-
-        private void lblTotalProducts_Click(object sender, EventArgs e)
+        private void dgvLowStock_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }

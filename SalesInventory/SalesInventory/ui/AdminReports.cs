@@ -62,8 +62,6 @@ namespace SalesInventory.ui
             GenerateReport(true);
         }
 
-        // WALA NANG LAMAN (NavHelper na ang gumagawa). HUWAG BURAHIN:
-        // baka naka-wire sa .Designer.cs.
         private void btnDashboard_Click(object sender, EventArgs e) { }
     }
 }

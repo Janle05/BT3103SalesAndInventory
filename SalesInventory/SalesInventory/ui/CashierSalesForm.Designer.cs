@@ -29,34 +29,42 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CashierSalesForm));
+            pictureBox4 = new PictureBox();
             panel1 = new Panel();
             btnLogout = new Button();
             btnMySales = new Button();
-            pictureBox4 = new PictureBox();
             btnNewSale = new Button();
-            label4 = new Label();
             label1 = new Label();
-            pictureBox1 = new PictureBox();
-            label2 = new Label();
-            label3 = new Label();
-            label5 = new Label();
+            lblWelcome = new Label();
+            lblRole = new Label();
             dtpStart = new DateTimePicker();
+            label2 = new Label();
             dtpEnd = new DateTimePicker();
+            label3 = new Label();
             btnSearch = new Button();
             dgvMySales = new DataGridView();
             btnViewReceipt = new Button();
-            pnlSummary = new Panel();
-            label7 = new Label();
-            label6 = new Label();
+            flowLayoutPanel1 = new FlowLayoutPanel();
+            label4 = new Label();
+            label5 = new Label();
             lblTotalSales = new Label();
-            label8 = new Label();
+            label6 = new Label();
             lblTotalTransactions = new Label();
-            panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvMySales).BeginInit();
-            pnlSummary.SuspendLayout();
+            flowLayoutPanel1.SuspendLayout();
             SuspendLayout();
+            // 
+            // pictureBox4
+            // 
+            pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
+            pictureBox4.Location = new Point(112, 10);
+            pictureBox4.Name = "pictureBox4";
+            pictureBox4.Size = new Size(241, 155);
+            pictureBox4.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox4.TabIndex = 11;
+            pictureBox4.TabStop = false;
             // 
             // panel1
             // 
@@ -65,10 +73,9 @@
             panel1.Controls.Add(btnMySales);
             panel1.Controls.Add(pictureBox4);
             panel1.Controls.Add(btnNewSale);
-            panel1.Location = new Point(1, 1);
-            panel1.Margin = new Padding(2);
+            panel1.Location = new Point(2, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(351, 1067);
+            panel1.Size = new Size(532, 1089);
             panel1.TabIndex = 2;
             // 
             // btnLogout
@@ -76,10 +83,9 @@
             btnLogout.FlatStyle = FlatStyle.Flat;
             btnLogout.Font = new Font("Times New Roman", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnLogout.ForeColor = Color.White;
-            btnLogout.Location = new Point(12, 956);
-            btnLogout.Margin = new Padding(2);
+            btnLogout.Location = new Point(47, 927);
             btnLogout.Name = "btnLogout";
-            btnLogout.Size = new Size(319, 79);
+            btnLogout.Size = new Size(430, 96);
             btnLogout.TabIndex = 23;
             btnLogout.Text = "Logout";
             btnLogout.UseVisualStyleBackColor = true;
@@ -89,272 +95,243 @@
             btnMySales.FlatStyle = FlatStyle.Flat;
             btnMySales.Font = new Font("Times New Roman", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnMySales.ForeColor = Color.White;
-            btnMySales.Location = new Point(12, 354);
-            btnMySales.Margin = new Padding(2);
+            btnMySales.Location = new Point(47, 407);
             btnMySales.Name = "btnMySales";
-            btnMySales.Size = new Size(319, 79);
+            btnMySales.Size = new Size(430, 96);
             btnMySales.TabIndex = 22;
             btnMySales.Text = "My Sales";
             btnMySales.UseVisualStyleBackColor = true;
-            // 
-            // pictureBox4
-            // 
-            pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
-            pictureBox4.Location = new Point(47, 10);
-            pictureBox4.Margin = new Padding(2);
-            pictureBox4.Name = "pictureBox4";
-            pictureBox4.Size = new Size(249, 135);
-            pictureBox4.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox4.TabIndex = 11;
-            pictureBox4.TabStop = false;
             // 
             // btnNewSale
             // 
             btnNewSale.FlatStyle = FlatStyle.Flat;
             btnNewSale.Font = new Font("Times New Roman", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnNewSale.ForeColor = Color.White;
-            btnNewSale.Location = new Point(12, 222);
-            btnNewSale.Margin = new Padding(2);
+            btnNewSale.Location = new Point(47, 228);
             btnNewSale.Name = "btnNewSale";
-            btnNewSale.Size = new Size(319, 79);
+            btnNewSale.Size = new Size(430, 96);
             btnNewSale.TabIndex = 12;
             btnNewSale.Text = "New Sale";
             btnNewSale.UseVisualStyleBackColor = true;
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Monotype Corsiva", 15F, FontStyle.Bold | FontStyle.Italic);
-            label4.ForeColor = Color.MidnightBlue;
-            label4.Location = new Point(391, 21);
-            label4.Margin = new Padding(2, 0, 2, 0);
-            label4.Name = "label4";
-            label4.Size = new Size(129, 24);
-            label4.TabIndex = 10;
-            label4.Text = "Hello, Cashier!";
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Times New Roman", 20F, FontStyle.Bold);
-            label1.Location = new Point(385, 51);
-            label1.Margin = new Padding(2, 0, 2, 0);
+            label1.Location = new Point(606, 84);
             label1.Name = "label1";
-            label1.Size = new Size(119, 31);
-            label1.TabIndex = 19;
-            label1.Text = "My Sales";
+            label1.Size = new Size(349, 45);
+            label1.TabIndex = 20;
+            label1.Text = "POINT OF SALES";
+        
             // 
-            // pictureBox1
+            // lblWelcome
             // 
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(1725, 2);
-            pictureBox1.Margin = new Padding(2);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(94, 80);
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox1.TabIndex = 33;
-            pictureBox1.TabStop = false;
+            lblWelcome.AutoSize = true;
+            lblWelcome.Font = new Font("Monotype Corsiva", 15F, FontStyle.Bold | FontStyle.Italic);
+            lblWelcome.ForeColor = Color.MidnightBlue;
+            lblWelcome.Location = new Point(615, 34);
+            lblWelcome.Name = "lblWelcome";
+            lblWelcome.Size = new Size(204, 37);
+            lblWelcome.TabIndex = 19;
+            lblWelcome.Text = "Hello, Welcome!";
+            // 
+            // lblRole
+            // 
+            lblRole.AutoSize = true;
+            lblRole.Font = new Font("Times New Roman", 15F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblRole.ForeColor = Color.MidnightBlue;
+            lblRole.Location = new Point(1709, 37);
+            lblRole.Name = "lblRole";
+            lblRole.Size = new Size(104, 34);
+            lblRole.TabIndex = 21;
+            lblRole.Text = "Cashier";
+            // 
+            // dtpStart
+            // 
+            dtpStart.Location = new Point(615, 228);
+            dtpStart.Name = "dtpStart";
+            dtpStart.Size = new Size(259, 31);
+            dtpStart.TabIndex = 22;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Times New Roman", 15F);
-            label2.ForeColor = Color.MidnightBlue;
-            label2.Location = new Point(1640, 23);
-            label2.Margin = new Padding(2, 0, 2, 0);
+            label2.Font = new Font("Times New Roman", 11F);
+            label2.Location = new Point(615, 191);
             label2.Name = "label2";
-            label2.Size = new Size(71, 22);
-            label2.TabIndex = 32;
-            label2.Text = "Cashier";
+            label2.Size = new Size(101, 25);
+            label2.TabIndex = 23;
+            label2.Text = "Start Date";
+            // 
+            // dtpEnd
+            // 
+            dtpEnd.Location = new Point(892, 228);
+            dtpEnd.Name = "dtpEnd";
+            dtpEnd.Size = new Size(259, 31);
+            dtpEnd.TabIndex = 24;
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label3.Location = new Point(442, 121);
+            label3.Font = new Font("Times New Roman", 11F);
+            label3.Location = new Point(892, 191);
             label3.Name = "label3";
-            label3.Size = new Size(76, 20);
-            label3.TabIndex = 34;
-            label3.Text = "Start Date";
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label5.Location = new Point(748, 121);
-            label5.Name = "label5";
-            label5.Size = new Size(70, 20);
-            label5.TabIndex = 35;
-            label5.Text = "End Date";
-            // 
-            // dtpStart
-            // 
-            dtpStart.Location = new Point(442, 144);
-            dtpStart.Name = "dtpStart";
-            dtpStart.Size = new Size(200, 23);
-            dtpStart.TabIndex = 36;
-            // 
-            // dtpEnd
-            // 
-            dtpEnd.Location = new Point(748, 144);
-            dtpEnd.Name = "dtpEnd";
-            dtpEnd.Size = new Size(200, 23);
-            dtpEnd.TabIndex = 37;
+            label3.Size = new Size(94, 25);
+            label3.TabIndex = 25;
+            label3.Text = "End Date";
             // 
             // btnSearch
             // 
             btnSearch.BackColor = Color.DodgerBlue;
             btnSearch.FlatStyle = FlatStyle.Flat;
-            btnSearch.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnSearch.ForeColor = Color.White;
-            btnSearch.Location = new Point(1019, 135);
+            btnSearch.Font = new Font("Times New Roman", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnSearch.Location = new Point(1170, 216);
             btnSearch.Name = "btnSearch";
-            btnSearch.Size = new Size(119, 32);
-            btnSearch.TabIndex = 38;
+            btnSearch.Size = new Size(128, 43);
+            btnSearch.TabIndex = 26;
             btnSearch.Text = "SEARCH";
             btnSearch.UseVisualStyleBackColor = false;
             // 
             // dgvMySales
             // 
             dgvMySales.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvMySales.Location = new Point(385, 190);
+            dgvMySales.Location = new Point(615, 307);
             dgvMySales.Name = "dgvMySales";
-            dgvMySales.Size = new Size(753, 602);
-            dgvMySales.TabIndex = 39;
+            dgvMySales.RowHeadersWidth = 62;
+            dgvMySales.Size = new Size(763, 543);
+            dgvMySales.TabIndex = 27;
             // 
             // btnViewReceipt
             // 
-            btnViewReceipt.BackColor = Color.Blue;
-            btnViewReceipt.FlatStyle = FlatStyle.Popup;
-            btnViewReceipt.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnViewReceipt.ForeColor = Color.White;
-            btnViewReceipt.Location = new Point(391, 835);
+            btnViewReceipt.BackColor = Color.RoyalBlue;
+            btnViewReceipt.FlatStyle = FlatStyle.Flat;
+            btnViewReceipt.Font = new Font("Times New Roman", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnViewReceipt.Location = new Point(606, 894);
             btnViewReceipt.Name = "btnViewReceipt";
-            btnViewReceipt.Size = new Size(151, 50);
-            btnViewReceipt.TabIndex = 40;
+            btnViewReceipt.Size = new Size(233, 43);
+            btnViewReceipt.TabIndex = 28;
             btnViewReceipt.Text = "VIEW RECEIPT";
             btnViewReceipt.UseVisualStyleBackColor = false;
             // 
-            // pnlSummary
+            // flowLayoutPanel1
             // 
-            pnlSummary.BackColor = Color.CadetBlue;
-            pnlSummary.Controls.Add(lblTotalTransactions);
-            pnlSummary.Controls.Add(label8);
-            pnlSummary.Controls.Add(lblTotalSales);
-            pnlSummary.Controls.Add(label7);
-            pnlSummary.Controls.Add(label6);
-            pnlSummary.Location = new Point(1192, 190);
-            pnlSummary.Name = "pnlSummary";
-            pnlSummary.Size = new Size(409, 366);
-            pnlSummary.TabIndex = 41;
+            flowLayoutPanel1.BackColor = Color.LightGoldenrodYellow;
+            flowLayoutPanel1.Controls.Add(label4);
+            flowLayoutPanel1.Location = new Point(1453, 344);
+            flowLayoutPanel1.Name = "flowLayoutPanel1";
+            flowLayoutPanel1.Size = new Size(411, 470);
+            flowLayoutPanel1.TabIndex = 29;
             // 
-            // label7
+            // label4
             // 
-            label7.AutoSize = true;
-            label7.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label7.Location = new Point(38, 114);
-            label7.Name = "label7";
-            label7.Size = new Size(83, 20);
-            label7.TabIndex = 1;
-            label7.Text = "Total Sales";
+            label4.AutoSize = true;
+            label4.Font = new Font("Times New Roman", 20F, FontStyle.Bold);
+            label4.Location = new Point(3, 0);
+            label4.Name = "label4";
+            label4.Size = new Size(233, 45);
+            label4.TabIndex = 30;
+            label4.Text = "SUMMARY";
             // 
-            // label6
+            // label5
             // 
-            label6.AutoSize = true;
-            label6.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label6.Location = new Point(38, 33);
-            label6.Name = "label6";
-            label6.Size = new Size(107, 30);
-            label6.TabIndex = 0;
-            label6.Text = "Summary";
+            label5.AutoSize = true;
+            label5.BackColor = Color.LightGoldenrodYellow;
+            label5.Font = new Font("Times New Roman", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label5.Location = new Point(1470, 406);
+            label5.Name = "label5";
+            label5.Size = new Size(151, 32);
+            label5.TabIndex = 31;
+            label5.Text = "Total Sales:";
             // 
             // lblTotalSales
             // 
             lblTotalSales.AutoSize = true;
-            lblTotalSales.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblTotalSales.ForeColor = Color.White;
-            lblTotalSales.Location = new Point(38, 134);
+            lblTotalSales.BackColor = Color.LightGoldenrodYellow;
+            lblTotalSales.Font = new Font("Times New Roman", 18F, FontStyle.Bold);
+            lblTotalSales.Location = new Point(1569, 467);
             lblTotalSales.Name = "lblTotalSales";
-            lblTotalSales.Size = new Size(113, 32);
-            lblTotalSales.TabIndex = 2;
+            lblTotalSales.Size = new Size(148, 41);
+            lblTotalSales.TabIndex = 32;
             lblTotalSales.Text = "₱ 655.00";
             // 
-            // label8
+            // label6
             // 
-            label8.AutoSize = true;
-            label8.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label8.Location = new Point(38, 224);
-            label8.Name = "label8";
-            label8.Size = new Size(136, 20);
-            label8.TabIndex = 3;
-            label8.Text = "Total Transactions";
+            label6.AutoSize = true;
+            label6.BackColor = Color.LightGoldenrodYellow;
+            label6.Font = new Font("Times New Roman", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label6.Location = new Point(1471, 560);
+            label6.Name = "label6";
+            label6.Size = new Size(242, 32);
+            label6.TabIndex = 33;
+            label6.Text = "Total Transactions:";
             // 
             // lblTotalTransactions
             // 
             lblTotalTransactions.AutoSize = true;
-            lblTotalTransactions.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblTotalTransactions.ForeColor = Color.White;
-            lblTotalTransactions.Location = new Point(38, 244);
+            lblTotalTransactions.BackColor = Color.LightGoldenrodYellow;
+            lblTotalTransactions.Font = new Font("Times New Roman", 18F, FontStyle.Bold);
+            lblTotalTransactions.Location = new Point(1584, 625);
             lblTotalTransactions.Name = "lblTotalTransactions";
-            lblTotalTransactions.Size = new Size(28, 32);
-            lblTotalTransactions.TabIndex = 4;
+            lblTotalTransactions.Size = new Size(36, 41);
+            lblTotalTransactions.TabIndex = 34;
             lblTotalTransactions.Text = "4";
             // 
             // CashierSalesForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LightBlue;
-            ClientSize = new Size(1924, 1061);
-            Controls.Add(pnlSummary);
+            ClientSize = new Size(1918, 1094);
+            Controls.Add(lblTotalTransactions);
+            Controls.Add(label6);
+            Controls.Add(lblTotalSales);
             Controls.Add(btnViewReceipt);
+            Controls.Add(label5);
             Controls.Add(dgvMySales);
             Controls.Add(btnSearch);
-            Controls.Add(dtpEnd);
-            Controls.Add(dtpStart);
-            Controls.Add(label5);
             Controls.Add(label3);
-            Controls.Add(pictureBox1);
+            Controls.Add(dtpEnd);
             Controls.Add(label2);
+            Controls.Add(dtpStart);
+            Controls.Add(lblRole);
             Controls.Add(label1);
-            Controls.Add(label4);
+            Controls.Add(lblWelcome);
             Controls.Add(panel1);
+            Controls.Add(flowLayoutPanel1);
             Name = "CashierSalesForm";
-            StartPosition = FormStartPosition.CenterScreen;
             Text = "CashierSalesForm";
-            panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dgvMySales).EndInit();
-            pnlSummary.ResumeLayout(false);
-            pnlSummary.PerformLayout();
+            flowLayoutPanel1.ResumeLayout(false);
+            flowLayoutPanel1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
+        private PictureBox pictureBox4;
         private Panel panel1;
         private Button btnLogout;
         private Button btnMySales;
-        private PictureBox pictureBox4;
         private Button btnNewSale;
-        private Label label4;
         private Label label1;
-        private PictureBox pictureBox1;
-        private Label label2;
-        private Label label3;
-        private Label label5;
+        private Label lblWelcome;
+        private Label lblRole;
         private DateTimePicker dtpStart;
+        private Label label2;
         private DateTimePicker dtpEnd;
+        private Label label3;
         private Button btnSearch;
         private DataGridView dgvMySales;
         private Button btnViewReceipt;
-        private Panel pnlSummary;
-        private Label label7;
-        private Label label6;
-        private Label label8;
+        private FlowLayoutPanel flowLayoutPanel1;
+        private Label label4;
+        private Label label5;
         private Label lblTotalSales;
+        private Label label6;
         private Label lblTotalTransactions;
     }
 }

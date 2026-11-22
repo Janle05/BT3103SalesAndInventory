@@ -8,6 +8,10 @@ namespace SalesInventory.ui
         private readonly ProductService productService;
         private int selectedProductID = 0;
 
+        private readonly Dictionary<int, string> categoryNames = new Dictionary<int, string>();
+        private readonly Dictionary<int, string> supplierNames = new Dictionary<int, string>();
+
+
         public AdminProductMaintenanceForm()
         {
             InitializeComponent();
@@ -22,7 +26,6 @@ namespace SalesInventory.ui
             LoadSuppliers();
             LoadProducts();
 
-            // "-=" muna bago "+=" para hindi tumakbo ng dalawang beses
             btnAdd.Click -= btnAdd_Click;
             btnAdd.Click += btnAdd_Click;
 
@@ -40,14 +43,43 @@ namespace SalesInventory.ui
 
             dgvProducts.CellClick -= dgvProducts_CellClick;
             dgvProducts.CellClick += dgvProducts_CellClick;
+
+            dgvProducts.CellFormatting -= dgvProducts_CellFormatting;
+            dgvProducts.CellFormatting += dgvProducts_CellFormatting;
+
         }
+
+        private void dgvProducts_CellFormatting(object? sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (e.RowIndex < 0 || e.ColumnIndex < 0)
+                return;
+
+            string column = dgvProducts.Columns[e.ColumnIndex].Name;
+
+            if (column != "CategoryName" && column != "SupplierName")
+                return;
+
+            if (dgvProducts.Rows[e.RowIndex].DataBoundItem is not Product product)
+                return;
+
+            string? name;
+
+            if (column == "CategoryName")
+                categoryNames.TryGetValue(product.CategoryID, out name);
+            else
+                supplierNames.TryGetValue(product.SupplierID, out name);
+
+            e.Value = name ?? "";
+            e.FormattingApplied = true;
+        }
+
+
 
         private void ConfigureControls()
         {
-            // Product ID ay galing sa database
+            
             textBox2.ReadOnly = true;
 
-            // Status
             comboBox2.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBox2.Items.Clear();
             comboBox2.Items.Add("Active");
@@ -71,6 +103,8 @@ namespace SalesInventory.ui
 
             // Reorder Level
             numericUpDown3.Maximum = 999999999;
+
+            FormHelper.ShowStatus(this, comboBox2, false);
         }
 
         private void LoadProducts()
@@ -82,8 +116,10 @@ namespace SalesInventory.ui
 
                 dgvProducts.Columns.Add(new DataGridViewTextBoxColumn { Name = "ProductID", HeaderText = "Product ID", DataPropertyName = "ProductID", Width = 80 });
                 dgvProducts.Columns.Add(new DataGridViewTextBoxColumn { Name = "ProductName", HeaderText = "Product Name", DataPropertyName = "ProductName", Width = 150 });
-                dgvProducts.Columns.Add(new DataGridViewTextBoxColumn { Name = "CategoryID", HeaderText = "Category ID", DataPropertyName = "CategoryID", Width = 90 });
-                dgvProducts.Columns.Add(new DataGridViewTextBoxColumn { Name = "SupplierID", HeaderText = "Supplier ID", DataPropertyName = "SupplierID", Width = 90 });
+                dgvProducts.Columns.Add(new DataGridViewTextBoxColumn { Name = "CategoryID", HeaderText = "Category ID", DataPropertyName = "CategoryID", Visible = false });
+                dgvProducts.Columns.Add(new DataGridViewTextBoxColumn { Name = "SupplierID", HeaderText = "Supplier ID", DataPropertyName = "SupplierID", Visible = false });
+                dgvProducts.Columns.Add(new DataGridViewTextBoxColumn { Name = "CategoryName", HeaderText = "Category", Width = 120 });
+                dgvProducts.Columns.Add(new DataGridViewTextBoxColumn { Name = "SupplierName", HeaderText = "Supplier", Width = 140 });
                 dgvProducts.Columns.Add(new DataGridViewTextBoxColumn { Name = "UnitPrice", HeaderText = "Unit Price", DataPropertyName = "UnitPrice", Width = 90 });
                 dgvProducts.Columns.Add(new DataGridViewTextBoxColumn { Name = "StockQuantity", HeaderText = "Stock Quantity", DataPropertyName = "StockQuantity", Width = 100 });
                 dgvProducts.Columns.Add(new DataGridViewTextBoxColumn { Name = "ReorderLevel", HeaderText = "Reorder Level", DataPropertyName = "ReorderLevel", Width = 90 });
@@ -122,18 +158,24 @@ namespace SalesInventory.ui
                 comboBox1.DataSource = null;
                 comboBox1.DisplayMember = "CategoryName";
                 comboBox1.ValueMember = "CategoryID";
-                comboBox1.DataSource = repository.GetAllCategories();
+
+                var all = repository.GetAllCategories().ToList();
+
+                categoryNames.Clear();
+                foreach (Category c in all)
+                    categoryNames[c.CategoryID] = c.CategoryName;
+
+                // Active lang ang mapipili sa dropdown
+                comboBox1.DataSource = all.Where(c => c.Status == "Active").ToList();
                 comboBox1.SelectedIndex = -1;
             }
             catch (Exception ex)
             {
-                MessageBox.Show(
-                    "Error loading categories:\n" + ex.Message,
-                    "Error",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
+                MessageBox.Show("Error loading categories:\n" + ex.Message, "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
 
         private void LoadSuppliers()
         {
@@ -144,18 +186,23 @@ namespace SalesInventory.ui
                 comboBox3.DataSource = null;
                 comboBox3.DisplayMember = "SupplierName";
                 comboBox3.ValueMember = "SupplierID";
-                comboBox3.DataSource = repository.GetAllSuppliers();
+
+                var all = repository.GetAllSuppliers().ToList();
+
+                supplierNames.Clear();
+                foreach (Supplier sp in all)
+                    supplierNames[sp.SupplierID] = sp.SupplierName;
+
+                comboBox3.DataSource = all.Where(sp => sp.Status == "Active").ToList();
                 comboBox3.SelectedIndex = -1;
             }
             catch (Exception ex)
             {
-                MessageBox.Show(
-                    "Error loading suppliers:\n" + ex.Message,
-                    "Error",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
+                MessageBox.Show("Error loading suppliers:\n" + ex.Message, "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
 
         private bool ValidateInputs()
         {
@@ -201,7 +248,7 @@ namespace SalesInventory.ui
                     UnitPrice = numericUpDown1.Value,
                     InitialStock = Convert.ToInt32(numericUpDown2.Value),
                     ReorderLevel = Convert.ToInt32(numericUpDown3.Value),
-                    Status = comboBox2.Text
+                    Status = "Active"
                 };
 
                 productService.AddProduct(product);
@@ -243,8 +290,6 @@ namespace SalesInventory.ui
                 if (!ValidateInputs())
                     return;
 
-                // Hindi na ginagalaw ng Update ang stock.
-                // Para baguhin ang stock, gamitin ang Inventory page.
                 Product product = new Product
                 {
                     ProductID = selectedProductID,
@@ -389,6 +434,8 @@ namespace SalesInventory.ui
                 if (comboBox2.Items.Contains(status))
                     comboBox2.SelectedItem = status;
 
+                FormHelper.ShowStatus(this, comboBox2, true);
+
                 comboBox1.SelectedValue = Convert.ToInt32(row.Cells["CategoryID"].Value);
                 comboBox3.SelectedValue = Convert.ToInt32(row.Cells["SupplierID"].Value);
             }
@@ -425,11 +472,13 @@ namespace SalesInventory.ui
             if (comboBox2.Items.Count > 0)
                 comboBox2.SelectedIndex = 0;
 
+            FormHelper.ShowStatus(this, comboBox2, false);
+
             numericUpDown1.Value = 0;
             numericUpDown2.Value = 0;
             numericUpDown3.Value = 0;
 
-            // Pwede na ulit lagyan ng Initial Stock kapag bagong product
+            
             numericUpDown2.Enabled = true;
 
             dgvProducts.ClearSelection();
