@@ -512,6 +512,7 @@
             label10.AutoSize = true;
             label10.ForeColor = Color.Black;
             label10.Location = new Point(398, 61);
+            label10.Location = new Point(392, 46);
             label10.Margin = new Padding(2, 0, 2, 0);
             label10.Name = "label10";
             label10.Size = new Size(902, 15);
@@ -524,6 +525,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LightBlue;
             ClientSize = new Size(1343, 637);
+            ClientSize = new Size(1343, 664);
             Controls.Add(label10);
             Controls.Add(btnClear);
             Controls.Add(btnDelete);
