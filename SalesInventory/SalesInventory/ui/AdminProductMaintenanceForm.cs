@@ -14,27 +14,63 @@ namespace SalesInventory.ui
 
             productService = new ProductService();
 
-            // Configure controls
+            NavHelper.Wire(this, "Products");
+
             ConfigureControls();
 
-            // Load data
             LoadCategories();
             LoadSuppliers();
             LoadProducts();
 
-            // Events
+            // "-=" muna bago "+=" para hindi tumakbo ng dalawang beses
+            btnAdd.Click -= btnAdd_Click;
             btnAdd.Click += btnAdd_Click;
-            btnUpdate.Click += btnUpdate_Click;
-            btnDelete.Click += btnDelete_Click;
-            btnClear.Click += btnClear_Click;
-            button11.Click += button11_Click;
-            dgvProducts.CellClick += dgvProducts_CellClick;
 
-            btnDashboard.Click += btnDashboard_Click;
-            btnCategories.Click += btnCategories_Click;
-            btnSuppliers.Click += btnSuppliers_Click;
-            btnProducts.Click += btnProducts_Click;
-            btnLogout.Click += btnLogout_Click;
+            btnUpdate.Click -= btnUpdate_Click;
+            btnUpdate.Click += btnUpdate_Click;
+
+            btnDelete.Click -= btnDelete_Click;
+            btnDelete.Click += btnDelete_Click;
+
+            btnClear.Click -= btnClear_Click;
+            btnClear.Click += btnClear_Click;
+
+            button11.Click -= button11_Click;
+            button11.Click += button11_Click;
+
+            dgvProducts.CellClick -= dgvProducts_CellClick;
+            dgvProducts.CellClick += dgvProducts_CellClick;
+        }
+
+        private void ConfigureControls()
+        {
+            // Product ID ay galing sa database
+            textBox2.ReadOnly = true;
+
+            // Status
+            comboBox2.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox2.Items.Clear();
+            comboBox2.Items.Add("Active");
+            comboBox2.Items.Add("Inactive");
+            comboBox2.SelectedIndex = 0;
+
+            comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox3.DropDownStyle = ComboBoxStyle.DropDownList;
+
+            // Hindi pwedeng negative
+            numericUpDown1.Minimum = 0;
+            numericUpDown2.Minimum = 0;
+            numericUpDown3.Minimum = 0;
+
+            // Unit Price
+            numericUpDown1.DecimalPlaces = 2;
+            numericUpDown1.Maximum = 999999999;
+
+            // Initial Stock / Stock
+            numericUpDown2.Maximum = 999999999;
+
+            // Reorder Level
+            numericUpDown3.Maximum = 999999999;
         }
 
         private void LoadProducts()
@@ -44,7 +80,6 @@ namespace SalesInventory.ui
                 dgvProducts.Columns.Clear();
                 dgvProducts.AutoGenerateColumns = false;
 
-                // Tiyakin na ang Name at DataPropertyName ay magkatugma (hal. Name = "ProductID")
                 dgvProducts.Columns.Add(new DataGridViewTextBoxColumn { Name = "ProductID", HeaderText = "Product ID", DataPropertyName = "ProductID", Width = 80 });
                 dgvProducts.Columns.Add(new DataGridViewTextBoxColumn { Name = "ProductName", HeaderText = "Product Name", DataPropertyName = "ProductName", Width = 150 });
                 dgvProducts.Columns.Add(new DataGridViewTextBoxColumn { Name = "CategoryID", HeaderText = "Category ID", DataPropertyName = "CategoryID", Width = 90 });
@@ -54,7 +89,11 @@ namespace SalesInventory.ui
                 dgvProducts.Columns.Add(new DataGridViewTextBoxColumn { Name = "ReorderLevel", HeaderText = "Reorder Level", DataPropertyName = "ReorderLevel", Width = 90 });
                 dgvProducts.Columns.Add(new DataGridViewTextBoxColumn { Name = "Status", HeaderText = "Status", DataPropertyName = "Status", Width = 80 });
 
-                // Kulay ng text para siguradong litaw
+                dgvProducts.ReadOnly = true;
+                dgvProducts.AllowUserToAddRows = false;
+                dgvProducts.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+                dgvProducts.MultiSelect = false;
+
                 dgvProducts.ForeColor = Color.Black;
                 dgvProducts.DefaultCellStyle.ForeColor = Color.Black;
                 dgvProducts.DefaultCellStyle.BackColor = Color.White;
@@ -73,6 +112,7 @@ namespace SalesInventory.ui
                     MessageBoxIcon.Error);
             }
         }
+
         private void LoadCategories()
         {
             try
@@ -80,11 +120,9 @@ namespace SalesInventory.ui
                 CategoryRepository repository = new CategoryRepository();
 
                 comboBox1.DataSource = null;
-                comboBox1.DataSource = repository.GetAllCategories();
-
                 comboBox1.DisplayMember = "CategoryName";
                 comboBox1.ValueMember = "CategoryID";
-
+                comboBox1.DataSource = repository.GetAllCategories();
                 comboBox1.SelectedIndex = -1;
             }
             catch (Exception ex)
@@ -104,11 +142,9 @@ namespace SalesInventory.ui
                 SupplierRepository repository = new SupplierRepository();
 
                 comboBox3.DataSource = null;
-                comboBox3.DataSource = repository.GetAllSuppliers();
-
                 comboBox3.DisplayMember = "SupplierName";
                 comboBox3.ValueMember = "SupplierID";
-
+                comboBox3.DataSource = repository.GetAllSuppliers();
                 comboBox3.SelectedIndex = -1;
             }
             catch (Exception ex)
@@ -120,79 +156,42 @@ namespace SalesInventory.ui
                     MessageBoxIcon.Error);
             }
         }
-        private void ConfigureControls()
+
+        private bool ValidateInputs()
         {
-            // Product ID is generated by database
-            textBox2.ReadOnly = true;
+            if (string.IsNullOrWhiteSpace(textBox1.Text))
+            {
+                MessageBox.Show("Product name is required.", "Validation",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                textBox1.Focus();
+                return false;
+            }
 
-            // Status
-            comboBox2.Items.Clear();
-            comboBox2.Items.Add("Active");
-            comboBox2.Items.Add("Inactive");
-            comboBox2.SelectedIndex = 0;
+            if (comboBox1.SelectedIndex == -1)
+            {
+                MessageBox.Show("Please select a category.", "Validation",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                comboBox1.Focus();
+                return false;
+            }
 
-            // Numeric fields cannot go below zero
-            numericUpDown1.Minimum = 0;
-            numericUpDown2.Minimum = 0;
-            numericUpDown3.Minimum = 0;
+            if (comboBox3.SelectedIndex == -1)
+            {
+                MessageBox.Show("Please select a supplier.", "Validation",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                comboBox3.Focus();
+                return false;
+            }
 
-            // Unit Price
-            numericUpDown1.DecimalPlaces = 2;
-            numericUpDown1.Maximum = 999999999;
-
-            // Stock
-            numericUpDown2.Maximum = 999999999;
-
-            // Reorder Level
-            numericUpDown3.Maximum = 999999999;
-        }
-
-
-
-        private void AdminProductMaintenanceForm_Load(object sender, EventArgs e)
-        {
-
+            return true;
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
             try
             {
-                if (string.IsNullOrWhiteSpace(textBox1.Text))
-                {
-                    MessageBox.Show(
-                        "Product name is required.",
-                        "Validation",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Warning);
-
-                    textBox1.Focus();
+                if (!ValidateInputs())
                     return;
-                }
-
-                if (comboBox1.SelectedIndex == -1)
-                {
-                    MessageBox.Show(
-                        "Please select a category.",
-                        "Validation",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Warning);
-
-                    comboBox1.Focus();
-                    return;
-                }
-
-                if (comboBox3.SelectedIndex == -1)
-                {
-                    MessageBox.Show(
-                        "Please select a supplier.",
-                        "Validation",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Warning);
-
-                    comboBox3.Focus();
-                    return;
-                }
 
                 Product product = new Product
                 {
@@ -241,40 +240,11 @@ namespace SalesInventory.ui
                     return;
                 }
 
-                if (string.IsNullOrWhiteSpace(textBox1.Text))
-                {
-                    MessageBox.Show(
-                        "Product name is required.",
-                        "Validation",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Warning);
-
-                    textBox1.Focus();
+                if (!ValidateInputs())
                     return;
-                }
 
-                if (comboBox1.SelectedIndex == -1)
-                {
-                    MessageBox.Show(
-                        "Please select a category.",
-                        "Validation",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Warning);
-
-                    return;
-                }
-
-                if (comboBox3.SelectedIndex == -1)
-                {
-                    MessageBox.Show(
-                        "Please select a supplier.",
-                        "Validation",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Warning);
-
-                    return;
-                }
-
+                // Hindi na ginagalaw ng Update ang stock.
+                // Para baguhin ang stock, gamitin ang Inventory page.
                 Product product = new Product
                 {
                     ProductID = selectedProductID,
@@ -282,7 +252,6 @@ namespace SalesInventory.ui
                     CategoryID = Convert.ToInt32(comboBox1.SelectedValue),
                     SupplierID = Convert.ToInt32(comboBox3.SelectedValue),
                     UnitPrice = numericUpDown1.Value,
-                    InitialStock = Convert.ToInt32(numericUpDown2.Value),
                     ReorderLevel = Convert.ToInt32(numericUpDown3.Value),
                     Status = comboBox2.Text
                 };
@@ -353,6 +322,7 @@ namespace SalesInventory.ui
             }
         }
 
+        // SEARCH button
         private void button11_Click(object sender, EventArgs e)
         {
             try
@@ -369,6 +339,7 @@ namespace SalesInventory.ui
 
                 dgvProducts.DataSource = null;
                 dgvProducts.DataSource = results;
+                dgvProducts.ClearSelection();
 
                 if (results.Count == 0)
                 {
@@ -378,8 +349,6 @@ namespace SalesInventory.ui
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Information);
                 }
-
-                dgvProducts.ClearSelection();
             }
             catch (Exception ex)
             {
@@ -391,58 +360,37 @@ namespace SalesInventory.ui
             }
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void SelectProductRow(int rowIndex)
         {
             try
             {
-                if (e.RowIndex < 0)
+                if (rowIndex < 0)
                     return;
 
-                DataGridViewRow row = dgvProducts.Rows[e.RowIndex];
+                DataGridViewRow row = dgvProducts.Rows[rowIndex];
 
                 if (row.Cells["ProductID"].Value == null)
                     return;
 
-                selectedProductID =
-                    Convert.ToInt32(row.Cells["ProductID"].Value);
+                selectedProductID = Convert.ToInt32(row.Cells["ProductID"].Value);
 
                 textBox2.Text = selectedProductID.ToString();
+                textBox1.Text = row.Cells["ProductName"].Value?.ToString() ?? "";
 
-                textBox1.Text =
-                    row.Cells["ProductName"].Value?.ToString() ?? "";
+                numericUpDown1.Value = Convert.ToDecimal(row.Cells["UnitPrice"].Value);
+                numericUpDown2.Value = Convert.ToDecimal(row.Cells["StockQuantity"].Value);
+                numericUpDown3.Value = Convert.ToDecimal(row.Cells["ReorderLevel"].Value);
 
-                numericUpDown1.Value =
-                    Convert.ToDecimal(row.Cells["UnitPrice"].Value);
+                // Ang stock ay babaguhin lang sa Inventory page, hindi dito
+                numericUpDown2.Enabled = false;
 
-                numericUpDown2.Value =
-                    Convert.ToDecimal(row.Cells["InitialStock"].Value);
-
-                numericUpDown3.Value =
-                    Convert.ToDecimal(row.Cells["ReorderLevel"].Value);
-
-                string status =
-                    row.Cells["Status"].Value?.ToString() ?? "Active";
+                string status = row.Cells["Status"].Value?.ToString() ?? "Active";
 
                 if (comboBox2.Items.Contains(status))
                     comboBox2.SelectedItem = status;
 
-                // Select Category
-                if (row.Cells["CategoryID"].Value != null)
-                {
-                    int categoryID =
-                        Convert.ToInt32(row.Cells["CategoryID"].Value);
-
-                    comboBox1.SelectedValue = categoryID;
-                }
-
-                // Select Supplier
-                if (row.Cells["SupplierID"].Value != null)
-                {
-                    int supplierID =
-                        Convert.ToInt32(row.Cells["SupplierID"].Value);
-
-                    comboBox3.SelectedValue = supplierID;
-                }
+                comboBox1.SelectedValue = Convert.ToInt32(row.Cells["CategoryID"].Value);
+                comboBox3.SelectedValue = Convert.ToInt32(row.Cells["SupplierID"].Value);
             }
             catch (Exception ex)
             {
@@ -452,6 +400,11 @@ namespace SalesInventory.ui
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
             }
+        }
+
+        private void dgvProducts_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            SelectProductRow(e.RowIndex);
         }
 
         private void btnClear_Click(object sender, EventArgs e)
@@ -476,79 +429,24 @@ namespace SalesInventory.ui
             numericUpDown2.Value = 0;
             numericUpDown3.Value = 0;
 
+            // Pwede na ulit lagyan ng Initial Stock kapag bagong product
+            numericUpDown2.Enabled = true;
+
             dgvProducts.ClearSelection();
         }
 
-        private void btnDashboard_Click(object sender, EventArgs e)
+        private void AdminProductMaintenanceForm_Load(object sender, EventArgs e) { }
+        private void btnDashboard_Click(object sender, EventArgs e) { }
+        private void btnCategories_Click(object sender, EventArgs e) { }
+        private void btnSuppliers_Click(object sender, EventArgs e) { }
+        private void btnLogout_Click(object sender, EventArgs e) { }
+        private void btnProducts_Click(object sender, EventArgs e) { }
+        private void btnInventory_Click(object sender, EventArgs e) { }
+        private void btnSales_Click(object sender, EventArgs e) { }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            AdminDashboard dashboard = new AdminDashboard();
-            dashboard.Show();
-
-            this.Close();
-            this.Hide();
-        }
-
-        private void btnCategories_Click(object sender, EventArgs e)
-        {
-            AdminCategoryForm categoryForm =
-                new AdminCategoryForm();
-
-            categoryForm.Show();
-
-            this.Close();
-            this.Hide();
-        }
-
-        private void btnSuppliers_Click(object sender, EventArgs e)
-        {
-            AdminSupplierForm supplierForm =
-              new AdminSupplierForm();
-
-            supplierForm.Show();
-
-            this.Close();
-            this.Hide();
-        }
-
-        private void btnLogout_Click(object sender, EventArgs e)
-        {
-            DialogResult result = MessageBox.Show(
-                "Are you sure you want to logout?",
-                "Logout",
-                MessageBoxButtons.YesNo,
-                MessageBoxIcon.Question);
-
-            if (result != DialogResult.Yes)
-                return;
-
-            LoginFrom loginForm =
-                Application.OpenForms
-                .OfType<LoginFrom>()
-                .FirstOrDefault();
-
-            if (loginForm != null)
-            {
-                loginForm.Show();
-            }
-            else
-            {
-                LoginFrom newLoginForm = new LoginFrom();
-                newLoginForm.Show();
-            }
-
-            this.Close();
-            this.Hide();
-        }
-
-        private void dgvProducts_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void btnProducts_Click(object sender, EventArgs e)
-        {
-
+            SelectProductRow(e.RowIndex);
         }
     }
 }
-    

@@ -36,6 +36,11 @@ namespace SalesInventory.BusinessLogic
             repository.DeleteCategory(id);
         }
 
+        public void DeactivateCategory(int id)
+        {
+            repository.DeactivateCategory(id);
+        }
+
         public List<Category> SearchCategories(string keyword)
         {
             return repository.SearchCategories(keyword);

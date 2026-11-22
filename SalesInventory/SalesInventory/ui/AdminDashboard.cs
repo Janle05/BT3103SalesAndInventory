@@ -1,80 +1,93 @@
-﻿namespace SalesInventory.ui
+﻿using SalesInventory.businesslogic;
+
+namespace SalesInventory.ui
 {
     public partial class AdminDashboard : Form
     {
-        private bool isLoggingOut = false;
+        private readonly ProductService productService;
 
         public AdminDashboard()
         {
             InitializeComponent();
-        }
 
-        private void btnLogout_Click(object sender, EventArgs e)
-        {
-            DialogResult result = MessageBox.Show(
-                "Are you sure you want to logout?\nYou will be returned to the login screen.",
-                "Confirm Logout",
-                MessageBoxButtons.YesNo,
-                MessageBoxIcon.Question);
+            productService = new ProductService();
 
-            if (result != DialogResult.Yes)
-            {
-                return;
-            }
+            NavHelper.Wire(this, "Dashboard");
+            GridHelper.Apply(dgvLowStock);
 
-            isLoggingOut = true;
-
-            LoginFrom? loginForm = Application.OpenForms.OfType<LoginFrom>().FirstOrDefault();
-
-            if (loginForm != null)
-            {
-                loginForm.ResetForm();
-                loginForm.Show();
-            }
-            else
-            {
-                new LoginFrom().Show();
-            }
-
-            this.Hide();
-
-        }
-
-        protected override void OnFormClosed(FormClosedEventArgs e)
-        {
-            base.OnFormClosed(e);
-
-            if (!isLoggingOut)
-            {
-                Application.Exit();
-            }
-        }
-
-        private void btnCategories_Click(object sender, EventArgs e)
-        {
-            AdminCategoryForm categoryForm = new AdminCategoryForm();
-            categoryForm.Show();
-        }
-
-        private void btnSuppliers_Click(object sender, EventArgs e)
-        {
-            AdminSupplierForm Supplier = new AdminSupplierForm();
-            Supplier.Show();
-
-            this.Hide();
-
-        }
-
-        private void btnProducts_Click(object sender, EventArgs e)
-        {
-            AdminProductMaintenanceForm productForm = new AdminProductMaintenanceForm();
-            productForm.Show();
-
-            this.Hide();
-
+          
+            this.Load -= AdminDashboard_Load;
+            this.Load += AdminDashboard_Load;
         }
 
         private void AdminDashboard_Load(object sender, EventArgs e)
+        {
+            LoadWelcome();
+            LoadStats();
+            LoadLowStock();
+        }
+
+        private void LoadWelcome()
+        {
+            string username = Session.CurrentUser?.Username ?? "Admin";
+            string role = Session.CurrentUser?.Role ?? "Admin";
+
+            lblWelcome.Text = "Hello, " + username + "!";
+            lblRole.Text = role;
+        }
+
+        private void LoadStats()
+        {
+            try
+            {
+                DashboardStats stats = productService.GetDashboardStats();
+
+                lblTotalProducts.Text = stats.TotalProducts.ToString("N0");
+                lblTotalStocks.Text = stats.TotalStocks.ToString("N0");
+                lblLowStocks.Text = stats.LowStocks.ToString("N0");
+                lblOutOfStocks.Text = stats.OutOfStocks.ToString("N0");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    "Error loading dashboard:\n" + ex.Message,
+                    "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+        }
+
+        private void LoadLowStock()
+        {
+            try
+            {
+                dgvLowStock.DataSource = productService.GetLowStockItems();
+                dgvLowStock.ClearSelection();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    "Error loading low stock list:\n" + ex.Message,
+                    "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+        }
+        private void btnLogout_Click(object sender, EventArgs e) { }
+        private void btnCategories_Click(object sender, EventArgs e) { }
+        private void btnSuppliers_Click(object sender, EventArgs e) { }
+        private void btnProducts_Click(object sender, EventArgs e) { }
+        private void btnSales_Click(object sender, EventArgs e) { }
+        private void btnInventory_Click(object sender, EventArgs e) { }
+        private void btnPayments_Click(object sender, EventArgs e) { }
+        private void btnReports_Click(object sender, EventArgs e) { }
+
+        private void lblTotalStocks_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblTotalProducts_Click(object sender, EventArgs e)
         {
 
         }

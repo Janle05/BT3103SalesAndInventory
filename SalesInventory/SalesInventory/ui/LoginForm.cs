@@ -18,33 +18,47 @@ namespace SalesInventory
             string username = txtUsername.Text.Trim();
             string password = txtPassword.Text;
 
-            User? user = loginService.Login(username, password);
-
-            if (user == null)
+            try
             {
-                MessageBox.Show("Invalid username or password.", "Login Failed",
+                User? user = loginService.Login(username, password);
+
+                if (user == null)
+                {
+                    MessageBox.Show("Invalid username or password.", "Login Failed",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                // Itago kung sino ang naka-login (gagamitin sa Dashboard at Inventory)
+                Session.CurrentUser = user;
+
+                if (user.Role == "Admin")
+                {
+                    AdminDashboard adminDashboard = new AdminDashboard();
+                    adminDashboard.Show();
+                    this.Hide();
+                }
+                else if (user.Role == "Cashier")
+                {
+                    CashierDashboard cashierDashboard = new CashierDashboard();
+                    cashierDashboard.Show();
+                    this.Hide();
+                }
+                else
+                {
+                    Session.Clear();
+                    MessageBox.Show("Unauthorized role.", "Access Denied",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Unable to login:\n" + ex.Message, "Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            if (user.Role == "Admin")
-            {
-                AdminDashboard adminDashboard = new AdminDashboard();
-                adminDashboard.Show();
-                this.Hide();
-            }
-            else if (user.Role == "Cashier")
-            {
-                CashierDashboard cashierDashboard = new CashierDashboard();
-                cashierDashboard.Show();
-                this.Hide();
-            }
-            else
-            {
-                MessageBox.Show("Unauthorized role.", "Access Denied",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+
+
 
         public void ResetForm()
         {

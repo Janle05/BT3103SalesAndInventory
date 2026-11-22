@@ -1,9 +1,6 @@
 ﻿using Microsoft.Data.SqlClient;
 using SalesInventory.businesslogic;
-using SalesInventory.BusinessLogic;
 using SalesInventory.Database;
-using System;
-using System.Collections.Generic;
 
 namespace SalesInventory.Repository
 {
@@ -91,18 +88,7 @@ namespace SalesInventory.Repository
                     {
                         while (reader.Read())
                         {
-                            list.Add(new Product
-                            {
-                                ProductID = Convert.ToInt32(reader["ProductID"]),
-                                ProductName = reader["ProductName"]?.ToString() ?? "",
-                                CategoryID = Convert.ToInt32(reader["CategoryID"]),
-                                SupplierID = Convert.ToInt32(reader["SupplierID"]),
-                                UnitPrice = Convert.ToDecimal(reader["UnitPrice"]),
-                                StockQuantity = Convert.ToInt32(reader["StockQuantity"]),
-                                InitialStock = Convert.ToInt32(reader["InitialStock"]),
-                                ReorderLevel = Convert.ToInt32(reader["ReorderLevel"]),
-                                Status = reader["Status"]?.ToString() ?? "Active"
-                            });
+                            list.Add(ReadProduct(reader));
                         }
                     }
                 }
@@ -112,6 +98,8 @@ namespace SalesInventory.Repository
         }
 
         // UPDATE
+        // Hindi na ginagalaw dito ang stock. Sa Inventory form na babaguhin ang stock
+        // para may history (StockMovements) at hindi nabubura ang stock kapag nag-update ng presyo.
         public void UpdateProduct(Product product)
         {
             using (SqlConnection con = db.GetConnection())
@@ -123,8 +111,6 @@ namespace SalesInventory.Repository
                         CategoryID = @CategoryID,
                         SupplierID = @SupplierID,
                         UnitPrice = @UnitPrice,
-                        StockQuantity = @StockQuantity,
-                        InitialStock = @InitialStock,
                         ReorderLevel = @ReorderLevel,
                         Status = @Status
                     WHERE ProductID = @ProductID";
@@ -136,8 +122,6 @@ namespace SalesInventory.Repository
                     cmd.Parameters.AddWithValue("@CategoryID", product.CategoryID);
                     cmd.Parameters.AddWithValue("@SupplierID", product.SupplierID);
                     cmd.Parameters.AddWithValue("@UnitPrice", product.UnitPrice);
-                    cmd.Parameters.AddWithValue("@StockQuantity", product.StockQuantity);
-                    cmd.Parameters.AddWithValue("@InitialStock", product.InitialStock);
                     cmd.Parameters.AddWithValue("@ReorderLevel", product.ReorderLevel);
                     cmd.Parameters.AddWithValue("@Status", product.Status);
 
@@ -199,17 +183,87 @@ namespace SalesInventory.Repository
                     {
                         while (reader.Read())
                         {
-                            list.Add(new Product
+                            list.Add(ReadProduct(reader));
+                        }
+                    }
+                }
+            }
+
+            return list;
+        }
+
+        // DASHBOARD: mga numero sa apat na kulay na box
+        public DashboardStats GetDashboardStats()
+        {
+            DashboardStats stats = new DashboardStats();
+
+            using (SqlConnection con = db.GetConnection())
+            {
+                string query = @"
+                    SELECT
+                        COUNT(*) AS TotalProducts,
+                        ISNULL(SUM(StockQuantity), 0) AS TotalStocks,
+                        ISNULL(SUM(CASE WHEN StockQuantity > 0
+                                         AND StockQuantity <= ReorderLevel THEN 1 ELSE 0 END), 0) AS LowStocks,
+                        ISNULL(SUM(CASE WHEN StockQuantity <= 0 THEN 1 ELSE 0 END), 0) AS OutOfStocks
+                    FROM Products
+                    WHERE Status = 'Active'";
+
+                using (SqlCommand cmd = new SqlCommand(query, con))
+                {
+                    con.Open();
+
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            stats.TotalProducts = Convert.ToInt32(reader["TotalProducts"]);
+                            stats.TotalStocks = Convert.ToInt32(reader["TotalStocks"]);
+                            stats.LowStocks = Convert.ToInt32(reader["LowStocks"]);
+                            stats.OutOfStocks = Convert.ToInt32(reader["OutOfStocks"]);
+                        }
+                    }
+                }
+            }
+
+            return stats;
+        }
+
+        // DASHBOARD: listahan ng low stock / out of stock
+        public List<LowStockItem> GetLowStockItems()
+        {
+            List<LowStockItem> list = new List<LowStockItem>();
+
+            using (SqlConnection con = db.GetConnection())
+            {
+                string query = @"
+                    SELECT
+                        ProductID,
+                        ProductName,
+                        StockQuantity,
+                        ReorderLevel,
+                        CASE WHEN StockQuantity <= 0 THEN 'Out of Stock'
+                             ELSE 'Low Stock' END AS StockStatus
+                    FROM Products
+                    WHERE Status = 'Active'
+                      AND StockQuantity <= ReorderLevel
+                    ORDER BY StockQuantity, ProductName";
+
+                using (SqlCommand cmd = new SqlCommand(query, con))
+                {
+                    con.Open();
+
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            list.Add(new LowStockItem
                             {
                                 ProductID = Convert.ToInt32(reader["ProductID"]),
                                 ProductName = reader["ProductName"]?.ToString() ?? "",
-                                CategoryID = Convert.ToInt32(reader["CategoryID"]),
-                                SupplierID = Convert.ToInt32(reader["SupplierID"]),
-                                UnitPrice = Convert.ToDecimal(reader["UnitPrice"]),
                                 StockQuantity = Convert.ToInt32(reader["StockQuantity"]),
-                                InitialStock = Convert.ToInt32(reader["InitialStock"]),
                                 ReorderLevel = Convert.ToInt32(reader["ReorderLevel"]),
-                                Status = reader["Status"]?.ToString() ?? "Active"
+                                StockStatus = reader["StockStatus"]?.ToString() ?? ""
                             });
                         }
                     }
@@ -217,6 +271,22 @@ namespace SalesInventory.Repository
             }
 
             return list;
+        }
+
+        private static Product ReadProduct(SqlDataReader reader)
+        {
+            return new Product
+            {
+                ProductID = Convert.ToInt32(reader["ProductID"]),
+                ProductName = reader["ProductName"]?.ToString() ?? "",
+                CategoryID = Convert.ToInt32(reader["CategoryID"]),
+                SupplierID = Convert.ToInt32(reader["SupplierID"]),
+                UnitPrice = Convert.ToDecimal(reader["UnitPrice"]),
+                StockQuantity = Convert.ToInt32(reader["StockQuantity"]),
+                InitialStock = Convert.ToInt32(reader["InitialStock"]),
+                ReorderLevel = Convert.ToInt32(reader["ReorderLevel"]),
+                Status = reader["Status"]?.ToString() ?? "Active"
+            };
         }
     }
 }

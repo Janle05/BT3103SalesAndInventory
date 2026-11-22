@@ -1,8 +1,6 @@
 ﻿using Microsoft.Data.SqlClient;
 using SalesInventory.businesslogic;
 using SalesInventory.Database;
-using System;
-using System.Collections.Generic;
 
 namespace SalesInventory.Repository
 {
@@ -151,6 +149,26 @@ namespace SalesInventory.Repository
                 }
             }
         }
+
+        public void DeactivateCategory(int categoryID)
+        {
+            using (SqlConnection con = db.GetConnection())
+            {
+                string query = @"
+                    UPDATE Categories
+                    SET Status = 'Inactive'
+                    WHERE CategoryID = @CategoryID";
+
+                using (SqlCommand cmd = new SqlCommand(query, con))
+                {
+                    cmd.Parameters.AddWithValue("@CategoryID", categoryID);
+
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+
 
         public List<Category> SearchCategories(string keyword)
         {

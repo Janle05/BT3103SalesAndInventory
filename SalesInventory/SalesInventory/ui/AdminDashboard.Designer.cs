@@ -42,10 +42,10 @@
             btnDashboard = new Button();
             pictureBox4 = new PictureBox();
             label1 = new Label();
-            label2 = new Label();
+            lblRole = new Label();
             pictureBox1 = new PictureBox();
             label3 = new Label();
-            label4 = new Label();
+            lblWelcome = new Label();
             flowLayoutPanel1 = new FlowLayoutPanel();
             label5 = new Label();
             label6 = new Label();
@@ -58,11 +58,11 @@
             flowLayoutPanel4 = new FlowLayoutPanel();
             flowLayoutPanel5 = new FlowLayoutPanel();
             flowLayoutPanel6 = new FlowLayoutPanel();
-            dataGridView1 = new DataGridView();
+            dgvLowStock = new DataGridView();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvLowStock).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -124,6 +124,7 @@
             btnReports.TabIndex = 19;
             btnReports.Text = "Reports";
             btnReports.UseVisualStyleBackColor = true;
+            btnReports.Click += btnReports_Click;
             // 
             // btnPayments
             // 
@@ -137,6 +138,7 @@
             btnPayments.TabIndex = 18;
             btnPayments.Text = "Payments";
             btnPayments.UseVisualStyleBackColor = true;
+            btnPayments.Click += btnPayments_Click;
             // 
             // btnSales
             // 
@@ -150,6 +152,7 @@
             btnSales.TabIndex = 17;
             btnSales.Text = "Sales";
             btnSales.UseVisualStyleBackColor = true;
+            btnSales.Click += btnSales_Click;
             // 
             // btnInventory
             // 
@@ -163,6 +166,7 @@
             btnInventory.TabIndex = 16;
             btnInventory.Text = "Inventory";
             btnInventory.UseVisualStyleBackColor = true;
+            btnInventory.Click += btnInventory_Click;
             // 
             // btnProducts
             // 
@@ -222,7 +226,7 @@
             // pictureBox4
             // 
             pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
-            pictureBox4.Location = new Point(92, 0);
+            pictureBox4.Location = new Point(125, 13);
             pictureBox4.Margin = new Padding(2);
             pictureBox4.Name = "pictureBox4";
             pictureBox4.Size = new Size(219, 123);
@@ -240,24 +244,24 @@
             label1.TabIndex = 1;
             label1.Text = "DASHBOARD";
             // 
-            // label2
+            // lblRole
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Times New Roman", 15F);
-            label2.ForeColor = Color.MidnightBlue;
-            label2.Location = new Point(1584, 57);
-            label2.Name = "label2";
-            label2.Size = new Size(96, 34);
-            label2.TabIndex = 2;
-            label2.Text = "Admin";
+            lblRole.AutoSize = true;
+            lblRole.Font = new Font("Times New Roman", 15F);
+            lblRole.ForeColor = Color.MidnightBlue;
+            lblRole.Location = new Point(1584, 57);
+            lblRole.Name = "lblRole";
+            lblRole.Size = new Size(96, 34);
+            lblRole.TabIndex = 2;
+            lblRole.Text = "Admin";
             // 
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(1184, -5);
+            pictureBox1.Location = new Point(1454, 27);
             pictureBox1.Margin = new Padding(2);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(134, 133);
+            pictureBox1.Size = new Size(112, 96);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 3;
             pictureBox1.TabStop = false;
@@ -271,16 +275,16 @@
             label3.TabIndex = 4;
             label3.Text = "___________________________________________________________________________________________________________________________________________________________________________________";
             // 
-            // label4
+            // lblWelcome
             // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Monotype Corsiva", 15F, FontStyle.Bold | FontStyle.Italic);
-            label4.ForeColor = Color.MidnightBlue;
-            label4.Location = new Point(581, 57);
-            label4.Name = "label4";
-            label4.Size = new Size(204, 37);
-            label4.TabIndex = 5;
-            label4.Text = "Hello, Welcome!";
+            lblWelcome.AutoSize = true;
+            lblWelcome.Font = new Font("Monotype Corsiva", 15F, FontStyle.Bold | FontStyle.Italic);
+            lblWelcome.ForeColor = Color.MidnightBlue;
+            lblWelcome.Location = new Point(581, 57);
+            lblWelcome.Name = "lblWelcome";
+            lblWelcome.Size = new Size(204, 37);
+            lblWelcome.TabIndex = 5;
+            lblWelcome.Text = "Hello, Welcome!";
             // 
             // flowLayoutPanel1
             // 
@@ -340,29 +344,32 @@
             lblTotalProducts.AutoSize = true;
             lblTotalProducts.BackColor = Color.DodgerBlue;
             lblTotalProducts.Font = new Font("Times New Roman", 40F);
-            lblTotalProducts.Location = new Point(686, 305);
+            lblTotalProducts.Location = new Point(601, 300);
             lblTotalProducts.Name = "lblTotalProducts";
             lblTotalProducts.Size = new Size(78, 90);
             lblTotalProducts.TabIndex = 13;
             lblTotalProducts.Text = "0";
+            lblTotalProducts.Click += lblTotalProducts_Click;
             // 
             // lblTotalStocks
             // 
             lblTotalStocks.AutoSize = true;
             lblTotalStocks.BackColor = Color.Green;
             lblTotalStocks.Font = new Font("Times New Roman", 40F);
-            lblTotalStocks.Location = new Point(1014, 305);
+            lblTotalStocks.Location = new Point(903, 298);
             lblTotalStocks.Name = "lblTotalStocks";
             lblTotalStocks.Size = new Size(78, 90);
             lblTotalStocks.TabIndex = 14;
             lblTotalStocks.Text = "0";
+            lblTotalStocks.TextAlign = ContentAlignment.MiddleCenter;
+            lblTotalStocks.Click += lblTotalStocks_Click;
             // 
             // lblLowStocks
             // 
             lblLowStocks.AutoSize = true;
             lblLowStocks.BackColor = Color.Orange;
             lblLowStocks.Font = new Font("Times New Roman", 40F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblLowStocks.Location = new Point(1339, 305);
+            lblLowStocks.Location = new Point(1246, 295);
             lblLowStocks.Name = "lblLowStocks";
             lblLowStocks.Size = new Size(78, 90);
             lblLowStocks.TabIndex = 15;
@@ -373,7 +380,7 @@
             lblOutOfStocks.AutoSize = true;
             lblOutOfStocks.BackColor = Color.Red;
             lblOutOfStocks.Font = new Font("Times New Roman", 40F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblOutOfStocks.Location = new Point(1661, 305);
+            lblOutOfStocks.Location = new Point(1573, 301);
             lblOutOfStocks.Name = "lblOutOfStocks";
             lblOutOfStocks.Size = new Size(78, 90);
             lblOutOfStocks.TabIndex = 16;
@@ -406,15 +413,15 @@
             flowLayoutPanel6.Size = new Size(289, 210);
             flowLayoutPanel6.TabIndex = 8;
             // 
-            // dataGridView1
+            // dgvLowStock
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(562, 511);
-            dataGridView1.Margin = new Padding(2);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 62;
-            dataGridView1.Size = new Size(1307, 495);
-            dataGridView1.TabIndex = 33;
+            dgvLowStock.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvLowStock.Location = new Point(562, 511);
+            dgvLowStock.Margin = new Padding(2);
+            dgvLowStock.Name = "dgvLowStock";
+            dgvLowStock.RowHeadersWidth = 62;
+            dgvLowStock.Size = new Size(1307, 495);
+            dgvLowStock.TabIndex = 33;
             // 
             // AdminDashboard
             // 
@@ -422,19 +429,19 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LightBlue;
             ClientSize = new Size(1918, 1094);
-            Controls.Add(dataGridView1);
+            Controls.Add(lblTotalProducts);
+            Controls.Add(lblTotalStocks);
+            Controls.Add(dgvLowStock);
             Controls.Add(label7);
             Controls.Add(lblOutOfStocks);
             Controls.Add(label8);
             Controls.Add(flowLayoutPanel6);
             Controls.Add(lblLowStocks);
-            Controls.Add(lblTotalStocks);
-            Controls.Add(lblTotalProducts);
             Controls.Add(label6);
             Controls.Add(label5);
             Controls.Add(flowLayoutPanel1);
-            Controls.Add(label4);
-            Controls.Add(label2);
+            Controls.Add(lblWelcome);
+            Controls.Add(lblRole);
             Controls.Add(label1);
             Controls.Add(panel1);
             Controls.Add(flowLayoutPanel5);
@@ -442,13 +449,15 @@
             Controls.Add(label3);
             Controls.Add(flowLayoutPanel4);
             Margin = new Padding(2);
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "AdminDashboard";
             Text = "AdminDashboard";
             Load += AdminDashboard_Load;
             panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvLowStock).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -468,10 +477,10 @@
         private Button btnReports;
         private Button btnPayments;
         private Label label1;
-        private Label label2;
+        private Label lblRole;
         private PictureBox pictureBox1;
         private Label label3;
-        private Label label4;
+        private Label lblWelcome;
         private FlowLayoutPanel flowLayoutPanel1;
         private Label label5;
         private Label label6;
@@ -484,6 +493,6 @@
         private FlowLayoutPanel flowLayoutPanel4;
         private FlowLayoutPanel flowLayoutPanel5;
         private FlowLayoutPanel flowLayoutPanel6;
-        private DataGridView dataGridView1;
+        private DataGridView dgvLowStock;
     }
 }
