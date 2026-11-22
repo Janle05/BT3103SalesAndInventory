@@ -68,5 +68,10 @@ namespace SalesInventory.ui
                 Application.Exit();
             }
         }
+
+        private void btnSales_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

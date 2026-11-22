@@ -453,7 +453,7 @@
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LightBlue;
-            ClientSize = new Size(1918, 1094);
+            ClientSize = new Size(1918, 1061);
             Controls.Add(dgvSuppliers);
             Controls.Add(btnClear);
             Controls.Add(btnDelete);

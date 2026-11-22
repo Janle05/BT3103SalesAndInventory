@@ -30,194 +30,108 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CashierDashboard));
             panel1 = new Panel();
-            button10 = new Button();
-            btnPayments = new Button();
-            btnSales = new Button();
+            btnMySales = new Button();
             pictureBox4 = new PictureBox();
-            btnDashboard = new Button();
-            btnInventory = new Button();
-            btnProducts = new Button();
+            btnNewSale = new Button();
             label4 = new Label();
-            flowLayoutPanel2 = new FlowLayoutPanel();
-            lblTotalStocks = new Label();
-            label6 = new Label();
             label2 = new Label();
             label1 = new Label();
-            flowLayoutPanel1 = new FlowLayoutPanel();
-            flowLayoutPanel3 = new FlowLayoutPanel();
-            flowLayoutPanel4 = new FlowLayoutPanel();
-            label5 = new Label();
-            label7 = new Label();
-            label8 = new Label();
-            lblTotalProducts = new Label();
-            lblLowStocks = new Label();
-            lblOutOfStocks = new Label();
             label3 = new Label();
             pictureBox1 = new PictureBox();
+            txtSearch = new TextBox();
+            cmbCategory = new ComboBox();
+            btnLogout = new Button();
+            btnSearch = new Button();
+            dgvProducts = new DataGridView();
+            label5 = new Label();
+            numQuantity = new NumericUpDown();
+            btnAddToOrder = new Button();
             dataGridView1 = new DataGridView();
+            label6 = new Label();
+            btnRemoveItem = new Button();
+            btnClearOrder = new Button();
+            pnlTotal = new Panel();
+            lblItemCount = new Label();
+            label7 = new Label();
+            lblTotal = new Label();
+            btnCheckout = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvProducts).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numQuantity).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            pnlTotal.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
             // 
-            panel1.BackColor = SystemColors.MenuHighlight;
-            panel1.Controls.Add(button10);
-            panel1.Controls.Add(btnPayments);
-            panel1.Controls.Add(btnSales);
+            panel1.BackColor = Color.MidnightBlue;
+            panel1.Controls.Add(btnLogout);
+            panel1.Controls.Add(btnMySales);
             panel1.Controls.Add(pictureBox4);
-            panel1.Controls.Add(btnDashboard);
-            panel1.Controls.Add(btnInventory);
-            panel1.Controls.Add(btnProducts);
-            panel1.Location = new Point(-1, 1);
-            panel1.Margin = new Padding(2, 2, 2, 2);
+            panel1.Controls.Add(btnNewSale);
+            panel1.Location = new Point(1, 1);
+            panel1.Margin = new Padding(2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(354, 659);
+            panel1.Size = new Size(354, 1067);
             panel1.TabIndex = 1;
             // 
-            // button10
+            // btnMySales
             // 
-            button10.FlatStyle = FlatStyle.Flat;
-            button10.Font = new Font("Times New Roman", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button10.ForeColor = Color.White;
-            button10.Location = new Point(0, 613);
-            button10.Margin = new Padding(2, 2, 2, 2);
-            button10.Name = "button10";
-            button10.Size = new Size(354, 43);
-            button10.TabIndex = 21;
-            button10.Text = "Logout";
-            button10.UseVisualStyleBackColor = true;
-            button10.Click += button10_Click;
-            // 
-            // btnPayments
-            // 
-            btnPayments.FlatStyle = FlatStyle.Flat;
-            btnPayments.Font = new Font("Times New Roman", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnPayments.ForeColor = Color.White;
-            btnPayments.Location = new Point(0, 263);
-            btnPayments.Margin = new Padding(2, 2, 2, 2);
-            btnPayments.Name = "btnPayments";
-            btnPayments.Size = new Size(354, 43);
-            btnPayments.TabIndex = 18;
-            btnPayments.Text = "Payments";
-            btnPayments.UseVisualStyleBackColor = true;
-            // 
-            // btnSales
-            // 
-            btnSales.FlatStyle = FlatStyle.Flat;
-            btnSales.Font = new Font("Times New Roman", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnSales.ForeColor = Color.White;
-            btnSales.Location = new Point(0, 221);
-            btnSales.Margin = new Padding(2, 2, 2, 2);
-            btnSales.Name = "btnSales";
-            btnSales.Size = new Size(354, 43);
-            btnSales.TabIndex = 17;
-            btnSales.Text = "Sales";
-            btnSales.UseVisualStyleBackColor = true;
+            btnMySales.FlatStyle = FlatStyle.Flat;
+            btnMySales.Font = new Font("Times New Roman", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnMySales.ForeColor = Color.White;
+            btnMySales.Location = new Point(12, 354);
+            btnMySales.Margin = new Padding(2);
+            btnMySales.Name = "btnMySales";
+            btnMySales.Size = new Size(319, 79);
+            btnMySales.TabIndex = 22;
+            btnMySales.Text = "My Sales";
+            btnMySales.UseVisualStyleBackColor = true;
             // 
             // pictureBox4
             // 
             pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
-            pictureBox4.Location = new Point(40, 1);
-            pictureBox4.Margin = new Padding(2, 2, 2, 2);
+            pictureBox4.Location = new Point(47, 10);
+            pictureBox4.Margin = new Padding(2);
             pictureBox4.Name = "pictureBox4";
-            pictureBox4.Size = new Size(123, 59);
+            pictureBox4.Size = new Size(249, 135);
             pictureBox4.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox4.TabIndex = 11;
             pictureBox4.TabStop = false;
             // 
-            // btnDashboard
+            // btnNewSale
             // 
-            btnDashboard.FlatStyle = FlatStyle.Flat;
-            btnDashboard.Font = new Font("Times New Roman", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnDashboard.ForeColor = Color.White;
-            btnDashboard.Location = new Point(0, 93);
-            btnDashboard.Margin = new Padding(2, 2, 2, 2);
-            btnDashboard.Name = "btnDashboard";
-            btnDashboard.Size = new Size(354, 43);
-            btnDashboard.TabIndex = 12;
-            btnDashboard.Text = "Dashboard";
-            btnDashboard.UseVisualStyleBackColor = true;
-            // 
-            // btnInventory
-            // 
-            btnInventory.FlatStyle = FlatStyle.Flat;
-            btnInventory.Font = new Font("Times New Roman", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnInventory.ForeColor = Color.White;
-            btnInventory.Location = new Point(0, 178);
-            btnInventory.Margin = new Padding(2, 2, 2, 2);
-            btnInventory.Name = "btnInventory";
-            btnInventory.Size = new Size(354, 43);
-            btnInventory.TabIndex = 16;
-            btnInventory.Text = "Inventory";
-            btnInventory.UseVisualStyleBackColor = true;
-            // 
-            // btnProducts
-            // 
-            btnProducts.FlatStyle = FlatStyle.Flat;
-            btnProducts.Font = new Font("Times New Roman", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnProducts.ForeColor = Color.White;
-            btnProducts.Location = new Point(0, 136);
-            btnProducts.Margin = new Padding(2, 2, 2, 2);
-            btnProducts.Name = "btnProducts";
-            btnProducts.Size = new Size(354, 43);
-            btnProducts.TabIndex = 15;
-            btnProducts.Text = "Products";
-            btnProducts.UseVisualStyleBackColor = true;
+            btnNewSale.FlatStyle = FlatStyle.Flat;
+            btnNewSale.Font = new Font("Times New Roman", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnNewSale.ForeColor = Color.White;
+            btnNewSale.Location = new Point(12, 222);
+            btnNewSale.Margin = new Padding(2);
+            btnNewSale.Name = "btnNewSale";
+            btnNewSale.Size = new Size(319, 79);
+            btnNewSale.TabIndex = 12;
+            btnNewSale.Text = "New Sale";
+            btnNewSale.UseVisualStyleBackColor = true;
             // 
             // label4
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Monotype Corsiva", 15F, FontStyle.Bold | FontStyle.Italic);
             label4.ForeColor = Color.MidnightBlue;
-            label4.Location = new Point(391, 32);
+            label4.Location = new Point(391, 21);
             label4.Margin = new Padding(2, 0, 2, 0);
             label4.Name = "label4";
             label4.Size = new Size(142, 24);
             label4.TabIndex = 9;
             label4.Text = "Hello, Welcome!";
             // 
-            // flowLayoutPanel2
-            // 
-            flowLayoutPanel2.BackColor = Color.Green;
-            flowLayoutPanel2.Location = new Point(615, 134);
-            flowLayoutPanel2.Margin = new Padding(2, 2, 2, 2);
-            flowLayoutPanel2.Name = "flowLayoutPanel2";
-            flowLayoutPanel2.Size = new Size(202, 126);
-            flowLayoutPanel2.TabIndex = 20;
-            // 
-            // lblTotalStocks
-            // 
-            lblTotalStocks.AutoSize = true;
-            lblTotalStocks.BackColor = Color.Green;
-            lblTotalStocks.Font = new Font("Times New Roman", 40F);
-            lblTotalStocks.Location = new Point(689, 178);
-            lblTotalStocks.Margin = new Padding(2, 0, 2, 0);
-            lblTotalStocks.Name = "lblTotalStocks";
-            lblTotalStocks.Size = new Size(54, 61);
-            lblTotalStocks.TabIndex = 27;
-            lblTotalStocks.Text = "0";
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.BackColor = Color.Green;
-            label6.Font = new Font("Times New Roman", 15F);
-            label6.Location = new Point(662, 141);
-            label6.Margin = new Padding(2, 0, 2, 0);
-            label6.Name = "label6";
-            label6.Size = new Size(108, 22);
-            label6.TabIndex = 23;
-            label6.Text = "Total Stocks";
-            // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Times New Roman", 15F);
             label2.ForeColor = Color.MidnightBlue;
-            label2.Location = new Point(1084, 41);
+            label2.Location = new Point(1640, 23);
             label2.Margin = new Padding(2, 0, 2, 0);
             label2.Name = "label2";
             label2.Size = new Size(71, 22);
@@ -228,116 +142,17 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Times New Roman", 20F, FontStyle.Bold);
-            label1.Location = new Point(379, 97);
+            label1.Location = new Point(385, 51);
             label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
             label1.Size = new Size(187, 31);
             label1.TabIndex = 18;
             label1.Text = "DASHBOARD";
             // 
-            // flowLayoutPanel1
-            // 
-            flowLayoutPanel1.BackColor = Color.DodgerBlue;
-            flowLayoutPanel1.Location = new Point(379, 134);
-            flowLayoutPanel1.Margin = new Padding(2, 2, 2, 2);
-            flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(202, 126);
-            flowLayoutPanel1.TabIndex = 19;
-            // 
-            // flowLayoutPanel3
-            // 
-            flowLayoutPanel3.BackColor = Color.Orange;
-            flowLayoutPanel3.Location = new Point(854, 134);
-            flowLayoutPanel3.Margin = new Padding(2, 2, 2, 2);
-            flowLayoutPanel3.Name = "flowLayoutPanel3";
-            flowLayoutPanel3.Size = new Size(202, 126);
-            flowLayoutPanel3.TabIndex = 21;
-            // 
-            // flowLayoutPanel4
-            // 
-            flowLayoutPanel4.BackColor = Color.Red;
-            flowLayoutPanel4.Location = new Point(1098, 134);
-            flowLayoutPanel4.Margin = new Padding(2, 2, 2, 2);
-            flowLayoutPanel4.Name = "flowLayoutPanel4";
-            flowLayoutPanel4.Size = new Size(202, 126);
-            flowLayoutPanel4.TabIndex = 22;
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.BackColor = Color.DodgerBlue;
-            label5.Font = new Font("Times New Roman", 15F);
-            label5.Location = new Point(416, 139);
-            label5.Margin = new Padding(2, 0, 2, 0);
-            label5.Name = "label5";
-            label5.Size = new Size(125, 22);
-            label5.TabIndex = 17;
-            label5.Text = "Total Products";
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.BackColor = Color.Orange;
-            label7.Font = new Font("Times New Roman", 15F);
-            label7.Location = new Point(907, 139);
-            label7.Margin = new Padding(2, 0, 2, 0);
-            label7.Name = "label7";
-            label7.Size = new Size(103, 22);
-            label7.TabIndex = 24;
-            label7.Text = "Low Stocks";
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.BackColor = Color.Red;
-            label8.Font = new Font("Times New Roman", 15F);
-            label8.Location = new Point(1140, 138);
-            label8.Margin = new Padding(2, 0, 2, 0);
-            label8.Name = "label8";
-            label8.Size = new Size(116, 22);
-            label8.TabIndex = 25;
-            label8.Text = "Out of Stocks";
-            // 
-            // lblTotalProducts
-            // 
-            lblTotalProducts.AutoSize = true;
-            lblTotalProducts.BackColor = Color.DodgerBlue;
-            lblTotalProducts.Font = new Font("Times New Roman", 40F);
-            lblTotalProducts.Location = new Point(451, 176);
-            lblTotalProducts.Margin = new Padding(2, 0, 2, 0);
-            lblTotalProducts.Name = "lblTotalProducts";
-            lblTotalProducts.Size = new Size(54, 61);
-            lblTotalProducts.TabIndex = 26;
-            lblTotalProducts.Text = "0";
-            // 
-            // lblLowStocks
-            // 
-            lblLowStocks.AutoSize = true;
-            lblLowStocks.BackColor = Color.Orange;
-            lblLowStocks.Font = new Font("Times New Roman", 40F);
-            lblLowStocks.Location = new Point(932, 178);
-            lblLowStocks.Margin = new Padding(2, 0, 2, 0);
-            lblLowStocks.Name = "lblLowStocks";
-            lblLowStocks.Size = new Size(54, 61);
-            lblLowStocks.TabIndex = 28;
-            lblLowStocks.Text = "0";
-            // 
-            // lblOutOfStocks
-            // 
-            lblOutOfStocks.AutoSize = true;
-            lblOutOfStocks.BackColor = Color.Red;
-            lblOutOfStocks.Font = new Font("Times New Roman", 40F);
-            lblOutOfStocks.Location = new Point(1175, 179);
-            lblOutOfStocks.Margin = new Padding(2, 0, 2, 0);
-            lblOutOfStocks.Name = "lblOutOfStocks";
-            lblOutOfStocks.Size = new Size(54, 61);
-            lblOutOfStocks.TabIndex = 29;
-            lblOutOfStocks.Text = "0";
-            // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(385, 70);
+            label3.Location = new Point(385, 77);
             label3.Margin = new Padding(2, 0, 2, 0);
             label3.Name = "label3";
             label3.Size = new Size(912, 15);
@@ -347,57 +162,227 @@
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(1175, 2);
-            pictureBox1.Margin = new Padding(2, 2, 2, 2);
+            pictureBox1.Location = new Point(1725, 2);
+            pictureBox1.Margin = new Padding(2);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(94, 80);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 31;
             pictureBox1.TabStop = false;
             // 
+            // txtSearch
+            // 
+            txtSearch.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtSearch.Location = new Point(391, 124);
+            txtSearch.Multiline = true;
+            txtSearch.Name = "txtSearch";
+            txtSearch.Size = new Size(333, 22);
+            txtSearch.TabIndex = 32;
+            // 
+            // cmbCategory
+            // 
+            cmbCategory.FormattingEnabled = true;
+            cmbCategory.Location = new Point(783, 123);
+            cmbCategory.Name = "cmbCategory";
+            cmbCategory.Size = new Size(328, 23);
+            cmbCategory.TabIndex = 33;
+            cmbCategory.Text = "All Categories";
+            // 
+            // btnLogout
+            // 
+            btnLogout.FlatStyle = FlatStyle.Flat;
+            btnLogout.Font = new Font("Times New Roman", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnLogout.ForeColor = Color.White;
+            btnLogout.Location = new Point(12, 956);
+            btnLogout.Margin = new Padding(2);
+            btnLogout.Name = "btnLogout";
+            btnLogout.Size = new Size(319, 79);
+            btnLogout.TabIndex = 23;
+            btnLogout.Text = "Logout";
+            btnLogout.UseVisualStyleBackColor = true;
+            // 
+            // btnSearch
+            // 
+            btnSearch.BackColor = Color.DodgerBlue;
+            btnSearch.ForeColor = Color.White;
+            btnSearch.Location = new Point(1152, 107);
+            btnSearch.Name = "btnSearch";
+            btnSearch.Size = new Size(117, 39);
+            btnSearch.TabIndex = 34;
+            btnSearch.Text = "Search";
+            btnSearch.UseVisualStyleBackColor = false;
+            // 
+            // dgvProducts
+            // 
+            dgvProducts.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvProducts.Location = new Point(385, 183);
+            dgvProducts.Name = "dgvProducts";
+            dgvProducts.Size = new Size(884, 631);
+            dgvProducts.TabIndex = 35;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label5.Location = new Point(391, 835);
+            label5.Name = "label5";
+            label5.Size = new Size(95, 21);
+            label5.TabIndex = 36;
+            label5.Text = "QUANTITY:";
+            // 
+            // numQuantity
+            // 
+            numQuantity.Location = new Point(492, 833);
+            numQuantity.Name = "numQuantity";
+            numQuantity.Size = new Size(120, 23);
+            numQuantity.TabIndex = 37;
+            numQuantity.Value = new decimal(new int[] { 1, 0, 0, 0 });
+            // 
+            // btnAddToOrder
+            // 
+            btnAddToOrder.BackColor = Color.Blue;
+            btnAddToOrder.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnAddToOrder.ForeColor = Color.White;
+            btnAddToOrder.Location = new Point(635, 833);
+            btnAddToOrder.Name = "btnAddToOrder";
+            btnAddToOrder.Size = new Size(128, 45);
+            btnAddToOrder.TabIndex = 38;
+            btnAddToOrder.Text = "ADD TO ORDER";
+            btnAddToOrder.UseVisualStyleBackColor = false;
+            // 
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(384, 301);
-            dataGridView1.Margin = new Padding(2, 2, 2, 2);
+            dataGridView1.Location = new Point(1315, 183);
             dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 62;
-            dataGridView1.Size = new Size(915, 297);
-            dataGridView1.TabIndex = 32;
+            dataGridView1.Size = new Size(504, 378);
+            dataGridView1.TabIndex = 39;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label6.Location = new Point(1315, 155);
+            label6.Name = "label6";
+            label6.Size = new Size(138, 25);
+            label6.TabIndex = 40;
+            label6.Text = "Current Order";
+            // 
+            // btnRemoveItem
+            // 
+            btnRemoveItem.BackColor = Color.Orange;
+            btnRemoveItem.ForeColor = Color.White;
+            btnRemoveItem.Location = new Point(1315, 590);
+            btnRemoveItem.Name = "btnRemoveItem";
+            btnRemoveItem.Size = new Size(250, 77);
+            btnRemoveItem.TabIndex = 41;
+            btnRemoveItem.Text = "REMOVE";
+            btnRemoveItem.UseVisualStyleBackColor = false;
+            // 
+            // btnClearOrder
+            // 
+            btnClearOrder.BackColor = Color.Gray;
+            btnClearOrder.ForeColor = Color.White;
+            btnClearOrder.Location = new Point(1569, 590);
+            btnClearOrder.Name = "btnClearOrder";
+            btnClearOrder.Size = new Size(250, 77);
+            btnClearOrder.TabIndex = 42;
+            btnClearOrder.Text = "CLEAR";
+            btnClearOrder.UseVisualStyleBackColor = false;
+            // 
+            // pnlTotal
+            // 
+            pnlTotal.BackColor = Color.White;
+            pnlTotal.Controls.Add(lblTotal);
+            pnlTotal.Controls.Add(label7);
+            pnlTotal.Controls.Add(lblItemCount);
+            pnlTotal.Location = new Point(1315, 692);
+            pnlTotal.Name = "pnlTotal";
+            pnlTotal.Size = new Size(504, 122);
+            pnlTotal.TabIndex = 43;
+            // 
+            // lblItemCount
+            // 
+            lblItemCount.AutoSize = true;
+            lblItemCount.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblItemCount.Location = new Point(16, 14);
+            lblItemCount.Name = "lblItemCount";
+            lblItemCount.Size = new Size(60, 20);
+            lblItemCount.TabIndex = 0;
+            lblItemCount.Text = "Items: 6";
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label7.ForeColor = Color.Blue;
+            label7.Location = new Point(16, 65);
+            label7.Name = "label7";
+            label7.Size = new Size(73, 25);
+            label7.TabIndex = 1;
+            label7.Text = "TOTAL:";
+            // 
+            // lblTotal
+            // 
+            lblTotal.AutoSize = true;
+            lblTotal.Font = new Font("Segoe UI", 26.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTotal.ForeColor = Color.Blue;
+            lblTotal.Location = new Point(325, 47);
+            lblTotal.Name = "lblTotal";
+            lblTotal.Size = new Size(161, 47);
+            lblTotal.TabIndex = 2;
+            lblTotal.Text = "₱ 210.00";
+            // 
+            // btnCheckout
+            // 
+            btnCheckout.BackColor = Color.Green;
+            btnCheckout.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnCheckout.ForeColor = Color.White;
+            btnCheckout.Location = new Point(1315, 835);
+            btnCheckout.Name = "btnCheckout";
+            btnCheckout.Size = new Size(504, 101);
+            btnCheckout.TabIndex = 44;
+            btnCheckout.Text = "CHECKOUT";
+            btnCheckout.UseVisualStyleBackColor = false;
             // 
             // CashierDashboard
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.ActiveCaption;
-            ClientSize = new Size(1343, 637);
+            BackColor = Color.LightBlue;
+            ClientSize = new Size(1924, 1061);
+            Controls.Add(btnCheckout);
+            Controls.Add(pnlTotal);
+            Controls.Add(btnClearOrder);
+            Controls.Add(btnRemoveItem);
+            Controls.Add(label6);
             Controls.Add(dataGridView1);
+            Controls.Add(btnAddToOrder);
+            Controls.Add(numQuantity);
+            Controls.Add(label5);
+            Controls.Add(dgvProducts);
+            Controls.Add(btnSearch);
+            Controls.Add(cmbCategory);
+            Controls.Add(txtSearch);
             Controls.Add(pictureBox1);
             Controls.Add(label3);
-            Controls.Add(lblOutOfStocks);
-            Controls.Add(lblLowStocks);
-            Controls.Add(lblTotalStocks);
-            Controls.Add(lblTotalProducts);
-            Controls.Add(label8);
-            Controls.Add(label7);
-            Controls.Add(label6);
-            Controls.Add(label5);
-            Controls.Add(flowLayoutPanel4);
-            Controls.Add(flowLayoutPanel2);
-            Controls.Add(flowLayoutPanel1);
             Controls.Add(label1);
             Controls.Add(label4);
             Controls.Add(label2);
             Controls.Add(panel1);
-            Controls.Add(flowLayoutPanel3);
-            Margin = new Padding(2, 2, 2, 2);
+            Margin = new Padding(2);
             Name = "CashierDashboard";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "CashierDashboard";
             Load += CashierDashboard_Load;
             panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvProducts).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numQuantity).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            pnlTotal.ResumeLayout(false);
+            pnlTotal.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -410,25 +395,30 @@
         private Button btnSales;
         private Button btnInventory;
         private Button btnProducts;
-        private Button btnDashboard;
+        private Button btnNewSale;
         private PictureBox pictureBox4;
         private Label label4;
-        private FlowLayoutPanel flowLayoutPanel2;
-        private Label lblTotalStocks;
-        private Label label6;
         private Label label2;
         private Label label1;
-        private FlowLayoutPanel flowLayoutPanel1;
-        private FlowLayoutPanel flowLayoutPanel3;
-        private FlowLayoutPanel flowLayoutPanel4;
-        private Label label5;
-        private Label label7;
-        private Label label8;
-        private Label lblTotalProducts;
-        private Label lblLowStocks;
-        private Label lblOutOfStocks;
         private Label label3;
         private PictureBox pictureBox1;
+        private TextBox txtSearch;
+        private Button btnMySales;
+        private ComboBox cmbCategory;
+        private Button btnLogout;
+        private Button btnSearch;
+        private DataGridView dgvProducts;
+        private Label label5;
+        private NumericUpDown numQuantity;
+        private Button btnAddToOrder;
         private DataGridView dataGridView1;
+        private Label label6;
+        private Button btnRemoveItem;
+        private Button btnClearOrder;
+        private Panel pnlTotal;
+        private Label label7;
+        private Label lblItemCount;
+        private Label lblTotal;
+        private Button btnCheckout;
     }
 }

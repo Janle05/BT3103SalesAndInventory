@@ -48,10 +48,14 @@
             label6 = new Label();
             label7 = new Label();
             btnCompletePayment = new Button();
+            pictureBox1 = new PictureBox();
+            label8 = new Label();
+            label9 = new Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             panel2.SuspendLayout();
             panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -275,12 +279,48 @@
             btnCompletePayment.Text = "Complete Payment";
             btnCompletePayment.UseVisualStyleBackColor = false;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(1091, 4);
+            pictureBox1.Margin = new Padding(2);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(94, 80);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 43;
+            pictureBox1.TabStop = false;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Location = new Point(365, 78);
+            label8.Margin = new Padding(2, 0, 2, 0);
+            label8.Name = "label8";
+            label8.Size = new Size(912, 15);
+            label8.TabIndex = 42;
+            label8.Text = "_____________________________________________________________________________________________________________________________________________________________________________________";
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Font = new Font("Times New Roman", 15F);
+            label9.ForeColor = Color.MidnightBlue;
+            label9.Location = new Point(970, 50);
+            label9.Margin = new Padding(2, 0, 2, 0);
+            label9.Name = "label9";
+            label9.Size = new Size(71, 22);
+            label9.TabIndex = 41;
+            label9.Text = "Cashier";
+            // 
             // CashierPayment
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
-            ClientSize = new Size(903, 668);
+            ClientSize = new Size(1277, 668);
+            Controls.Add(pictureBox1);
+            Controls.Add(label8);
+            Controls.Add(label9);
             Controls.Add(btnCompletePayment);
             Controls.Add(label7);
             Controls.Add(label6);
@@ -299,6 +339,7 @@
             panel2.PerformLayout();
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -324,5 +365,8 @@
         private Label label6;
         private Label label7;
         private Button btnCompletePayment;
+        private PictureBox pictureBox1;
+        private Label label8;
+        private Label label9;
     }
 }

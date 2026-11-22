@@ -297,6 +297,16 @@
             label3.TabIndex = 10;
             label3.Text = "End Date";
             // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.ForeColor = Color.Black;
+            label10.Location = new Point(414, 70);
+            label10.Name = "label10";
+            label10.Size = new Size(902, 15);
+            label10.TabIndex = 52;
+            label10.Text = "___________________________________________________________________________________________________________________________________________________________________________________";
+            // 
             // AdminSales
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);

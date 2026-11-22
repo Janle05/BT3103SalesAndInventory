@@ -44,9 +44,13 @@
             label3 = new Label();
             label4 = new Label();
             label5 = new Label();
+            pictureBox1 = new PictureBox();
+            label6 = new Label();
+            label7 = new Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvProducts).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -193,18 +197,20 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(421, 122);
+            label2.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold);
+            label2.Location = new Point(421, 113);
             label2.Name = "label2";
-            label2.Size = new Size(62, 15);
+            label2.Size = new Size(104, 25);
             label2.TabIndex = 26;
             label2.Text = "Total Sales";
             // 
             // label3
             // 
             label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label3.Location = new Point(848, 122);
             label3.Name = "label3";
-            label3.Size = new Size(97, 15);
+            label3.Size = new Size(164, 25);
             label3.TabIndex = 27;
             label3.Text = "Transaction Sales";
             // 
@@ -226,12 +232,48 @@
             label5.TabIndex = 29;
             label5.Text = "label5";
             // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(1086, 11);
+            pictureBox1.Margin = new Padding(2);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(94, 80);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 43;
+            pictureBox1.TabStop = false;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(360, 85);
+            label6.Margin = new Padding(2, 0, 2, 0);
+            label6.Name = "label6";
+            label6.Size = new Size(912, 15);
+            label6.TabIndex = 42;
+            label6.Text = "_____________________________________________________________________________________________________________________________________________________________________________________";
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Times New Roman", 15F);
+            label7.ForeColor = Color.MidnightBlue;
+            label7.Location = new Point(965, 57);
+            label7.Margin = new Padding(2, 0, 2, 0);
+            label7.Name = "label7";
+            label7.Size = new Size(71, 22);
+            label7.TabIndex = 41;
+            label7.Text = "Cashier";
+            // 
             // CashierPayment_12
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(1191, 718);
+            Controls.Add(pictureBox1);
+            Controls.Add(label6);
+            Controls.Add(label7);
             Controls.Add(label5);
             Controls.Add(label4);
             Controls.Add(label3);
@@ -245,6 +287,7 @@
             panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ((System.ComponentModel.ISupportInitialize)dgvProducts).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -266,5 +309,8 @@
         private Label label3;
         private Label label4;
         private Label label5;
+        private PictureBox pictureBox1;
+        private Label label6;
+        private Label label7;
     }
 }
