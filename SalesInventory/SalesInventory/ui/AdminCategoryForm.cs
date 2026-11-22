@@ -1,6 +1,6 @@
-﻿using SalesInventory.businesslogic;
+﻿using Microsoft.Data.SqlClient;
+using SalesInventory.businesslogic;
 using SalesInventory.BusinessLogic;
-
 
 namespace SalesInventory.ui
 {
@@ -8,21 +8,55 @@ namespace SalesInventory.ui
     {
         private readonly CategoryService categoryService;
         private int selectedCategoryID = 0;
+
         public AdminCategoryForm()
         {
             InitializeComponent();
 
             categoryService = new CategoryService();
 
+            NavHelper.Wire(this, "Categories");
+            GridHelper.Apply(dgvCategories);
+
+            ConfigureControls();
             LoadCategories();
+
+            // "-=" muna bago "+=" para hindi tumakbo ng dalawang beses
+            btnAdd.Click -= btnAdd_Click;
+            btnAdd.Click += btnAdd_Click;
+
+            btnUpdate.Click -= btnUpdate_Click;
+            btnUpdate.Click += btnUpdate_Click;
+
+            btnDelete.Click -= btnDelete_Click;
+            btnDelete.Click += btnDelete_Click;
+
+            btnClear.Click -= btnClear_Click;
+            btnClear.Click += btnClear_Click;
+
+            btnSearch.Click -= btnSearch_Click;
+            btnSearch.Click += btnSearch_Click;
+
+            dgvCategories.CellClick -= dgvCategories_CellClick;
+            dgvCategories.CellClick += dgvCategories_CellClick;
         }
+
+        // Dati ay walang laman ang Status dropdown, kaya inayos ito dito
+        private void ConfigureControls()
+        {
+            cmbStatus.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbStatus.Items.Clear();
+            cmbStatus.Items.Add("Active");
+            cmbStatus.Items.Add("Inactive");
+            cmbStatus.SelectedIndex = 0;
+        }
+
         private void LoadCategories()
         {
             try
             {
-                dgvCategories.DataSource =
-                    categoryService.GetAllCategories();
-
+                dgvCategories.DataSource = null;
+                dgvCategories.DataSource = categoryService.GetAllCategories();
                 dgvCategories.ClearSelection();
             }
             catch (Exception ex)
@@ -33,7 +67,6 @@ namespace SalesInventory.ui
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
             }
-
         }
 
         private void ClearFields()
@@ -48,31 +81,27 @@ namespace SalesInventory.ui
 
             dgvCategories.ClearSelection();
         }
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
 
+        private void SelectCategoryRow(int rowIndex)
+        {
+            if (rowIndex < 0) return;
+
+            DataGridViewRow row = dgvCategories.Rows[rowIndex];
+
+            selectedCategoryID = Convert.ToInt32(row.Cells["CategoryID"].Value);
+
+            txtCategory.Text = row.Cells["CategoryName"].Value?.ToString() ?? "";
+            txtDescription.Text = row.Cells["Description"].Value?.ToString() ?? "";
+
+            string status = row.Cells["Status"].Value?.ToString() ?? "Active";
+
+            if (cmbStatus.Items.Contains(status))
+                cmbStatus.SelectedItem = status;
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvCategories_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex < 0)
-                return;
-
-            DataGridViewRow row =
-                dgvCategories.Rows[e.RowIndex];
-
-            selectedCategoryID =
-                Convert.ToInt32(
-                    row.Cells["CategoryID"].Value);
-
-            txtCategory.Text =
-                row.Cells["CategoryName"].Value?.ToString();
-
-            txtDescription.Text =
-                row.Cells["Description"].Value?.ToString();
-
-            cmbStatus.Text =
-                row.Cells["Status"].Value?.ToString();
+            SelectCategoryRow(e.RowIndex);
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -94,9 +123,7 @@ namespace SalesInventory.ui
                 {
                     CategoryName = txtCategory.Text.Trim(),
                     Description = txtDescription.Text.Trim(),
-                    Status = string.IsNullOrWhiteSpace(cmbStatus.Text)
-                        ? "Active"
-                        : cmbStatus.Text
+                    Status = string.IsNullOrWhiteSpace(cmbStatus.Text) ? "Active" : cmbStatus.Text
                 };
 
                 categoryService.AddCategory(category);
@@ -109,6 +136,14 @@ namespace SalesInventory.ui
 
                 ClearFields();
                 LoadCategories();
+            }
+            catch (SqlException ex) when (ex.Number == 2627 || ex.Number == 2601)
+            {
+                MessageBox.Show(
+                    "A category with that name already exists.",
+                    "Duplicate Category",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
             }
             catch (Exception ex)
             {
@@ -165,6 +200,14 @@ namespace SalesInventory.ui
                 ClearFields();
                 LoadCategories();
             }
+            catch (SqlException ex) when (ex.Number == 2627 || ex.Number == 2601)
+            {
+                MessageBox.Show(
+                    "A category with that name already exists.",
+                    "Duplicate Category",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+            }
             catch (Exception ex)
             {
                 MessageBox.Show(
@@ -175,6 +218,8 @@ namespace SalesInventory.ui
             }
         }
 
+        // DELETE = i-deactivate lang (hindi binubura) para hindi mag-error
+        // kapag may Products na gumagamit ng category.
         private void btnDelete_Click(object sender, EventArgs e)
         {
             try
@@ -191,29 +236,29 @@ namespace SalesInventory.ui
                 }
 
                 DialogResult result = MessageBox.Show(
-                    "Are you sure you want to delete this category?",
-                    "Confirm Delete",
+                    "Are you sure you want to deactivate this category?",
+                    "Confirm Deactivation",
                     MessageBoxButtons.YesNo,
                     MessageBoxIcon.Question);
 
-                if (result == DialogResult.Yes)
-                {
-                    categoryService.DeleteCategory(selectedCategoryID);
+                if (result != DialogResult.Yes)
+                    return;
 
-                    MessageBox.Show(
-                        "Category deleted successfully.",
-                        "Success",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Information);
+                categoryService.DeactivateCategory(selectedCategoryID);
 
-                    ClearFields();
-                    LoadCategories();
-                }
+                MessageBox.Show(
+                    "Category deactivated successfully.",
+                    "Success",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+
+                ClearFields();
+                LoadCategories();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(
-                    "Unable to delete category:\n" + ex.Message,
+                    "Unable to deactivate category:\n" + ex.Message,
                     "Error",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
@@ -222,15 +267,7 @@ namespace SalesInventory.ui
 
         private void btnClear_Click(object sender, EventArgs e)
         {
-            selectedCategoryID = 0;
-
-            txtCategory.Clear();
-            txtDescription.Clear();
-
-            if (cmbStatus.Items.Count > 0)
-                cmbStatus.SelectedIndex = 0;
-
-            dgvCategories.ClearSelection();
+            ClearFields();
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
@@ -245,10 +282,11 @@ namespace SalesInventory.ui
                     return;
                 }
 
-                var results =
-                    categoryService.SearchCategories(keyword);
+                var results = categoryService.SearchCategories(keyword);
 
+                dgvCategories.DataSource = null;
                 dgvCategories.DataSource = results;
+                dgvCategories.ClearSelection();
 
                 if (results.Count == 0)
                 {
@@ -269,65 +307,17 @@ namespace SalesInventory.ui
             }
         }
 
-        private void btnCategories_Click(object sender, EventArgs e)
+        
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e) { }
+        private void btnCategories_Click(object sender, EventArgs e) { }
+        private void btnDashBoard_Click(object sender, EventArgs e) { }
+        private void btnLogout_Click(object sender, EventArgs e) { }
+        private void btnSuppliers_Click(object sender, EventArgs e) { }
+        private void btnProducts_Click(object sender, EventArgs e) { }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
-        }
-
-        private void btnDashBoard_Click(object sender, EventArgs e)
-        {
-            AdminDashboard dashboard = new AdminDashboard();
-            dashboard.Show();
-
-            this.Close();
-        }
-
-        private void btnLogout_Click(object sender, EventArgs e)
-        {
-            DialogResult result = MessageBox.Show(
-                 "Are you sure you want to logout?\nYou will be returned to the login screen.",
-                 "Confirm Logout",
-                 MessageBoxButtons.YesNo,
-                 MessageBoxIcon.Question);
-
-            if (result != DialogResult.Yes)
-            {
-                return;
-            }
-
-            LoginFrom? loginForm = Application.OpenForms.OfType<LoginFrom>().FirstOrDefault();
-
-            if (loginForm != null)
-            {
-                loginForm.ResetForm();
-                loginForm.Show();
-            }
-            else
-            {
-                new LoginFrom().Show();
-            }
-
-            this.Close();
-            this.Hide();
-        }
-
-        private void btnSuppliers_Click(object sender, EventArgs e)
-        {
-            AdminSupplierForm supplierForm = new AdminSupplierForm();
-            supplierForm.Show();
-
-            this.Close();
-            this.Hide();
-
-        }
-
-        private void btnProducts_Click(object sender, EventArgs e)
-        {
-            AdminProductMaintenanceForm productForm = new AdminProductMaintenanceForm();
-            productForm.Show();
-
-            this.Close();
-            this.Hide();
+            SelectCategoryRow(e.RowIndex);
         }
     }
 }

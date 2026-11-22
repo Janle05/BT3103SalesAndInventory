@@ -1,8 +1,6 @@
 ﻿using Microsoft.Data.SqlClient;
 using SalesInventory.businesslogic;
 using SalesInventory.Database;
-using System;
-using System.Collections.Generic;
 
 namespace SalesInventory.Repository
 {
